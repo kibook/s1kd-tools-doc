@@ -45,19 +45,15 @@
   <content>
     <description>
       <levelledPara>
-        <title>NAME</title>
-        <para>s1kd-dmls - List data modules</para>
-      </levelledPara>
-      <levelledPara>
-        <title>SYNOPSIS</title>
-        <para>s1kd-dmls [-acfHhilorTtpDP]</para>
-      </levelledPara>
-      <levelledPara>
-        <title>DESCRIPTION</title>
+        <title>General</title>
         <para>The <emphasis>s1kd-dmls</emphasis> tool lists data modules in a directory, with various options for columns for data module metadata which can be useful for sorting them with other tools.</para>
       </levelledPara>
       <levelledPara>
-        <title>OPTIONS</title>
+        <title>Usage</title>
+        <para>s1kd-dmls [-acfHhilorTtpDP]</para>
+      </levelledPara>
+      <levelledPara>
+        <title>Options</title>
         <para>
           <definitionList>
             <definitionListItem>

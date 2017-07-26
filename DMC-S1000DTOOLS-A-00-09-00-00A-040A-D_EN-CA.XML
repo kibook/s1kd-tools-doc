@@ -45,19 +45,15 @@
   <content>
     <description>
       <levelledPara>
-        <title>NAME</title>
-        <para>s1kd-metadata - View and edit S1000D data module metadata</para>
-      </levelledPara>
-      <levelledPara>
-        <title>SYNOPSIS</title>
-        <para>s1kd-metadata [-c &lt;file&gt;] [-t] [&lt;name&gt; [&lt;value&gt;]]</para>
-      </levelledPara>
-      <levelledPara>
-        <title>DESCRIPTION</title>
+        <title>General</title>
         <para>The <emphasis>s1kd-metadata</emphasis> tool provides a simple way to fetch and change metadata on S1000D data modules.</para>
       </levelledPara>
       <levelledPara>
-        <title>OPTIONS</title>
+        <title>Usage</title>
+        <para>s1kd-metadata [-c &lt;file&gt;] [-t] [&lt;name&gt; [&lt;value&gt;]]</para>
+      </levelledPara>
+      <levelledPara>
+        <title>Options</title>
         <para>
           <definitionList>
             <definitionListItem>

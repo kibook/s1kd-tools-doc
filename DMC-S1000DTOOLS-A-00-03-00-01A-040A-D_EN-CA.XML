@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This document was created with Syntext Serna Free. -->
-<!DOCTYPE dmodule [
-<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-2/ent/ISOEntities">
-]>
+<!DOCTYPE dmodule>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
@@ -47,19 +44,15 @@
   <content>
     <description>
       <levelledPara>
-        <title>NAME</title>
-        <para>s1kd-instance - Create S1000D data module instances</para>
-      </levelledPara>
-      <levelledPara>
-        <title>SYNOPSIS</title>
-        <para>s1kd-instance [-s &lt;src&gt;] [-e &lt;ext&gt;] [-c &lt;dmc&gt;] [-l &lt;lang&gt;] [-I &lt;iss&gt;] [-u &lt;sec&gt;] [-o &lt;file&gt;|-O &lt;dir&gt;] [-f] [-t &lt;techName&gt;] [-i &lt;infoName&gt;] [-a|-A] [-Y &lt;text&gt;] [-C &lt;comment&gt;] [-R &lt;CIR&gt; ...] [-S] [&lt;applic&gt;...]</para>
-      </levelledPara>
-      <levelledPara>
-        <title>DESCRIPTION</title>
+        <title>General</title>
         <para>The <emphasis>s1kd-instance</emphasis> tool filters a master S1000D data module on user-supplied applicability definitions, producing a new data module instance with non-applicable elements and (optionally) unused applicability statements removed.</para>
       </levelledPara>
       <levelledPara>
-        <title>OPTIONS</title>
+        <title>Usage</title>
+        <para>s1kd-instance [-s &lt;src&gt;] [-e &lt;ext&gt;] [-c &lt;dmc&gt;] [-l &lt;lang&gt;] [-I &lt;iss&gt;] [-u &lt;sec&gt;] [-o &lt;file&gt;|-O &lt;dir&gt;] [-f] [-t &lt;techName&gt;] [-i &lt;infoName&gt;] [-a|-A] [-Y &lt;text&gt;] [-C &lt;comment&gt;] [-R &lt;CIR&gt; ...] [-S] [&lt;applic&gt;...]</para>
+      </levelledPara>
+      <levelledPara>
+        <title>Options</title>
         <para>
           <definitionList>
             <definitionListItem>
