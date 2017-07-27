@@ -37,9 +37,10 @@
   </identAndStatusSection>
   <content>
     <pmEntry>
+      <pmEntryTitle>Front matter</pmEntryTitle>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="001" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="001" infoCodeVariant="B" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -59,6 +60,9 @@
         </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+    </pmEntry>
+    <pmEntry>
+      <pmEntryTitle>Introduction</pmEntryTitle>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
@@ -70,6 +74,9 @@
         </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+    </pmEntry>
+    <pmEntry>
+      <pmEntryTitle>Tools</pmEntryTitle>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="1" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
@@ -94,7 +101,7 @@
       </dmRef>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="3" assyCode="00" disassyCode="01" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="3" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>

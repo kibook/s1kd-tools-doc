@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule [
-<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-0-1/ent/ISOEntities">
-]>
+<!DOCTYPE dmodule>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="000" inWork="01"/>
+        <issueInfo issueNumber="000" inWork="02"/>
       </dmIdent>
       <dmAddressItems>
         <issueDate year="2017" month="05" day="22"/>
@@ -21,10 +19,10 @@
     <dmStatus issueType="new">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
-        <enterpriseName>khzai.net</enterpriseName>
+        <enterpriseName>khzae.net</enterpriseName>
       </responsiblePartnerCompany>
       <originator>
-        <enterpriseName>khzai.net</enterpriseName>
+        <enterpriseName>khzae.net</enterpriseName>
       </originator>
       <applic>
         <displayText>
@@ -166,10 +164,16 @@
                       <para>comrep - Common information repository</para>
                     </listItem>
                     <listItem>
+                      <para>condcrossreftable - Conditions cross-reference table</para>
+                    </listItem>
+                    <listItem>
                       <para>descript - Descriptive</para>
                     </listItem>
                     <listItem>
                       <para>frontmatter - Front matter</para>
+                    </listItem>
+                    <listItem>
+                      <para>prdcrossreftable - Product cross-reference table</para>
                     </listItem>
                     <listItem>
                       <para>proced - Procedural</para>
@@ -211,8 +215,8 @@ countryIsoCode               CA
 issueNumber                  000
 inWork                       01
 securityClassification       01
-responsiblePartnerCompany    khzai.net
-originator                   khzai.net</verbatimText>
+responsiblePartnerCompany    khzae.net
+originator                   khzae.net</verbatimText>
           </para>
         </levelledPara>
         <levelledPara>

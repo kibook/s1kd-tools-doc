@@ -2,6 +2,8 @@
 PARAMS+=-param double.sided 0
 PARAMS+=-stringparam end.of.data.module.position footer
 PARAMS+=-param fop1.extensions 1
+PARAMS+=-param hierarchical.table.of.contents 1
+PARAMS+=-param include.pmentry.bookmarks 1
 
 all: S1000D_tools.pdf
 
