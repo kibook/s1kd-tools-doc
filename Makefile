@@ -6,6 +6,7 @@ PARAMS+=-param hierarchical.table.of.contents 1
 PARAMS+=-param include.pmentry.bookmarks 1
 PARAMS+=-param ulink.show 0
 PARAMS+=-stringparam external.pub.ref.inline code
+PARAMS+=-param show.unclassified 0
 
 all: S1000D_tools.pdf
 
@@ -14,6 +15,9 @@ S1000D_tools.pdf: S1000D_tools.xml
 
 S1000D_tools.xml: PMC-*.XML DMC-*.XML
 	s1kd-makepub PMC-*.XML DMC-*.XML > S1000D_tools.xml
+
+README.md: DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML
+	s1kd2db DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML | pandoc -f docbook -t markdown_github > README.md
 
 clean:
 	rm -f S1000D_tools.pdf S1000D_tools.xml
