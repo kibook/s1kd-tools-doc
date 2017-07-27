@@ -44,9 +44,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>Title page</techName>
-          <infoName>Title page</infoName>
-        </dmTitle>
+            <techName>Title page</techName>
+            <infoName>Title page</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -55,9 +55,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>Table of contents</techName>
-          <infoName>Table of contents</infoName>
-        </dmTitle>
+            <techName>Table of contents</techName>
+            <infoName>Table of contents</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
     </pmEntry>
@@ -69,9 +69,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>S1000D tools</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+            <techName>S1000D tools</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
     </pmEntry>
@@ -83,9 +83,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-syncrefs</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+            <techName>s1kd-syncrefs</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -94,9 +94,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-validate</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+            <techName>s1kd-validate</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -105,9 +105,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-instance</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+            <techName>s1kd-instance</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -116,9 +116,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-brexcheck</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+            <techName>s1kd-brexcheck</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -127,8 +127,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-upissue(1) | General Commands Manual</techName>
-        </dmTitle>
+            <techName>s1kd-upissue</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -137,8 +138,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-dmls(1) | General Commands Manual</techName>
-        </dmTitle>
+            <techName>s1kd-dmls</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -147,8 +149,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-newdm(1) | General Commands Manual</techName>
-        </dmTitle>
+            <techName>s1kd-newdm</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -157,8 +160,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-dmref(1) | General Commands Manual</techName>
-        </dmTitle>
+            <techName>s1kd-dmref</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -167,8 +171,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-metadata(1) | General Commands Manual</techName>
-        </dmTitle>
+            <techName>s1kd-metadata</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
@@ -177,8 +182,64 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-          <techName>s1kd-newpm(1) | General Commands Manual</techName>
-        </dmTitle>
+            <techName>s1kd-newpm</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="D" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-newimf</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="E" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-neutralize</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="F" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-transform</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="G" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-newcom</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="H" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-newddn</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
         </dmRefAddressItems>
       </dmRef>
     </pmEntry>
