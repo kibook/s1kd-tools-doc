@@ -4,6 +4,8 @@ PARAMS+=-stringparam end.of.data.module.position footer
 PARAMS+=-param fop1.extensions 1
 PARAMS+=-param hierarchical.table.of.contents 1
 PARAMS+=-param include.pmentry.bookmarks 1
+PARAMS+=-param ulink.show 0
+PARAMS+=-stringparam external.pub.ref.inline code
 
 all: S1000D_tools.pdf
 
