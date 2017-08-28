@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule>
+<!DOCTYPE dmodule [
+<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-2/ent/ISOEntities">
+]>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="5" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="001" inWork="00"/>
+        <issueInfo issueNumber="003" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="07" day="27"/>
-        <dmTitle>
-          <techName>s1kd-upissue</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+        <issueDate year="2017" month="08" day="23"/>
+        <dmTitle><techName>s1kd-upissue</techName><infoName>Description</infoName></dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="new">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -45,11 +44,12 @@
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-upissue</emphasis> tool increases the in-work or issue number of an S1000D data module.</para>
+        <para>The <emphasis>s1kd-upissue</emphasis> tool increases the in-work or issue number of an S1000D data module, publication module, etc.</para>
+        <para>Any files using an S1000D-esque naming convention, placing the issue and in-work numbers after the first underscore (_) character, can also be "upissued". Files which do not contain the appropriate S1000D metadata are simply copied.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-upissue [-vI] &lt;datamodules&gt;</para>
+        <para>s1kd-upissue [-viN] [-s &lt;status&gt;] &lt;files&gt;</para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
@@ -62,7 +62,7 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-I</listItemTerm>
+              <listItemTerm>-i</listItemTerm>
               <listItemDefinition>
                 <para>Increase the issue number of the data module. By default, the in-work issue is increased.</para>
               </listItemDefinition>
@@ -81,6 +81,52 @@
             </definitionListItem>
           </definitionList>
         </para>
+      </levelledPara>
+      <levelledPara>
+        <title>Examples</title>
+        <levelledPara>
+          <title>Data module with issue/inwork in filename</title>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ ls
+DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+
+$ s1kd-upissue DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+$ ls
+DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-02_EN-CA.XML
+
+$ s1kd-upissue -i DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-02_EN-CA.XML
+$ ls
+DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-02_EN-CA.XML
+DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_001-00_EN-CA.XML</verbatimText>
+          </para>
+        </levelledPara>
+        <levelledPara>
+          <title>Data module without issue/inwork in filename</title>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ ls
+DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-US.XML
+
+$ s1kd-metadata DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML issueInfo
+000-01
+$ s1kd-upissue -N DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML
+$ s1kd-metadata DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML issueInfo
+000-02</verbatimText>
+          </para>
+        </levelledPara>
+        <levelledPara>
+          <title>Non-XML file with issue/inwork in filename</title>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ ls
+TXT-S1000DTOOLS-KHZAE-FOOBAR_000-01_EN-CA.TXT
+
+$ s1kd-upissue TXT-S1000DTOOLS-KHZAE-00001_000-01_EN-CA.TXT
+$ ls
+TXT-S1000DTOOLS-KHZAE-FOOBAR_000-01_EN-CA.TXT
+TXT-S1000DTOOLS-KHZAE-FOOBAR_000-02_EN-CA.TXT</verbatimText>
+          </para>
+        </levelledPara>
       </levelledPara>
     </description>
   </content>

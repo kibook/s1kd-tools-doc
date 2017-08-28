@@ -4,16 +4,16 @@
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="H" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="K" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="002" inWork="00"/>
+        <issueInfo issueNumber="001" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="08" day="16"/>
-        <dmTitle><techName>s1kd-newddn</techName><infoName>Description</infoName></dmTitle>
+        <issueDate year="2017" month="08" day="26"/>
+        <dmTitle><techName>s1kd-acronyms</techName><infoName>Description</infoName></dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="changed">
+    <dmStatus issueType="new">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -40,76 +40,58 @@
   </identAndStatusSection>
   <content>
     <description>
-      <levelledPara id="description">
+      <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-newddn</emphasis> tool creates a new S1000D data dispatch note with the code, metadata, and list of files specified.</para>
+        <para>The <emphasis>s1kd-acronyms</emphasis> tool generates a list of unique acronyms used in S1000D data modules.</para>
       </levelledPara>
-      <levelledPara id="synopsis">
+      <levelledPara>
         <title>Usage</title>
-        <para>s1kd-newddn [options] &lt;files&gt;...</para>
+        <para>s1kd-acronyms [-pxdth?] [-n &lt;#&gt;] [-T &lt;types&gt;] [-o &lt;file&gt;] [&lt;datamodules&gt;]</para>
       </levelledPara>
-      <levelledPara id="options">
+      <levelledPara>
         <title>Options</title>
         <para>
           <definitionList>
             <definitionListItem>
-              <listItemTerm>-d &lt;defaults&gt;</listItemTerm>
+              <listItemTerm>-p</listItemTerm>
               <listItemDefinition>
-                <para>Specify the 'defaults' file name.</para>
+                <para>Pretty print text/XML output.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-p &lt;showprompts&gt;</listItemTerm>
+              <listItemTerm>-x</listItemTerm>
               <listItemDefinition>
-                <para>Prompt the user for values left unspecified.</para>
+                <para>Use XML output instead of plain text.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-# &lt;code&gt;</listItemTerm>
+              <listItemTerm>-d</listItemTerm>
               <listItemDefinition>
-                <para>The code of the new data dispatch note, in the form of MODELIDENTCODE-SENDER-RECEIVER-YEAR-SEQUENCE.</para>
+                <para>Format XML output as an S1000D <verbatimText verbatimStyle="vs12">&lt;definitionList&gt;</verbatimText>.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-o &lt;sender&gt;</listItemTerm>
+              <listItemTerm>-t</listItemTerm>
               <listItemDefinition>
-                <para>The enterprise name of the sender.</para>
+                <para>Format XML output as an S1000D <verbatimText verbatimStyle="vs12">&lt;table&gt;</verbatimText>.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-r &lt;receiver&gt;</listItemTerm>
+              <listItemTerm>-n &lt;#&gt;</listItemTerm>
               <listItemDefinition>
-                <para>The enterprise name of the receiver.</para>
+                <para>Minimum number of spaces after the term in pretty-printed text output.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-t &lt;city&gt;</listItemTerm>
+              <listItemTerm>-T &lt;types&gt;</listItemTerm>
               <listItemDefinition>
-                <para>The sender's city.</para>
+                <para>Only search for acronyms with an attribute <verbatimText verbatimStyle="vs13">acronymType</verbatimText> whose value is contained within the string &lt;types&gt;.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-T &lt;city&gt;</listItemTerm>
+              <listItemTerm>-o &lt;file&gt;</listItemTerm>
               <listItemDefinition>
-                <para>The receiver's city.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-n &lt;country&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>The sender's country.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-N &lt;country&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>The receiver's country.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-a &lt;auth&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>Specify the authorization.</para>
+                <para>Output to &lt;file&gt; instead of stdout.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -118,12 +100,14 @@
                 <para>Show help/usage message.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>&lt;datamodules&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Data modules to find acronyms in.</para>
+              </listItemDefinition>
+            </definitionListItem>
           </definitionList>
         </para>
-        <levelledPara>
-          <title>'defaults' file</title>
-          <para>Refer to s1kd-newdm(1) for information on the 'defaults' file which is used by all the s1kd-new* commands.</para>
-        </levelledPara>
       </levelledPara>
     </description>
   </content>

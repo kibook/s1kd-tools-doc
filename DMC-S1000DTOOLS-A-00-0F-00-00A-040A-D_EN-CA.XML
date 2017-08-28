@@ -9,11 +9,8 @@
         <issueInfo issueNumber="001" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="07" day="27"/>
-        <dmTitle>
-          <techName>s1kd-transform</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+        <issueDate year="2017" month="08" day="14"/>
+        <dmTitle><techName>s1kd-transform</techName><infoName>Description</infoName></dmTitle>
       </dmAddressItems>
     </dmAddress>
     <dmStatus issueType="new">

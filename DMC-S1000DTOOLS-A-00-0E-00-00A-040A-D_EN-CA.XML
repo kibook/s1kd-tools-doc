@@ -6,17 +6,14 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="E" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="001" inWork="00"/>
+        <issueInfo issueNumber="003" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="07" day="27"/>
-        <dmTitle>
-          <techName>s1kd-neutralize</techName>
-          <infoName>Description</infoName>
-        </dmTitle>
+        <issueDate year="2017" month="08" day="16"/>
+        <dmTitle><techName>s1kd-neutralize</techName><infoName>Description</infoName></dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="new">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -54,9 +51,6 @@
             <listItem>
               <para>RDF and Dublin Core metadata.</para>
             </listItem>
-            <listItem>
-              <para>(optionally) Autopopulated references table.</para>
-            </listItem>
           </randomList>
         </para>
       </levelledPara>
@@ -75,18 +69,42 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-r</listItemTerm>
-              <listItemDefinition>
-                <para>Autopopulate the references table.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
               <listItemTerm>-h -?</listItemTerm>
               <listItemDefinition>
                 <para>Show usage message.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
+        </para>
+      </levelledPara>
+      <levelledPara>
+        <title>Example</title>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ DMOD=DMC-XLINKTEST-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+$ xmllint --xpath "//description/dmRef" $DMOD
+&lt;dmRef&gt;
+  &lt;dmRefIdent&gt;
+    &lt;dmCode modelIdentCode="XLINKTEST" systemDiffCode="A"
+systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="01"
+disassyCode="00" disassyCodeVariant="A" infoCode="040"
+infoCodeVariant="A" itemLocationCode="D"/&gt;
+  &lt;/dmRefIdent&gt;
+  &lt;dmRefAddressItems&gt;
+    &lt;dmTitle&gt;
+      &lt;techName&gt;XLink test&lt;/techName&gt;
+      &lt;infoName&gt;Referenced data module&lt;/infoName&gt;
+    &lt;/dmTitle&gt;
+  &lt;/dmRefAddressItems&gt;
+&lt;/dmRef&gt;
+
+$ s1kd-neutralize $DMOD
+$ xmllint --xpath "//description/dmRef" $DMOD
+&lt;dmRef xlink:type="simple"
+xlink:href="URN:S1000D:DMC-XLINKTEST-A-00-00-01-00A-040A-D"
+xlink:title="XLink test - Referenced data module"&gt;
+[...]
+&lt;/dmRef&gt;
+</verbatimText>
         </para>
       </levelledPara>
     </description>
