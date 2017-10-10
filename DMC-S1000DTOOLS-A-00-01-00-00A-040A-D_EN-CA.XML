@@ -12,7 +12,10 @@
       </dmIdent>
       <dmAddressItems>
         <issueDate year="2017" month="08" day="14"/>
-        <dmTitle><techName>s1kd-syncrefs</techName><infoName>Description</infoName></dmTitle>
+        <dmTitle>
+          <techName>s1kd-syncrefs</techName>
+          <infoName>Description</infoName>
+        </dmTitle>
       </dmAddressItems>
     </dmAddress>
     <dmStatus issueType="new">

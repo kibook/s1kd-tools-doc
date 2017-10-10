@@ -6,11 +6,14 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="G" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="002" inWork="00"/>
+        <issueInfo issueNumber="003" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="08" day="16"/>
-        <dmTitle><techName>s1kd-newcom</techName><infoName>Description</infoName></dmTitle>
+        <issueDate year="2017" month="10" day="05"/>
+        <dmTitle>
+          <techName>s1kd-newcom</techName>
+          <infoName>Description</infoName>
+        </dmTitle>
       </dmAddressItems>
     </dmAddress>
     <dmStatus issueType="changed">
@@ -104,6 +107,24 @@
               <listItemTerm>-r &lt;type&gt;</listItemTerm>
               <listItemDefinition>
                 <para>The response type of the new comment.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-b &lt;BREX&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>BREX data module code.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-v</listItemTerm>
+              <listItemDefinition>
+                <para>Print the file name of the newly created comment.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-f</listItemTerm>
+              <listItemDefinition>
+                <para>Overwrite existing file.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>

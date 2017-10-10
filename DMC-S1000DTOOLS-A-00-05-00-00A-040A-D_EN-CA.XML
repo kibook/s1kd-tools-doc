@@ -12,7 +12,10 @@
       </dmIdent>
       <dmAddressItems>
         <issueDate year="2017" month="08" day="23"/>
-        <dmTitle><techName>s1kd-upissue</techName><infoName>Description</infoName></dmTitle>
+        <dmTitle>
+          <techName>s1kd-upissue</techName>
+          <infoName>Description</infoName>
+        </dmTitle>
       </dmAddressItems>
     </dmAddress>
     <dmStatus issueType="changed">

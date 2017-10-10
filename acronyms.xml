@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<definitionList>
+  <definitionListItem>
+    <listItemTerm>BREX</listItemTerm>
+    <listItemDefinition>
+      <para>Business Rules EXchange</para>
+    </listItemDefinition>
+  </definitionListItem>
+  <definitionListItem>
+    <listItemTerm>CIR</listItemTerm>
+    <listItemDefinition>
+      <para>Common Information Repository</para>
+    </listItemDefinition>
+  </definitionListItem>
+  <definitionListItem>
+    <listItemTerm>PCT</listItemTerm>
+    <listItemDefinition>
+      <para>Product Cross-reference Table</para>
+    </listItemDefinition>
+  </definitionListItem>
+</definitionList>

@@ -8,11 +8,14 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="005" inWork="00"/>
+        <issueInfo issueNumber="008" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="08" day="28"/>
-        <dmTitle><techName>s1kd-newdm</techName><infoName>Description</infoName></dmTitle>
+        <issueDate year="2017" month="10" day="05"/>
+        <dmTitle>
+          <techName>s1kd-newdm</techName>
+          <infoName>Description</infoName>
+        </dmTitle>
       </dmAddressItems>
     </dmAddress>
     <dmStatus issueType="changed">
@@ -160,6 +163,9 @@
                       <para>brex - Business rule exchange</para>
                     </listItem>
                     <listItem>
+                      <para>checklist - Maintenance checklist</para>
+                    </listItem>
+                    <listItem>
                       <para>comrep - Common information repository</para>
                     </listItem>
                     <listItem>
@@ -167,6 +173,9 @@
                     </listItem>
                     <listItem>
                       <para>descript - Descriptive</para>
+                    </listItem>
+                    <listItem>
+                      <para>fault - Fault information</para>
                     </listItem>
                     <listItem>
                       <para>frontmatter - Front matter</para>
@@ -191,6 +200,24 @@
               <listItemTerm>-N</listItemTerm>
               <listItemDefinition>
                 <para>Omit issue/inwork numbers from filename.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-b &lt;BREX&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>BREX data module code.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-v</listItemTerm>
+              <listItemDefinition>
+                <para>Print the file name of the newly created data module.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-f</listItemTerm>
+              <listItemDefinition>
+                <para>Overwrite existing file.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>

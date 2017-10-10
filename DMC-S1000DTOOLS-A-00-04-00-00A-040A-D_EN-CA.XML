@@ -8,14 +8,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="4" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="001" inWork="00"/>
+        <issueInfo issueNumber="005" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="08" day="14"/>
-        <dmTitle><techName>s1kd-brexcheck</techName><infoName>Description</infoName></dmTitle>
+        <issueDate year="2017" month="10" day="10"/>
+        <dmTitle>
+          <techName>s1kd-brexcheck</techName>
+          <infoName>Description</infoName>
+        </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="new">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -44,11 +47,11 @@
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-brexcheck</emphasis> tool validates an S1000D data module using the context rules of one or multiple Business Rule EXchange (BREX) data modules. All errors are displayed with the &lt;objectUse&gt; message, the line number, and a representation of the invalid XML tree.</para>
+        <para>The <emphasis>s1kd-brexcheck</emphasis> tool validates an S1000D data module using the context rules of one or multiple <acronym acronymType="at01"><acronymTerm>BREX</acronymTerm><acronymDefinition>Business Rules EXchange</acronymDefinition></acronym> data modules. All errors are displayed with the &lt;objectUse&gt; message, the line number, and a representation of the invalid XML tree.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-brexcheck [-b &lt;brex&gt;] [-I &lt;path&gt; [-vh?] &lt;datamodules&gt;</para>
+        <para>s1kd-brexcheck [-b &lt;brex&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;] [-vVqDsxlSh?] &lt;datamodules&gt;</para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
@@ -67,9 +70,9 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-v</listItemTerm>
+              <listItemTerm>-v -V -q -D</listItemTerm>
               <listItemDefinition>
-                <para>Use verbose output.</para>
+                <para>Verbosity of the output.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -85,12 +88,71 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
+              <listItemTerm>-l</listItemTerm>
+              <listItemDefinition>
+                <para>Use the layered BREX concept. BREX data modules referenced by other BREX data modules (either specified with -b or referenced by the specified data modules) will also be checked against.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-w &lt;severities&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Specify a list of severity levels for business rules.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-S</listItemTerm>
+              <listItemDefinition>
+                <para>Check SNS rules. The SNS of each specified data module is checked against the combination of all SNS rules of all specified BREX data modules.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-h -?</listItemTerm>
               <listItemDefinition>
                 <para>Show the help/usage message.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
+        </para>
+        <levelledPara>
+          <title>Business rule severity levels (-w)</title>
+          <para>The attribute brSeverityLevel on a BREX rule allows for distinguishing different kinds of errors. The -w option takes an XML file containing a list of severity levels, their user-defined type, and optionally if they should not be counted as true errors (causing the tool to return a "failure" status) but merely warnings.</para>
+          <para>An example of the format of this file is given below:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;?xml version="1.0"?&gt;
+&lt;brSeverityLevels&gt;
+  &lt;brSeverityLevel value="brsl01" fail="yes"&gt;Error&lt;/brSeverityLevel&gt;
+  &lt;brSeverityLevel value="brsl02" fail="no"&gt;Warning&lt;/brSeverityLevel&gt;
+&lt;/brSeverityLevels&gt;</verbatimText>
+          </para>
+          <para>When the attribute <verbatimText verbatimStyle="vs13">fail</verbatimText> has a value of "yes" (or is not included), BREX errors pertaining to rules with the given severity level value will be counted as errors. When it is no, the errors are still displayed but are not counted as errors in the exit status code of the tool.</para>
+        </levelledPara>
+      </levelledPara>
+      <levelledPara>
+        <title>Example</title>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ DMOD=DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+$ BREX=DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
+$ cat $DMOD
+[...]
+&lt;listItem id="stp-0001"&gt;
+  &lt;para&gt;List items shouldn't be used as steps...&lt;/para&gt;
+&lt;/listItem&gt;
+[...]
+&lt;para&gt;Refer to &lt;internalRef internalRefId="stp-0001" internalRefTargetType="irtt08"/&gt;.&lt;/para&gt;
+[...]
+
+$ s1kd-brexcheck -b $BREX $DMOD
+BREX ERROR: DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+  Only when the reference target is a step can the value of attribute
+internalRefTargetType be irtt08 (Chap 3.9.5.2.1.2, Para 2.1).
+  line 53:
+    ELEMENT internalRef
+      ATTRIBUTE internalRefId
+        TEXT
+          content=stp-0001
+      ATTRIBUTE internalRefTargetType
+        TEXT
+          content=irtt08</verbatimText>
         </para>
       </levelledPara>
     </description>
