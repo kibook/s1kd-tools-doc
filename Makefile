@@ -7,6 +7,7 @@ PARAMS+=-param include.pmentry.bookmarks 1
 PARAMS+=-param ulink.show 0
 PARAMS+=-stringparam external.pub.ref.inline code
 PARAMS+=-param show.unclassified 0
+PARAMS+=-param auto.expand.acronyms 1
 
 all: S1000D_tools.pdf
 
