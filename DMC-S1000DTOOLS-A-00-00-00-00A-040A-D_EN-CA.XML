@@ -44,13 +44,26 @@
     </dmStatus>
   </identAndStatusSection>
   <content>
-    <description>
-      <para>A set of small tools for manipulating S1000D data.</para>
-      <para>A more complete example of an S1000D data set produced with these tools is available at <externalPubRef xlink:href="https://github.com/kibook/s1kd-tools-doc">
+    <refs>
+      <externalPubRef xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/kibook/S1000D-XSL-Stylesheets">
         <externalPubRefIdent>
-          <externalPubCode>https://github.com/kibook/s1kd-tools-doc</externalPubCode>
+          <externalPubCode>https://github.com/kibook/S1000D-XSL-Stylesheets</externalPubCode>
+          <externalPubTitle>S1000D XSL stylesheets</externalPubTitle>
         </externalPubRefIdent>
-      </externalPubRef></para>
+      </externalPubRef>
+      <externalPubRef xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/kibook/s1kd-tools">
+        <externalPubRefIdent>
+          <externalPubCode>https://github.com/kibook/s1kd-tools</externalPubCode>
+          <externalPubTitle>s1kd-tools</externalPubTitle>
+        </externalPubRefIdent>
+      </externalPubRef>
+    </refs>
+    <description>
+      <levelledPara>
+        <title>General</title>
+        <para><emphasis>s1kd-tools</emphasis> are a set of small tools for manipulating S1000D data. They are maintained at <externalPubRef xlink:href="https://github.com/kibook/s1kd-tools"><externalPubRefIdent><externalPubCode>https://github.com/kibook/s1kd-tools</externalPubCode><externalPubTitle>s1kd-tools</externalPubTitle></externalPubRefIdent></externalPubRef>.</para>
+        <para>This publication is meant to serve as an example of an S1000D data set produced using these tools. The stylesheets used to produce this PDF can be found at <externalPubRef xlink:href="https://github.com/kibook/S1000D-XSL-Stylesheets"><externalPubRefIdent><externalPubCode>https://github.com/kibook/S1000D-XSL-Stylesheets</externalPubCode><externalPubTitle>S1000D XSL stylesheets</externalPubTitle></externalPubRefIdent></externalPubRef></para>
+      </levelledPara>
     </description>
   </content>
 </dmodule>
