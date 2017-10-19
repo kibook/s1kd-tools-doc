@@ -182,6 +182,10 @@
         </levelledPara>
       </levelledPara>
       <levelledPara>
+        <title>Return value</title>
+        <para>The number of BREX errors encountered is returned in the exit status code.</para>
+      </levelledPara>
+      <levelledPara>
         <title>Example</title>
         <para>
           <verbatimText verbatimStyle="vs23">$ DMOD=DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
