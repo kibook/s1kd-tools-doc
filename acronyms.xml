@@ -18,4 +18,10 @@
       <para>Product Cross-reference Table</para>
     </listItemDefinition>
   </definitionListItem>
+  <definitionListItem>
+    <listItemTerm>SNS</listItemTerm>
+    <listItemDefinition>
+      <para>Standard Numbering System</para>
+    </listItemDefinition>
+  </definitionListItem>
 </definitionList>
