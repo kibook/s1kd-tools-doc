@@ -8,10 +8,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="009" inWork="00"/>
+        <issueInfo issueNumber="012" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="10" day="11"/>
+        <issueDate year="2017" month="10" day="21"/>
         <dmTitle>
           <techName>s1kd-newdm</techName>
           <infoName>Description</infoName>
@@ -41,6 +41,9 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001">
+        <simplePara>Add 'defaults' file equivalent for -S option.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -223,6 +226,18 @@
                 <para>Overwrite existing file.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-s &lt;schema&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>The schema URL.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeType="modify" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-S &lt;BREX&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Determine the tech name from the SNS rules of a specified BREX data module. This can also be specified in the 'defaults' file with the key 'sns'.</para>
+              </listItemDefinition>
+            </definitionListItem>
           </definitionList>
         </para>
         <levelledPara>
@@ -290,22 +305,23 @@ pmVolume                  00</verbatimText>
         <levelledPara>
           <title>'dmtypes' file</title>
           <para>This file sets the default type (schema) for data modules based on their info code. By default, the program will search the current directory for a file named 'dmtypes', but any file can be specified by using the -D option.</para>
-          <para>Each line consists of an info code and a schema identifier. Example:</para>
+          <para>Each line consists of an info code, a schema identifier, and optionally a default info name. Example:</para>
           <para>
             <verbatimText verbatimStyle="vs23">00E    comrep
 00W    appliccrossreftable
 009    frontmatter
 022    brex
 024    brdoc
-040    descript
-520    proced</verbatimText>
+040    descript    Description
+520    proced      Remove procedure</verbatimText>
           </para>
           <para>Like the 'defaults' file, the 'dmtypes' file may also be written in an XML format, where each child has an attribute <verbatimText verbatimStyle="vs13">infoCode</verbatimText> and an attribute <verbatimText verbatimStyle="vs13">schema</verbatimText>.</para>
           <para>
             <verbatimText verbatimStyle="vs23">&lt;?xml version="1.0"&gt;
 &lt;dmtypes&gt;
-  &lt;type infoCode="040" schema="descript"/&gt;
-  &lt;type infoCode="520" schema="proced"/&gt;
+  &lt;type infoCode="022" schema="brex"/&gt;
+  &lt;type infoCode="040" schema="descript" infoName="Description"/&gt;
+  &lt;type infoCode="520" schema="proced" infoName="Remove procedure"/&gt;
 &lt;/dmtypes&gt;</verbatimText>
           </para>
         </levelledPara>
