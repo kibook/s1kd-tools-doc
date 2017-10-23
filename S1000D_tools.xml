@@ -8,7 +8,7 @@
   <xi:include href="DMC-S1000DTOOLS-A-00-00-00-00A-00UA-D_EN-CA.XML"/>
   <xi:include href="DMC-S1000DTOOLS-A-00-00-00-00A-022A-D_EN-CA.XML"/>
   <xi:include href="DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML"/>
-  <xi:include href="DMC-S1000DTOOLS-A-00-00-01-00A-130A-D_EN-CA.XML"/>
+  <xi:include href="DMC-S1000DTOOLS-A-00-00-00-00A-130A-D_EN-CA.XML"/>
   <xi:include href="DMC-S1000DTOOLS-A-00-01-00-00A-040A-D_EN-CA.XML"/>
   <xi:include href="DMC-S1000DTOOLS-A-00-02-00-00A-040A-D_EN-CA.XML"/>
   <xi:include href="DMC-S1000DTOOLS-A-00-03-00-00A-040A-D_EN-CA.XML"/>
@@ -27,4 +27,5 @@
   <xi:include href="DMC-S1000DTOOLS-A-00-0J-00-00A-040A-D_EN-CA.XML"/>
   <xi:include href="DMC-S1000DTOOLS-A-00-0K-00-00A-040A-D_EN-CA.XML"/>
   <xi:include href="DMC-S1000DTOOLS-A-00-0L-00-00A-040A-D_EN-CA.XML"/>
+  <xi:include href="DMC-S1000DTOOLS-A-00-0M-00-00A-040A-D_EN-CA.XML"/>
 </publication>

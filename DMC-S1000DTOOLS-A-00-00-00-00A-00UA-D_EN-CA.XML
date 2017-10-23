@@ -18,8 +18,12 @@
     </dmAddress>
     <dmStatus issueType="new">
       <security securityClassification="01"/>
-      <responsiblePartnerCompany><enterpriseName>khzae.net</enterpriseName></responsiblePartnerCompany>
-      <originator><enterpriseName>khzae.net</enterpriseName></originator>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+      <originator>
+        <enterpriseName>khzae.net</enterpriseName>
+      </originator>
       <applic>
         <displayText>
           <simplePara>All</simplePara>

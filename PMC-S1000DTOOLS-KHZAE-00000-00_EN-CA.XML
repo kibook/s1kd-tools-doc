@@ -6,11 +6,12 @@
       <pmIdent>
         <pmCode modelIdentCode="S1000DTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="005" inWork="00"/>
+        <issueInfo issueNumber="006" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2017" month="10" day="21"/>
+        <issueDate year="2017" month="10" day="23"/>
         <pmTitle>S1000D tools</pmTitle>
+        <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
     </pmAddress>
     <pmStatus issueType="changed">
@@ -282,6 +283,28 @@
         <dmRefAddressItems>
           <dmTitle>
             <techName>s1kd-acronyms</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="L" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-newdml</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="M" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-dmrl</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>

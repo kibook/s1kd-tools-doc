@@ -18,7 +18,7 @@ S1000D_tools.xml: PMC-*.XML DMC-*.XML DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-C
 	s1kd-makepub PMC-*.XML DMC-*.XML > S1000D_tools.xml
 
 DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: acronymsTemplate.xml acronyms.xml
-	xml-merge acronymsTemplate.xml acronyms.xml > DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
+	xml-merge acronymsTemplate.xml acronyms.xml | xmllint --format - > DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
 
 acronyms.xml: DMC-*.XML
 	s1kd-acronyms -xpd DMC-*.XML > acronyms.xml
