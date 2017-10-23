@@ -1,6 +1,7 @@
-00E	comrep
-00W	appliccrossreftable
-009	descript
-022	brex
-024	brdoc
-040	descript
+001  descript             Title page
+005  descript             List of abbreviations
+009  descript             Table of contents
+00U  descript             Highlights
+00W  appliccrossreftable  Applicability cross-reference table (ACT)
+022  brex                 Business rules exchange (BREX)
+040  descript             Description
