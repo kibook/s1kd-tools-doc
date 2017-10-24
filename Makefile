@@ -14,17 +14,17 @@ all: S1000D_tools.pdf
 S1000D_tools.pdf: S1000D_tools.xml
 	s1kd2pdf S1000D_tools.xml $(PARAMS)
 
-S1000D_tools.xml: PMC-*.XML DMC-*.XML DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
-	s1kd-makepub PMC-*.XML DMC-*.XML > S1000D_tools.xml
+S1000D_tools.xml: csdb/PMC-*.XML csdb/DMC-*.XML csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
+	s1kd-makepub csdb/PMC-*.XML csdb/DMC-*.XML > S1000D_tools.xml
 
-DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: acronymsTemplate.xml acronyms.xml
-	xml-merge acronymsTemplate.xml acronyms.xml | xmllint --format - > DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
+csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: acronymsTemplate.xml acronyms.xml
+	xml-merge acronymsTemplate.xml acronyms.xml | xmllint --format - > csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
 
-acronyms.xml: DMC-*.XML
-	s1kd-acronyms -xpd DMC-*.XML > acronyms.xml
+acronyms.xml: csdb/DMC-*.XML
+	s1kd-acronyms -xpd csdb/DMC-*.XML > acronyms.xml
 
-README.md: DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML
-	s1kd2db DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML | pandoc -f docbook -t markdown_github > README.md
+README.md: csdb/DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML
+	s1kd2db csdb/DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML | pandoc -f docbook -t markdown_github > README.md
 
 clean:
-	rm -f S1000D_tools.pdf S1000D_tools.xml DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML acronyms.xml
+	rm -f S1000D_tools.pdf S1000D_tools.xml csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML acronyms.xml
