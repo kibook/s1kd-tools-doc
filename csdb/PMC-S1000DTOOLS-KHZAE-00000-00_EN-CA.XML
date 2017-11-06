@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<!DOCTYPE pm>
+<!DOCTYPE pm [
+<!NOTATION SVG SYSTEM "SVG">
+<!ENTITY ICN-KHZAE-KHZNETLOGO-001-01 SYSTEM "ICN-KHZAE-KHZNETLOGO-001-01.SVG" NDATA SVG>
+]>
 <pm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/pm.xsd">
   <identAndStatusSection>
     <pmAddress>
@@ -16,6 +19,9 @@
     </pmAddress>
     <pmStatus issueType="changed">
       <security securityClassification="01"/>
+      <logo>
+        <symbol infoEntityIdent="ICN-KHZAE-KHZNETLOGO-001-01" reproductionHeight="12mm"/>
+      </logo>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
       </responsiblePartnerCompany>
