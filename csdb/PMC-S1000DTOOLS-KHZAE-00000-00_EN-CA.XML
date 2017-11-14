@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE pm [
-<!NOTATION SVG SYSTEM "SVG">
+<!NOTATION SVG SYSTEM "SVG" >
 <!ENTITY ICN-KHZAE-KHZNETLOGO-001-01 SYSTEM "ICN-KHZAE-KHZNETLOGO-001-01.SVG" NDATA SVG>
 ]>
 <pm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/pm.xsd">
@@ -9,10 +9,10 @@
       <pmIdent>
         <pmCode modelIdentCode="S1000DTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="011" inWork="00"/>
+        <issueInfo issueNumber="012" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2017" month="11" day="05"/>
+        <issueDate year="2017" month="11" day="14"/>
         <pmTitle>S1000D tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
