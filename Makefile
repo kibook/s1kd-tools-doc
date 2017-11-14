@@ -1,14 +1,13 @@
 # Parameters for the S1000D XSL stylesheet
-PARAMS+=-param double.sided 0
-PARAMS+=-stringparam end.of.data.module.position footer
-PARAMS+=-param fop1.extensions 1
-PARAMS+=-param hierarchical.table.of.contents 1
-PARAMS+=-param include.pmentry.bookmarks 1
-PARAMS+=-param ulink.show 0
-PARAMS+=-stringparam external.pub.ref.inline code
-PARAMS+=-param show.unclassified 0
-PARAMS+=-param auto.expand.acronyms 1
-PARAMS+=-param use.unparsed.entity.uri 1
+PARAMS+=-param double.sided "0"
+PARAMS+=-param fop1.extensions "1"
+PARAMS+=-param hierarchical.table.of.contents "1"
+PARAMS+=-param include.pmentry.bookmarks "1"
+PARAMS+=-param ulink.show "0"
+PARAMS+=-param external.pub.ref.inline "'code'"
+PARAMS+=-param show.unclassified "0"
+PARAMS+=-param auto.expand.acronyms "1"
+PARAMS+=-param use.unparsed.entity.uri "1"
 
 all: S1000D_tools.pdf
 
