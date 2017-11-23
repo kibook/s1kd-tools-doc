@@ -1,6 +1,5 @@
 # Parameters for the S1000D XSL stylesheet
 PARAMS+=-param double.sided "0"
-PARAMS+=-param fop1.extensions "1"
 PARAMS+=-param hierarchical.table.of.contents "1"
 PARAMS+=-param include.pmentry.bookmarks "1"
 PARAMS+=-param ulink.show "0"

@@ -45,6 +45,12 @@
       <reasonForUpdate id="rfu-0001">
         <simplePara>Add -E option.</simplePara>
       </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002">
+        <simplePara>Add -v option.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0003">
+        <simplePara>Add support for filtering on multiple values of a single property.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -219,6 +225,12 @@
                 <para>Source (-s or stdin) is a list of data module/publication module filenames to create instances of, rather than a single data module/publication module.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0002">
+              <listItemTerm>-v</listItemTerm>
+              <listItemDefinition>
+                <para>When -O is used, print the automatically generated file name of the instance.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>&lt;applic&gt;...</listItemTerm>
               <listItemDefinition>
@@ -244,6 +256,74 @@
         <levelledPara>
           <title>Instance data module code (-c) vs extension (-e)</title>
           <para>When creating a data module instance, the instance should have the same data module code as the master data module, with an added extension code, the DME. However, in cases where a vendor does not support this extension or possibly when this tool is used to create "instances" which will from that point on be maintained as normal standalone data modules, it may be desirable or necessary to change the data module code instead. These two options can be used together as well to give an instance a new DMC as well an extension.</para>
+        </levelledPara>
+        <levelledPara changeType="add" reasonForUpdateRefIds="rfu-0003">
+          <title>Filtering for multiple values of a single property</title>
+          <para>Though not usually the case, it is possible to create an instance which is filtered on multiple values of the same applicabilty property. Given the following:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;referencedApplicGroup&gt;
+  &lt;applic id="apA"&gt;
+    &lt;assert applicPropertyIdent="attr"
+            applicPropertyType="prodattr"
+            applicPropertyValues="A"/&gt;
+  &lt;/applic&gt;
+  &lt;applic id="apB"&gt;
+    &lt;assert applicPropertyIdent="attr"
+            applicPropertyType="prodattr"
+            applicPropertyValues="B"/&gt;
+  &lt;/applic&gt;
+  &lt;applic id="apC"&gt;
+    &lt;assert applicPropertyIdent="attr"
+            applicPropertyType="prodattr"
+            applicPropertyValues="C"/&gt;
+  &lt;/applic&gt;
+&lt;/referencedApplicGroup&gt;
+&lt;!-- ... --&gt;
+&lt;para applicRefId="apA"&gt;Applies to A&lt;/para&gt;
+&lt;para applicRefId="apB"&gt;Applies to B&lt;/para&gt;
+&lt;para applicRefId="apC"&gt;Applies to C&lt;/para&gt;</verbatimText>
+          </para>
+          <para>filtering can be applied such that the instance will be applicable to both A and C, but not B. This is done by specifying a property twice in the applicability definition arguments. For example:</para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-instance -A -Y "A or C" ... attr:prodattr=A attr:prodattr=C</verbatimText>
+          </para>
+          <para>This would produce the following in the instance:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">
+&lt;dmStatus&gt;
+  &lt;!-- ... --&gt;
+  &lt;applic&gt;
+    &lt;displayText&gt;
+      &lt;simplePara&gt;A or C&lt;/simplePara&gt;
+    &lt;/displayText&gt;
+    &lt;evaluate andOr="or"&gt;
+      &lt;assert applicPropertyIdent="attr"
+              applicPropertyType="prodattr"
+              applicPropertyValues="A"/&gt;
+      &lt;assert applicPropertyIdent="attr"
+              applicPropertyType="prodattr"
+              applicPropertyValues="C"/&gt;
+    &lt;/evaluate&gt;
+  &lt;/applic&gt;
+  &lt;!-- ... -&gt;
+&lt;/dmStatus&gt;
+&lt;!-- ... --&gt;
+&lt;referencedApplicGroup&gt;
+  &lt;applic id="apA"&gt;
+    &lt;assert applicPropertyIdent="attr"
+            applicPropertyType="prodattr"
+            applicPropertyValues="A"/&gt;
+  &lt;/applic&gt;
+  &lt;applic id="apC"&gt;
+    &lt;assert applicPropertyIdent="attr"
+            applicPropertyType="prodattr"
+            applicPropertyValues="C"/&gt;
+  &lt;/applic&gt;
+&lt;/referencedApplicGroup&gt;
+&lt;!-- ... --&gt;
+&lt;para applicRefId="apA"&gt;Applies to A&lt;/para&gt;
+&lt;para applicRefId="apC"&gt;Applies to C&lt;/para&gt;</verbatimText>
+          </para>
         </levelledPara>
       </levelledPara>
     </description>
