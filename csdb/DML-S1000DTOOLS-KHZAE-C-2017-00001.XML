@@ -1,84 +1,51 @@
-<?xml version="1.0"?>
-<!DOCTYPE pm [
-<!NOTATION SVG SYSTEM "SVG" >
-<!ENTITY ICN-KHZAE-KHZNETLOGO-001-01 SYSTEM "ICN-KHZAE-KHZNETLOGO-001-01.SVG" NDATA SVG>
-]>
-<pm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/pm.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dml>
+<dml xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/dml.xsd">
   <identAndStatusSection>
-    <pmAddress>
-      <pmIdent>
-        <pmCode modelIdentCode="S1000DTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
-        <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="019" inWork="00"/>
-      </pmIdent>
-      <pmAddressItems>
-        <issueDate year="2017" month="12" day="21"/>
-        <pmTitle>S1000D tools</pmTitle>
-        <shortPmTitle>Documentation</shortPmTitle>
-      </pmAddressItems>
-    </pmAddress>
-    <pmStatus issueType="changed">
+    <dmlAddress>
+      <dmlIdent>
+        <dmlCode modelIdentCode="S1000DTOOLS" senderIdent="KHZAE" dmlType="c" yearOfDataIssue="2017" seqNumber="00001"/>
+        <issueInfo inWork="00" issueNumber="001"/>
+      </dmlIdent>
+      <dmlAddressItems>
+        <issueDate day="21" month="12" year="2017"/>
+      </dmlAddressItems>
+    </dmlAddress>
+    <dmlStatus issueType="new">
       <security securityClassification="01"/>
-      <logo>
-        <symbol infoEntityIdent="ICN-KHZAE-KHZNETLOGO-001-01" reproductionHeight="12mm"/>
-      </logo>
-      <responsiblePartnerCompany>
-        <enterpriseName>khzae.net</enterpriseName>
-      </responsiblePartnerCompany>
-      <applic>
-        <displayText>
-          <simplePara>All</simplePara>
-        </displayText>
-      </applic>
       <brexDmRef>
         <dmRef>
           <dmRefIdent>
-            <dmCode modelIdentCode="S1000D" systemDiffCode="F" systemCode="04" subSystemCode="1" subSubSystemCode="0" assyCode="0301" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="D"/>
+            <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="D"/>
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance><unverified/></qualityAssurance>
-    </pmStatus>
+    </dmlStatus>
   </identAndStatusSection>
-  <content>
-    <pmEntry>
-      <pmEntryTitle>Front matter</pmEntryTitle>
+  <dmlContent>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="001" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>Title page</techName>
-            <infoName>Title page</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="009" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>Table of contents</techName>
-            <infoName>Table of contents</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="00U" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
             <techName>S1000D tools</techName>
-            <infoName>Highlights</infoName>
+            <infoName>Title page</infoName>
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="005" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -87,12 +54,70 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
-    </pmEntry>
-    <pmEntry>
-      <pmEntryTitle>Introduction</pmEntryTitle>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="009" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>S1000D tools</techName>
+            <infoName>Table of contents</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="00U" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>S1000D tools</techName>
+            <infoName>Highlights</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>S1000D tools</techName>
+            <infoName>Business rules exchange (BREX)</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -101,12 +126,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
-    </pmEntry>
-    <pmEntry>
-      <pmEntryTitle>Tools</pmEntryTitle>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="1" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -115,9 +144,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="2" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -126,9 +162,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="3" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -137,9 +180,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="4" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -148,9 +198,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="5" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -159,9 +216,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="6" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -170,9 +234,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -181,9 +252,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="8" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -192,9 +270,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="9" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -203,9 +288,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="C" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -214,9 +306,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="D" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -225,9 +324,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="E" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -236,9 +342,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="F" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -247,9 +360,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="G" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -258,9 +378,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="H" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -269,9 +396,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="J" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -280,9 +414,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="K" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -291,9 +432,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="L" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -302,9 +450,16 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+    <dmlEntry>
       <dmRef>
         <dmRefIdent>
           <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="M" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <language languageIsoCode="en" countryIsoCode="CA"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
@@ -313,6 +468,10 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
-    </pmEntry>
-  </content>
-</pm>
+      <security securityClassification="01"/>
+      <responsiblePartnerCompany>
+        <enterpriseName>khzae.net</enterpriseName>
+      </responsiblePartnerCompany>
+    </dmlEntry>
+  </dmlContent>
+</dml>
