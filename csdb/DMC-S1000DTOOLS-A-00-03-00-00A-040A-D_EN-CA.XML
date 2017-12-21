@@ -303,8 +303,7 @@
           </para>
           <para>This would produce the following in the instance:</para>
           <para>
-            <verbatimText verbatimStyle="vs11">
-&lt;dmStatus&gt;
+            <verbatimText verbatimStyle="vs11">&lt;dmStatus&gt;
   &lt;!-- ... --&gt;
   &lt;applic&gt;
     &lt;displayText&gt;
