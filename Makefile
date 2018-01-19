@@ -14,7 +14,7 @@ S1000D_tools.pdf: S1000D_tools.xml
 	s1kd2pdf S1000D_tools.xml $(PARAMS)
 
 S1000D_tools.xml: csdb/PMC-*.XML csdb/DMC-*.XML csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
-	s1kd-makepub csdb/PMC-*.XML csdb/DMC-*.XML > S1000D_tools.xml
+	s1kd-flatpm -p csdb/PMC-*.XML csdb/DMC-*.XML > S1000D_tools.xml
 
 csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: acronymsTemplate.xml acronyms.xml
 	xml-merge acronymsTemplate.xml acronyms.xml | xmllint --format - > csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML
