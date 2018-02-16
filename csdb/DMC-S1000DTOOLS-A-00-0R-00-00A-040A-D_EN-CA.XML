@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule [
-<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-2/ent/ISOEntities">
-]>
+<!DOCTYPE dmodule>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="1" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="R" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="002" inWork="00"/>
+        <issueInfo issueNumber="001" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="01" day="27"/>
+        <issueDate year="2018" month="02" day="01"/>
         <dmTitle>
-          <techName>s1kd-syncrefs</techName>
+          <techName>s1kd-addicn</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="changed">
+    <dmStatus issueType="new">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -41,47 +39,56 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001">
-        <simplePara>Change the behaviour of the tool, making better use of stdin/stdout and not overwriting by default.</simplePara>
-      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-syncrefs</emphasis> tool copies all external references (dmRef, pmRef, externalPubRef) within the content of a data module and uses them to generate the &lt;refs&gt; element. Each unique reference is copied, sorted, and placed in to the &lt;refs&gt; element. If a &lt;refs&gt; element already exists, it is overwritten.</para>
+        <para>The <emphasis>s1kd-addicn</emphasis> tool adds the required DTD entity and notation declarations to an S1000D module in order to reference an ICN file.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-syncrefs [-df] [-o &lt;out&gt;] [&lt;data module&gt;...]</para>
+        <para>s1kd-addicn [-s &lt;src&gt;] [-o &lt;out&gt;] [-fh?] &lt;ICN&gt;...</para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
         <para>
           <definitionList>
             <definitionListItem>
-              <listItemTerm>-d</listItemTerm>
+              <listItemTerm>-s &lt;src&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Delete the &lt;refs&gt; element.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-f</listItemTerm>
-              <listItemDefinition>
-                <para>Overwrite the data modules automatically.</para>
+                <para>The source module to add the ICN to. Default is to read from stdin.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-o &lt;out&gt;</listItemTerm>
               <listItemDefinition>
-                <para>The resulting XML is written to &lt;out&gt; instead of stdout.</para>
+                <para>The filename to output to. Default is to write to stdout.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>&lt;data module&gt;...</listItemTerm>
+              <listItemTerm>-f</listItemTerm>
               <listItemDefinition>
-                <para>The data module(s) to synchronize references in. Default is to read from stdin.</para>
+                <para>Overwrite source file instead of writing to stdout.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-F</listItemTerm>
+              <listItemDefinition>
+                <para>Use the whole path given for the ICN file as the SYSTEM ID.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-h -?</listItemTerm>
+              <listItemDefinition>
+                <para>Show help/usage message.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>&lt;ICN&gt;..</listItemTerm>
+              <listItemDefinition>
+                <para>Any number of ICN files to add.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
