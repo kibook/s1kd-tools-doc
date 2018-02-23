@@ -37,7 +37,9 @@
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance><unverified/></qualityAssurance>
+      <qualityAssurance>
+        <unverified/>
+      </qualityAssurance>
     </pmStatus>
   </identAndStatusSection>
   <content>
@@ -103,146 +105,14 @@
       </dmRef>
     </pmEntry>
     <pmEntry>
-      <pmEntryTitle>Tools</pmEntryTitle>
+      <pmEntryTitle>Tools for generating data</pmEntryTitle>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="1" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="M" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-            <techName>s1kd-syncrefs</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="2" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-validate</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="3" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-instance</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="4" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-brexcheck</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="5" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-upissue</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="6" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-dmls</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-newdm</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="8" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-dmref</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="9" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-metadata</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="C" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-newpm</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="D" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-newimf</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="E" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-neutralize</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="F" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-transform</techName>
+            <techName>s1kd-dmrl</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>
@@ -271,22 +141,11 @@
       </dmRef>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="J" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-            <techName>s1kd-checkrefs</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
-        </dmRefAddressItems>
-      </dmRef>
-      <dmRef>
-        <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="K" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
-        </dmRefIdent>
-        <dmRefAddressItems>
-          <dmTitle>
-            <techName>s1kd-acronyms</techName>
+            <techName>s1kd-newdm</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>
@@ -304,22 +163,116 @@
       </dmRef>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="M" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="D" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-            <techName>s1kd-dmrl</techName>
+            <techName>s1kd-newimf</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="N" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="C" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-            <techName>s1kd-flatpm</techName>
+            <techName>s1kd-newpm</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+    </pmEntry>
+    <pmEntry>
+      <pmEntryTitle>Tools for authoring and managing data</pmEntryTitle>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="R" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-addicn</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="6" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-dmls</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="8" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-dmref</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="9" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-metadata</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="F" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-transform</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="5" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-upissue</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+    </pmEntry>
+    <pmEntry>
+      <pmEntryTitle>Tools for validating data</pmEntryTitle>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="4" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-brexcheck</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="J" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-checkrefs</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>
@@ -337,11 +290,69 @@
       </dmRef>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="R" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="2" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-            <techName>s1kd-addicn</techName>
+            <techName>s1kd-validate</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+    </pmEntry>
+    <pmEntry>
+      <pmEntryTitle>Tools for delivering data</pmEntryTitle>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="K" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-acronyms</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="N" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-flatpm</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="3" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-instance</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="E" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-neutralize</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="1" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-syncrefs</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>
