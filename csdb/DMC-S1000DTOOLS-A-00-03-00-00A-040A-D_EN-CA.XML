@@ -387,8 +387,7 @@ applicPropertyValues="C"/&gt;
           </para>
           <para>A custom XSLT script can be supplied with the -r option, which is then used to resolve the CIR dependencies of the last CIR specified with -R. For example:</para>
           <para>
-            <verbatimText verbatimStyle="vs11">
-&lt;xsl:stylesheet
+            <verbatimText verbatimStyle="vs11">&lt;xsl:stylesheet
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 version="1.0"&gt;
 &lt;xsl:template match="functionalItemRef"&gt;
@@ -413,8 +412,7 @@ functionalItemType="fit01"/&gt;
           </para>
           <para>The source data module would contain a reference:</para>
           <para>
-            <verbatimText verbatimStyle="vs11" changeType="modify" reasonForUpdateRefIds="rfu-0002">
-&lt;para&gt;
+            <verbatimText verbatimStyle="vs11" changeType="modify" reasonForUpdateRefIds="rfu-0002">&lt;para&gt;
 The
 &lt;functionalItemRef functionalItemNumber="ABC"/&gt;
 is an item in the system.
