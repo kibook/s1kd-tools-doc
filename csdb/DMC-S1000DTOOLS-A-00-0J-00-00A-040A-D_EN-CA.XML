@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="J" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="003" inWork="00"/>
+        <issueInfo issueNumber="004" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="02" day="01"/>
+        <issueDate year="2018" month="02" day="22"/>
         <dmTitle>
           <techName>s1kd-checkrefs</techName>
           <infoName>Description</infoName>
@@ -39,11 +39,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001">
-        <simplePara>Add -l option.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0002">
-        <simplePara>Add -d option.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
+        <simplePara>Improve organization and formatting.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -55,12 +52,51 @@
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-checkrefs [-s &lt;source&gt;] [-t &lt;target&gt;] [-d &lt;dir&gt;] [-cuFelvh?] &lt;modules&gt;...</para>
+        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <verbatimText verbatimStyle="vs24">s1kd-checkrefs [-s &lt;source&gt;] [-t &lt;target&gt;]
+               [-d &lt;dir&gt;] [-cuFelvh?] &lt;modules&gt;...</verbatimText>
+        </para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
         <para>
-          <definitionList>
+          <definitionList changeType="modify" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
+              <listItemTerm>-c</listItemTerm>
+              <listItemDefinition>
+                <para>Only check/update references within the content section of modules.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-d &lt;dir&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Check references between data modules in the specified directory. Additional data modules can still be specified with -s.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-e</listItemTerm>
+              <listItemDefinition>
+                <para>Check/update external publication references against a pre-defined list of publications.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-F</listItemTerm>
+              <listItemDefinition>
+                <para>Fail on first invalid reference and return an error code.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-h -?</listItemTerm>
+              <listItemDefinition>
+                <para>Show help/usage message</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-l</listItemTerm>
+              <listItemDefinition>
+                <para>List all invalid references found.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-s &lt;source&gt;</listItemTerm>
               <listItemDefinition>
@@ -73,18 +109,6 @@
                 <para>Only check and/or update references within this module. All other modules will only be used as sources.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0002">
-              <listItemTerm>-d &lt;dir&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>Check references between data modules in the specified directory. Additional data modules can still be specified with -s.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-c</listItemTerm>
-              <listItemDefinition>
-                <para>Only check/update references within the content section of modules.</para>
-              </listItemDefinition>
-            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-u</listItemTerm>
               <listItemDefinition>
@@ -92,33 +116,9 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-F</listItemTerm>
-              <listItemDefinition>
-                <para>Fail on first invalid reference and return an error code.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-e</listItemTerm>
-              <listItemDefinition>
-                <para>Check/update external publication references against a pre-defined list of publications.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
-              <listItemTerm>-l</listItemTerm>
-              <listItemDefinition>
-                <para>List all invalid references found.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
               <listItemTerm>-v</listItemTerm>
               <listItemDefinition>
                 <para>Verbose output.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-h -?</listItemTerm>
-              <listItemDefinition>
-                <para>Show help/usage message</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
@@ -129,17 +129,17 @@
           <para>The root element of the XML file is the <verbatimText verbatimStyle="vs12">externalPubs</verbatimText> element. Each external publication is represented by an element <verbatimText verbatimStyle="vs12">externalPubAddress</verbatimText>. The identifying elements of the publication are stored in the <verbatimText verbatimStyle="vs12">externalPubIdent</verbatimText> element (corresponding with the <verbatimText verbatimStyle="vs12">externalPubRefIdent</verbatimText> element). The address items are stored in the <verbatimText verbatimStyle="vs12">externalPubAddress</verbatimText> element (corresponding with the <verbatimText verbatimStyle="vs12">externalPubRefAddressItems</verbatimText> element).</para>
           <para>Example:</para>
           <para>
-            <verbatimText verbatimStyle="vs11">&lt;?xml version="1.0"?&gt;
+            <verbatimText verbatimStyle="vs11" changeType="modify" reasonForUpdateRefIds="rfu-0001">&lt;?xml version="1.0"?&gt;
 &lt;externalPubs&gt;
-  &lt;externalPubAddress&gt;
-    &lt;externalPubIdent&gt;
-      &lt;externalPubCode&gt;s1kd-checkrefs&lt;/externalPubCode&gt;
-      &lt;externalPubTitle&gt;s1kd-checkrefs manual&lt;/externalPubTitle&gt;
-    &lt;/externalPubIdent&gt;
-    &lt;externalPubAddressItems&gt;
-      &lt;externalPubIssueDate year="2017" month="08" day="14"/&gt;
-    &lt;/externalPubAddressItems&gt;
-  &lt;/externalPubAddress&gt;
+&lt;externalPubAddress&gt;
+&lt;externalPubIdent&gt;
+&lt;externalPubCode&gt;s1kd-checkrefs&lt;/externalPubCode&gt;
+&lt;externalPubTitle&gt;s1kd-checkrefs manual&lt;/externalPubTitle&gt;
+&lt;/externalPubIdent&gt;
+&lt;externalPubAddressItems&gt;
+&lt;externalPubIssueDate year="2017" month="08" day="14"/&gt;
+&lt;/externalPubAddressItems&gt;
+&lt;/externalPubAddress&gt;
 &lt;/externalPubs&gt;</verbatimText>
           </para>
         </levelledPara>

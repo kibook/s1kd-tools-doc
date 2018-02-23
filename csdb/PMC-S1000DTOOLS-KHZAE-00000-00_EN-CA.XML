@@ -9,10 +9,10 @@
       <pmIdent>
         <pmCode modelIdentCode="S1000DTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="023" inWork="00"/>
+        <issueInfo issueNumber="024" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2018" month="02" day="16"/>
+        <issueDate year="2018" month="02" day="23"/>
         <pmTitle>S1000D tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>

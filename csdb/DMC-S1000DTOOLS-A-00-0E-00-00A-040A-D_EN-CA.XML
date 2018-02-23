@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="E" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="004" inWork="00"/>
+        <issueInfo issueNumber="005" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="01" day="27"/>
+        <issueDate year="2018" month="02" day="23"/>
         <dmTitle>
           <techName>s1kd-neutralize</techName>
           <infoName>Description</infoName>
@@ -39,8 +39,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001">
-        <simplePara>Change behaviour of tool to prefer stdin/stdout instead of overwriting automatically.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
+        <simplePara>Improve organization and formatting.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -62,18 +62,14 @@
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-neutralize [-o &lt;file&gt;] [-fh?] [&lt;data module&gt; ...]</para>
+        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <verbatimText verbatimStyle="vs24">s1kd-neutralize [-o &lt;file&gt;] [-fh?] [&lt;data module&gt; ...]</verbatimText>
+        </para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
         <para>
-          <definitionList>
-            <definitionListItem>
-              <listItemTerm>-o &lt;file&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>Output neutralized data module XML to &lt;file&gt; instead of stdout.</para>
-              </listItemDefinition>
-            </definitionListItem>
+          <definitionList changeType="modify" reasonForUpdateRefIds="rfu-0001">
             <definitionListItem>
               <listItemTerm>-f</listItemTerm>
               <listItemDefinition>
@@ -86,6 +82,12 @@
                 <para>Show usage message.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-o &lt;file&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Output neutralized data module XML to &lt;file&gt; instead of stdout.</para>
+              </listItemDefinition>
+            </definitionListItem>
           </definitionList>
         </para>
       </levelledPara>
@@ -95,18 +97,18 @@
           <verbatimText verbatimStyle="vs23">$ DMOD=DMC-XLINKTEST-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
 $ xmllint --xpath "//description/dmRef" $DMOD
 &lt;dmRef&gt;
-  &lt;dmRefIdent&gt;
-    &lt;dmCode modelIdentCode="XLINKTEST" systemDiffCode="A"
+&lt;dmRefIdent&gt;
+&lt;dmCode modelIdentCode="XLINKTEST" systemDiffCode="A"
 systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="01"
 disassyCode="00" disassyCodeVariant="A" infoCode="040"
 infoCodeVariant="A" itemLocationCode="D"/&gt;
-  &lt;/dmRefIdent&gt;
-  &lt;dmRefAddressItems&gt;
-    &lt;dmTitle&gt;
-      &lt;techName&gt;XLink test&lt;/techName&gt;
-      &lt;infoName&gt;Referenced data module&lt;/infoName&gt;
-    &lt;/dmTitle&gt;
-  &lt;/dmRefAddressItems&gt;
+&lt;/dmRefIdent&gt;
+&lt;dmRefAddressItems&gt;
+&lt;dmTitle&gt;
+&lt;techName&gt;XLink test&lt;/techName&gt;
+&lt;infoName&gt;Referenced data module&lt;/infoName&gt;
+&lt;/dmTitle&gt;
+&lt;/dmRefAddressItems&gt;
 &lt;/dmRef&gt;
 
 $ s1kd-neutralize $DMOD | xmllint --xpath "//description/dmRef" -

@@ -8,10 +8,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="1" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="002" inWork="00"/>
+        <issueInfo issueNumber="003" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="01" day="27"/>
+        <issueDate year="2018" month="02" day="23"/>
         <dmTitle>
           <techName>s1kd-syncrefs</techName>
           <infoName>Description</infoName>
@@ -41,8 +41,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001">
-        <simplePara>Change the behaviour of the tool, making better use of stdin/stdout and not overwriting by default.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
+        <simplePara>Improve organization and formatting.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -54,7 +54,9 @@
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-syncrefs [-df] [-o &lt;out&gt;] [&lt;data module&gt;...]</para>
+        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <verbatimText>s1kd-syncrefs [-df] [-o &lt;out&gt;] [&lt;data module&gt;...]</verbatimText>
+        </para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>

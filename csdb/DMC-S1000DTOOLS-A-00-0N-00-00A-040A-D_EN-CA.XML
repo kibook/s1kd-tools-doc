@@ -6,17 +6,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="N" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="001" inWork="00"/>
+        <issueInfo issueNumber="002" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="01" day="19"/>
+        <issueDate year="2018" month="02" day="23"/>
         <dmTitle>
           <techName>s1kd-flatpm</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="new">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -39,6 +39,9 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
+        <simplePara>Improve organization and formatting.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -50,22 +53,24 @@
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-flatpm [-Nxp] &lt;PM&gt; [&lt;DM&gt;...]</para>
+        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <verbatimText verbatimStyle="vs24">s1kd-flatpm [-Nxp] &lt;PM&gt; [&lt;DM&gt;...]</verbatimText>
+        </para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
         <para>
-          <definitionList>
+          <definitionList changeType="modify" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
+              <listItemTerm>-h -?</listItemTerm>
+              <listItemDefinition>
+                <para>Show help/usage message.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-N</listItemTerm>
               <listItemDefinition>
                 <para>Assume that the files representing the referenced data modules do not include the issue info in their filenames, i.e. they were created using the -N option of the s1kd-new* tools.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-x</listItemTerm>
-              <listItemDefinition>
-                <para>Use XInclude rather than copying each data module's contents directly inside the publication module. DTD entities in data modules will only be carried over to the final publication when using this option, otherwise they do not carry over when copying the data module.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -75,21 +80,21 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-h -?</listItemTerm>
+              <listItemTerm>-x</listItemTerm>
               <listItemDefinition>
-                <para>Show help/usage message.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>&lt;PM&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>The publication module to flatten.</para>
+                <para>Use XInclude rather than copying each data module's contents directly inside the publication module. DTD entities in data modules will only be carried over to the final publication when using this option, otherwise they do not carry over when copying the data module.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>&lt;DM&gt;...</listItemTerm>
               <listItemDefinition>
                 <para>When using the -p option, the filenames to include can be specified manually as additional arguments instead of searching for them in the current directory. When not using the -p option, additional arguments are ignored.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>&lt;PM&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>The publication module to flatten.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule [
-<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-2/ent/ISOEntities">
-]>
+<!DOCTYPE dmodule>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="4" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="012" inWork="00"/>
+        <issueInfo issueNumber="014" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="11" day="20"/>
+        <issueDate year="2018" month="02" day="23"/>
         <dmTitle>
           <techName>s1kd-brexcheck</techName>
           <infoName>Description</infoName>
@@ -41,8 +39,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001">
-        <simplePara>Add -c option.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
+        <simplePara>Reformat XML examples.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -50,11 +48,14 @@
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-brexcheck</emphasis> tool validates an S1000D data module using the context rules of one or multiple <acronym acronymType="at01"><acronymTerm>BREX</acronymTerm><acronymDefinition>Business Rules EXchange</acronymDefinition></acronym> data modules. All errors are displayed with the &lt;objectUse&gt; message, the line number, and a representation of the invalid XML tree.</para>
+        <para>The <emphasis>s1kd-brexcheck</emphasis> tool validates an S1000D data module using the context rules, SNS rules, and/or notation rules of one or multiple <acronym acronymType="at01"><acronymTerm>BREX</acronymTerm><acronymDefinition>Business Rules EXchange</acronymDefinition></acronym> data modules. All errors are displayed with the &lt;objectUse&gt; message, the line number, and a representation of the invalid XML tree.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para>s1kd-brexcheck [-b &lt;brex&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;] [-vVqDsxlStupfch?] &lt;datamodules&gt;</para>
+        <para>
+          <verbatimText verbatimStyle="vs24">s1kd-brexcheck [-b &lt;brex&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;]
+               [-vVqDsxlStupfch?] &lt;datamodules&gt;</verbatimText>
+        </para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
@@ -67,45 +68,33 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
+              <listItemTerm>-c</listItemTerm>
+              <listItemDefinition>
+                <para>When a context rule defines values for an object (objectValue), check if the value of each object is within the allowed set of values.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-f</listItemTerm>
+              <listItemDefinition>
+                <para>Output only the filenames of modules with BREX/SNS errors.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-h -?</listItemTerm>
+              <listItemDefinition>
+                <para>Show the help/usage message.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-I &lt;path&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Add a search path for BREX data modules. By default, only the current directory is searched.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-v -V -q -D</listItemTerm>
-              <listItemDefinition>
-                <para>Verbosity of the output.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-s</listItemTerm>
-              <listItemDefinition>
-                <para>Use shortened, single-line messages to report BREX errors instead of multiline indented messages.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-x</listItemTerm>
-              <listItemDefinition>
-                <para>Output an XML report instead of a plain-text one.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
               <listItemTerm>-l</listItemTerm>
               <listItemDefinition>
                 <para>Use the layered BREX concept. BREX data modules referenced by other BREX data modules (either specified with -b or referenced by the specified data modules) will also be checked against.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-w &lt;severities&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>Specify a list of severity levels for business rules.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-S[tu]</listItemTerm>
-              <listItemDefinition>
-                <para>Check <acronym acronymType="at01"><acronymTerm>SNS</acronymTerm><acronymDefinition>Standard Numbering System</acronymDefinition></acronym> rules. The SNS of each specified data module is checked against the combination of all SNS rules of all specified BREX data modules.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -122,21 +111,33 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-f</listItemTerm>
+              <listItemTerm>-S[tu]</listItemTerm>
               <listItemDefinition>
-                <para>Output only the filenames of modules with BREX/SNS errors.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
-              <listItemTerm>-c</listItemTerm>
-              <listItemDefinition>
-                <para>When a context rule defines values for an object (objectValue), check if the value of each object is within the allowed set of values.</para>
+                <para>Check <acronym acronymType="at01"><acronymTerm>SNS</acronymTerm><acronymDefinition>Standard Numbering System</acronymDefinition></acronym> rules. The SNS of each specified data module is checked against the combination of all SNS rules of all specified BREX data modules.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-h -?</listItemTerm>
+              <listItemTerm>-s</listItemTerm>
               <listItemDefinition>
-                <para>Show the help/usage message.</para>
+                <para>Use shortened, single-line messages to report BREX errors instead of multiline indented messages.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-v -V -q -D</listItemTerm>
+              <listItemDefinition>
+                <para>Verbosity of the output.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-w &lt;severities&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Specify a list of severity levels for business rules.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-x</listItemTerm>
+              <listItemDefinition>
+                <para>Output an XML report instead of a plain-text one.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
@@ -146,10 +147,10 @@
           <para>The attribute brSeverityLevel on a BREX rule allows for distinguishing different kinds of errors. The -w option takes an XML file containing a list of severity levels, their user-defined type, and optionally if they should not be counted as true errors (causing the tool to return a "failure" status) but merely warnings.</para>
           <para>An example of the format of this file is given below:</para>
           <para>
-            <verbatimText verbatimStyle="vs11">&lt;?xml version="1.0"?&gt;
+            <verbatimText verbatimStyle="vs11" changeType="modify" reasonForUpdateRefIds="rfu-0001">&lt;?xml version="1.0"?&gt;
 &lt;brSeverityLevels&gt;
-  &lt;brSeverityLevel value="brsl01" fail="yes"&gt;Error&lt;/brSeverityLevel&gt;
-  &lt;brSeverityLevel value="brsl02" fail="no"&gt;Warning&lt;/brSeverityLevel&gt;
+&lt;brSeverityLevel value="brsl01" fail="yes"&gt;Error&lt;/brSeverityLevel&gt;
+&lt;brSeverityLevel value="brsl02" fail="no"&gt;Warning&lt;/brSeverityLevel&gt;
 &lt;/brSeverityLevels&gt;</verbatimText>
           </para>
           <para>When the attribute <verbatimText verbatimStyle="vs13">fail</verbatimText> has a value of "yes" (or is not included), BREX errors pertaining to rules with the given severity level value will be counted as errors. When it is no, the errors are still displayed but are not counted as errors in the exit status code of the tool.</para>
@@ -159,36 +160,36 @@
           <para>There are three modes for SNS checking: normal, strict, and unstrict. The main difference between them is how they handle the optional levels of an SNS description in the BREX.</para>
           <para>-St enables <emphasis>strict</emphasis> SNS checking. By default, the normal SNS check (-S) will assume optional elements snsSubSystem, snsSubSubSystem, and snsAssy exist with an snsCode of "0" ("00" or "0000" for snsAssy) when their parent element does not contain any of each. This provides a shorthand, such that</para>
           <para>
-            <verbatimText verbatimStyle="vs11">&lt;snsSystem&gt;
-  &lt;snsCode&gt;00&lt;/snsCode&gt;
-  &lt;snsTitle&gt;General&lt;/snsTitle&gt;
+            <verbatimText verbatimStyle="vs11" changeType="modify" reasonForUpdateRefIds="rfu-0001">&lt;snsSystem&gt;
+&lt;snsCode&gt;00&lt;/snsCode&gt;
+&lt;snsTitle&gt;General&lt;/snsTitle&gt;
 &lt;/snsSystem&gt;</verbatimText>
           </para>
           <para>is equivalent to</para>
           <para>
-            <verbatimText verbatimStyle="vs11">&lt;snsSystem&gt;
-  &lt;snsCode&gt;00&lt;/snsCode&gt;
-  &lt;snsTitle&gt;General&lt;/snsTitle&gt;
-  &lt;snsSubSystem&gt;
-    &lt;snsCode&gt;0&lt;/snsCode&gt;
-    &lt;snsTitle&gt;General&lt;/snsTitle&gt;
-    &lt;snsSubSubSystem&gt;
-      &lt;snsCode&gt;0&lt;/snsCode&gt;
-      &lt;snsTitle&gt;General&lt;/snsTitle&gt;
-      &lt;snsAssy&gt;
-        &lt;snsCode&gt;00&lt;/snsCode&gt;
-        &lt;snsTitle&gt;General&lt;/snsTitle&gt;
-      &lt;/snsAssy&gt;
-    &lt;/snsSubSubSystem&gt;
-  &lt;/snsSubSystem&gt;
+            <verbatimText verbatimStyle="vs11" changeType="modify" reasonForUpdateRefIds="rfu-0001">&lt;snsSystem&gt;
+&lt;snsCode&gt;00&lt;/snsCode&gt;
+&lt;snsTitle&gt;General&lt;/snsTitle&gt;
+&lt;snsSubSystem&gt;
+&lt;snsCode&gt;0&lt;/snsCode&gt;
+&lt;snsTitle&gt;General&lt;/snsTitle&gt;
+&lt;snsSubSubSystem&gt;
+&lt;snsCode&gt;0&lt;/snsCode&gt;
+&lt;snsTitle&gt;General&lt;/snsTitle&gt;
+&lt;snsAssy&gt;
+&lt;snsCode&gt;00&lt;/snsCode&gt;
+&lt;snsTitle&gt;General&lt;/snsTitle&gt;
+&lt;/snsAssy&gt;
+&lt;/snsSubSubSystem&gt;
+&lt;/snsSubSystem&gt;
 &lt;/snsSystem&gt;</verbatimText>
           </para>
           <para>Using strict checking will disable this shorthand, and missing optional elements will result in an error.</para>
           <para>-Su enables <emphasis>unstrict</emphasis> SNS checking. The normal SNS check (-S) shorthand mentioned above only allows SNS codes of "0" to be omitted from the SNS rules. Using unstrict checking, <emphasis>any</emphasis> code used will not produce an error when the relevant optional elements are omitted. This means that given the following...</para>
           <para>
-            <verbatimText verbatimStyle="vs11">&lt;snsSystem&gt;
-  &lt;snsCode&gt;00&lt;/snsCode&gt;
-  &lt;snsTitle&gt;General&lt;/snsTitle&gt;
+            <verbatimText verbatimStyle="vs11" changeType="modify" reasonForUpdateRefIds="rfu-0001">&lt;snsSystem&gt;
+&lt;snsCode&gt;00&lt;/snsCode&gt;
+&lt;snsTitle&gt;General&lt;/snsTitle&gt;
 &lt;/snsSystem&gt;</verbatimText>
           </para>
           <para>...SNS codes of 00-00-0000 through 00-ZZ-ZZZZ are considered valid.</para>
@@ -201,12 +202,12 @@
       <levelledPara>
         <title>Example</title>
         <para>
-          <verbatimText verbatimStyle="vs23">$ DMOD=DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+          <verbatimText verbatimStyle="vs23" changeType="modify" reasonForUpdateRefIds="rfu-0001">$ DMOD=DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
 $ BREX=DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 $ cat $DMOD
 [...]
 &lt;listItem id="stp-0001"&gt;
-  &lt;para&gt;List items shouldn't be used as steps...&lt;/para&gt;
+&lt;para&gt;List items shouldn't be used as steps...&lt;/para&gt;
 &lt;/listItem&gt;
 [...]
 &lt;para&gt;Refer to &lt;internalRef internalRefId="stp-0001"
