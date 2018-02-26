@@ -37,7 +37,9 @@
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance><unverified/></qualityAssurance>
+      <qualityAssurance>
+        <unverified/>
+      </qualityAssurance>
     </pmStatus>
   </identAndStatusSection>
   <content>
@@ -98,6 +100,28 @@
           <dmTitle>
             <techName>S1000D tools</techName>
             <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="018" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-tools</techName>
+            <infoName>Introduction</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="130" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-tools</techName>
+            <infoName>Usage examples</infoName>
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
