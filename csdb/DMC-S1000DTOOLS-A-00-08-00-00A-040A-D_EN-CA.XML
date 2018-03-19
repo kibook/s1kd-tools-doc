@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule [
-<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-2/ent/ISOEntities">
-]>
+<!DOCTYPE dmodule>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="8" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="002" inWork="00"/>
+        <issueInfo issueNumber="004" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="02" day="22"/>
+        <issueDate year="2018" month="03" day="15"/>
         <dmTitle>
-          <techName>s1kd-dmref</techName>
+          <techName>s1kd-ref</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
@@ -41,8 +39,11 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
-        <simplePara>Improve organization and formatting.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt02">
+        <simplePara>Add -f, -o, -r, and -s options.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateReasonType="urt01">
+        <simplePara>Correct definition of -t option.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -50,18 +51,25 @@
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-dmref</emphasis> tool generates the XML for a &lt;dmRef&gt; element using the specified code or data module filename. When using a filename, it can parse the data module to include the issue, language, and/or title information in the reference.</para>
+        <para>The <emphasis>s1kd-ref</emphasis> tool generates the XML for S1000D reference elements using the specified code or filename. When using a filename, it can parse the CSDB object to include the issue, language, and/or title information in the reference.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">
-          <verbatimText verbatimStyle="vs24">s1kd-dmref [-tlih?] [&lt;code&gt;|&lt;filename&gt;]</verbatimText>
+        <para>
+          <verbatimText verbatimStyle="vs24" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-ref [-filrth?] [-s &lt;src&gt;] [-o &lt;dst&gt;]
+         [&lt;code&gt;|&lt;filename&gt;]...</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
         <para>
-          <definitionList changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <definitionList>
+            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-f</listItemTerm>
+              <listItemDefinition>
+                <para>Overwrite source data module instead of writing to stdout.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-h -?</listItemTerm>
               <listItemDefinition>
@@ -80,16 +88,34 @@
                 <para>Include the language information in the reference (target must be a file)</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-o &lt;dst&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Output to &lt;dst&gt; instead of stdout.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-r</listItemTerm>
+              <listItemDefinition>
+                <para>Add the generated reference to the source data module's <verbatimText verbatimStyle="vs12">refs</verbatimText> table rather than printing the XML to stdout.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-s &lt;src&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Specify a source data module &lt;src&gt; to add references to when using the -r option.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-t</listItemTerm>
               <listItemDefinition>
-                <para>Include the dmTitle in the reference (target must be a file).</para>
+                <para changeType="modify" reasonForUpdateRefIds="rfu-0002">Include the title in the reference (target must be a file).</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>&lt;code&gt;|&lt;filename&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Either a data module code, including the prefix DMC or DME (for extended identification), or the filename of a data module.</para>
+                <para>Either a code, including the prefix (DMC, PMC, etc.), or the filename of a CSDB object.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
@@ -98,7 +124,7 @@
       <levelledPara>
         <title>Example</title>
         <para>
-          <verbatimText verbatimStyle="vs23" changeType="modify" reasonForUpdateRefIds="rfu-0001">$ s1kd-dmref DMC-S1000DTOOLS-A-00-08-00-00A-040A-D
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref DMC-S1000DTOOLS-A-00-08-00-00A-040A-D
 &lt;dmRef&gt;
 &lt;dmRefIdent&gt;
 &lt;dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A"

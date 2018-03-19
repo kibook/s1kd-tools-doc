@@ -54,9 +54,9 @@
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
-            <techName>s1kd-newdm</techName>
-            <infoName>Description</infoName>
-          </dmTitle>
+          <techName>s1kd-newdm</techName>
+          <infoName>Description</infoName>
+        </dmTitle>
         </dmRefAddressItems>
       </dmRef>
     </refs>
@@ -206,7 +206,10 @@
         </para>
         <levelledPara>
           <title>'defaults' file</title>
-          <para>Refer to <dmRef><dmRefIdent><dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/></dmRefIdent><dmRefAddressItems><dmTitle><techName>s1kd-newdm</techName><infoName>Description</infoName></dmTitle></dmRefAddressItems></dmRef> for information on the 'defaults' file which is used by all the s1kd-new* commands.</para>
+          <para>Refer to <dmRef><dmRefIdent><dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/></dmRefIdent><dmRefAddressItems><dmTitle>
+          <techName>s1kd-newdm</techName>
+          <infoName>Description</infoName>
+        </dmTitle></dmRefAddressItems></dmRef> for information on the 'defaults' file which is used by all the s1kd-new* commands.</para>
         </levelledPara>
       </levelledPara>
     </description>

@@ -6,17 +6,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="130" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="001" inWork="00"/>
+        <issueInfo issueNumber="003" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="02" day="26"/>
+        <issueDate year="2018" month="03" day="19"/>
         <dmTitle>
           <techName>s1kd-tools</techName>
           <infoName>Usage examples</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="new">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -32,13 +32,16 @@
       <brexDmRef>
         <dmRef>
           <dmRefIdent>
-            <dmCode modelIdentCode="TEST1" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="D"/>
+            <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="D"/>
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt02">
+        <simplePara>Add usage example of the s1kd-defaults tool.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -55,7 +58,11 @@
           <verbatimText verbatimStyle="vs23">$ mkdir myproject
 $ cd myproject</verbatimText>
         </para>
-        <para>After that, you should create two files: <verbatimText verbatimStyle="vs02">defaults</verbatimText> and <verbatimText verbatimStyle="vs02">dmtypes</verbatimText>.</para>
+        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">After that, you should create two files: <verbatimText verbatimStyle="vs02">defaults</verbatimText> and <verbatimText verbatimStyle="vs02">dmtypes</verbatimText>. These files can be created automatically using the <emphasis>s1kd-defaults</emphasis> tool to initialize the new CSDB:</para>
+        <para changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <verbatimText verbatimStyle="vs23">$ s1kd-defaults -i</verbatimText>
+        </para>
+        <para changeType="add" reasonForUpdateRefIds="rfu-0001">Afterwards, these files can be edited to customize them for your project. More information on the contents of these files is provided below.</para>
         <levelledPara id="par-0001">
           <title><verbatimText verbatimStyle="vs02">defaults</verbatimText> file</title>
           <para>The <verbatimText verbatimStyle="vs02">defaults</verbatimText> file is used by all of the s1kd-new* tools. It provides default values for various S1000D metadata. The <verbatimText verbatimStyle="vs02">defaults</verbatimText> file can be written in either a simple text format or an XML format.</para>
@@ -133,6 +140,15 @@ schema="proced"/>
           <verbatimText verbatimStyle="vs23">$ s1kd-dmrl DML-MYPRJ-NCAGE-C-2017-00001_000-01.XML</verbatimText>
         </para>
         <para>Information not included in the DMRL entry for a CSDB object is pulled from the <verbatimText verbatimStyle="vs02">defaults</verbatimText> file (and the <verbatimText verbatimStyle="vs02">dmtypes</verbatimText> file for data modules).</para>
+        <levelledPara>
+          <title>Creating CSDB objects on-the-fly</title>
+          <para>Data modules and other CSDB objects can also be created in an "on-the-fly" manner, without the use of a DMRL, by invoking the s1kd-new* set of tools directly, as with s1kd-newdml above. For example, to create a new data module:</para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-newdm -# MYPRJ-A-00-00-00-00A-040A-D</verbatimText>
+          </para>
+          <para>This would create the file <verbatimText verbatimStyle="vs02">DMC-MYPRJ-A-00-00-00-00A-040A-D_000-01_EN-CA.XML</verbatimText> in your CSDB folder.</para>
+          <para>Each of the s1kd-new* tools has various options for setting specific metadata, and information not included as arguments to these commands is pulled from the <verbatimText verbatimStyle="vs02">defaults</verbatimText> and <verbatimText verbatimStyle="vs02">dmtypes</verbatimText> files.</para>
+        </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Data module workflow</title>
