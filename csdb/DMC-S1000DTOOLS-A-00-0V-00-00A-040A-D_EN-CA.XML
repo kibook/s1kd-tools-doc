@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule [
-<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-2/ent/ISOEntities">
-]>
+<!DOCTYPE dmodule>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="6" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="V" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="006" inWork="00"/>
+        <issueInfo issueNumber="001" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="04" day="02"/>
+        <issueDate year="2018" month="03" day="31"/>
         <dmTitle>
-          <techName>s1kd-ls</techName>
+          <techName>s1kd-newupf</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="changed">
+    <dmStatus issueType="new">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -41,21 +39,18 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateReasonType="urt02">
-        <simplePara>Add -0 option.</simplePara>
-      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-ls</emphasis> tool lists CSDB objects in a directory hierarchy.</para>
+        <para>The <emphasis>s1kd-newupf</emphasis> tool creates a new S1000D data update file for two specified issues of a CIR data module. Changes to items between the source and target issues of the CIR are recorded in the resulting UPF, along with update instructions.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-ls [-0CDiLlMPrwX]</verbatimText>
+          <verbatimText verbatimStyle="vs24">s1kd-newupf [options] &lt;SOURCE&gt; &lt;TARGET&gt;</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -63,68 +58,58 @@
         <para>
           <definitionList>
             <definitionListItem>
-              <listItemTerm>-0</listItemTerm>
+              <listItemTerm>-@ &lt;filename&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Output a null-delimited list of CSDB object paths.</para>
+                <para>Save the new UPF as &lt;filename&gt; instead of an automatically named file in the current directory.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-C, -D, -L, -M, -P, -X</listItemTerm>
+              <listItemTerm>-$ &lt;issue&gt;</listItemTerm>
               <listItemDefinition>
-                <para>List comments, data modules, data management lists, ICN metadata files, publication modules, and data dispatch notes respectively. If none are specified, -CDLMPX is assumed.</para>
+                <para>Specify which issue of S1000D to use. Currently supported issues are:</para>
+                <para>
+                  <randomList>
+                    <listItem>
+                      <para>4.2 (default)</para>
+                    </listItem>
+                    <listItem>
+                      <para>4.1</para>
+                    </listItem>
+                  </randomList>
+                </para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-h -?</listItemTerm>
+              <listItemTerm>-% &lt;dir&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Show the usage message.</para>
+                <para>Use XML template in the specified directory instead of the built-in template. The template must be named <verbatimText verbatimStyle="vs02">update.xml</verbatimText> in the directory &lt;dir&gt;, and must conform to the default S1000D issue of this tool (4.2).</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-i</listItemTerm>
+              <listItemTerm>-d &lt;defaults&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Show only official issues of data modules (inwork = 00).</para>
+                <para>Specify the 'defaults' file name.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-l</listItemTerm>
+              <listItemTerm>-f</listItemTerm>
               <listItemDefinition>
-                <para>Show only the latest issue/inwork version of data modules.</para>
+                <para>Overwrite existing file.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-r</listItemTerm>
+              <listItemTerm>&lt;SOURCE&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Recursively descend in to directories.</para>
+                <para>The source (original) issue of the CIR data module.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-w</listItemTerm>
+              <listItemTerm>&lt;TARGET&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Show only writable data module files.</para>
+                <para>The target (updated) issue of the CIR data module.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
-        </para>
-      </levelledPara>
-      <levelledPara>
-        <title>Example</title>
-        <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-ls
-DMC-EX-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
-DMC-EX-A-00-00-00-00A-040A-D_000-02_EN-CA.XML
-DMC-EX-B-00-00-00-00A-040A-D_000-01_EN-CA.XML
-PMC-EX-12345-00001-00_000-01_EN-CA.XML
-
-$ s1kd-ls -l
-DMC-EX-A-00-00-00-00A-040A-D_000-02_EN-CA.XML
-DMC-EX-B-00-00-00-00A-040A-D_000-01_EN-CA.XML
-PMC-EX-12345-00001-00_000-01_EN-CA.XML
-
-$ s1kd-ls -D | s1kd-metadata -lt -ntechName -ninfoName -nissueDate
-Example A    Description    2018-03-20
-Example A    Description    2018-03-29
-Example B    Description    2018-03-29</verbatimText>
         </para>
       </levelledPara>
     </description>

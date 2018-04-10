@@ -9,10 +9,10 @@
       <pmIdent>
         <pmCode modelIdentCode="S1000DTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="027" inWork="00"/>
+        <issueInfo issueNumber="028" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2018" month="03" day="19"/>
+        <issueDate year="2018" month="04" day="10"/>
         <pmTitle>S1000D tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
@@ -216,6 +216,17 @@
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="V" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-newupf</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
     </pmEntry>
     <pmEntry>
       <pmEntryTitle>Tools for authoring and managing data</pmEntryTitle>
@@ -364,6 +375,17 @@
         <dmRefAddressItems>
           <dmTitle>
             <techName>s1kd-flatten</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="S" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-index</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>

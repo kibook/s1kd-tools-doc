@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="K" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="003" inWork="00"/>
+        <issueInfo issueNumber="006" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="02" day="22"/>
+        <issueDate year="2018" month="03" day="25"/>
         <dmTitle>
           <techName>s1kd-acronyms</techName>
           <infoName>Description</infoName>
@@ -39,11 +39,14 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
-        <simplePara>Improve organization and formatting.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt02">
+        <simplePara>Add -D option.</simplePara>
       </reasonForUpdate>
       <reasonForUpdate id="rfu-0002" updateReasonType="urt01">
-        <simplePara>Add more detail to description.</simplePara>
+        <simplePara>Give a more general description of purpose.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0003" updateReasonType="urt01">
+        <simplePara>Clarify usage of trailing arguments.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -51,24 +54,52 @@
     <description>
       <levelledPara>
         <title>General</title>
-        <para changeType="modify" reasonForUpdateRefIds="rfu-0002">The <emphasis>s1kd-acronyms</emphasis> tool generates a list of unique acronyms used in S1000D data modules. It can also mark up acronyms in data modules automatically based on an existing list.</para>
+        <para changeType="modify" reasonForUpdateRefIds="rfu-0002">The <emphasis>s1kd-acronyms</emphasis> tool is used to manage acronyms in S1000D data modules in one of three ways:</para>
+        <para changeType="add" reasonForUpdateRefIds="rfu-0002">
+          <randomList>
+            <listItem>
+              <para>Generate a list of unique acronyms used in all specified data modules.</para>
+            </listItem>
+            <listItem>
+              <para>Mark up acronyms automatically based on a specified list.</para>
+            </listItem>
+            <listItem>
+              <para>Remove acronym markup.</para>
+            </listItem>
+          </randomList>
+        </para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
-        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">
-          <verbatimText verbatimStyle="vs24">s1kd-acronyms [-pxdtiIh?] [-n &lt;#&gt;] [-T &lt;types&gt;]
-              [-m &lt;acronyms&gt;] [-o &lt;file&gt;]
-              [&lt;datamodules&gt;]</verbatimText>
+        <para>
+          <verbatimText verbatimStyle="vs24">s1kd-acronyms -h?
+s1kd-acronyms [-dLptx] [-n &lt;#&gt;] [-o &lt;file&gt;]
+              [-T &lt;types&gt;] [&lt;dmodule&gt;...]
+s1kd-acronyms [-fiIL] [-m &lt;list&gt;] [-o &lt;file&gt;]
+              [&lt;dmodule&gt;...]
+s1kd-acronyms -D [-fL] [-o &lt;file&gt;] [&lt;dmodule&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
         <title>Options</title>
         <para>
-          <definitionList changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <definitionList>
+            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-D</listItemTerm>
+              <listItemDefinition>
+                <para>Remove acronym markup, flattening it to the acronym term.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-d</listItemTerm>
               <listItemDefinition>
                 <para>Format XML output as an S1000D <verbatimText verbatimStyle="vs12">&lt;definitionList&gt;</verbatimText>.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-f</listItemTerm>
+              <listItemDefinition>
+                <para>When marking up acronyms with the -m option, overwrite the input data modules instead of writing to stdout.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -86,6 +117,12 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
+              <listItemTerm>-L</listItemTerm>
+              <listItemDefinition>
+                <para>Treat input (stdin or arguments) as lists of filenames of data modules to find or markup acronyms in, rather than data modules themselves.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-m &lt;acronyms&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Instead of listing acronyms, automatically markup acronyms given in the &lt;acronyms&gt; XML file in the specified data modules. Occurrences of the acronym term will be replaced in text with the <verbatimText verbatimStyle="vs12">acronym</verbatimText> element in the list.</para>
@@ -100,13 +137,13 @@
             <definitionListItem>
               <listItemTerm>-o &lt;file&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Output to &lt;file&gt; instead of stdout. When used with the -m option, output to &lt;file&gt; instead of overwriting the existing file.</para>
+                <para>Output to &lt;file&gt; instead of stdout.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-p</listItemTerm>
               <listItemDefinition>
-                <para>Pretty print text/XML output.</para>
+                <para>Pretty print text/XML acronym list output.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -127,10 +164,10 @@
                 <para>Use XML output instead of plain text.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>&lt;datamodules&gt;</listItemTerm>
+            <definitionListItem changeType="modify" reasonForUpdateRefIds="rfu-0003">
+              <listItemTerm>&lt;dmodule&gt;...</listItemTerm>
               <listItemDefinition>
-                <para>Data modules to find acronyms in.</para>
+                <para>Data modules to find acronyms in. If none are specified, input is taken from stdin.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
