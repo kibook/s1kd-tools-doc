@@ -6,7 +6,6 @@ PARAMS+=-param ulink.show "0"
 PARAMS+=-param external.pub.ref.inline "'code'"
 PARAMS+=-param show.unclassified "0"
 PARAMS+=-param auto.expand.acronyms "1"
-PARAMS+=-param use.unparsed.entity.uri "1"
 
 all: S1000D_tools.pdf
 

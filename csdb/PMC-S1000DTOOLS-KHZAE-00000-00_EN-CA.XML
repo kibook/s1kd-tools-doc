@@ -9,10 +9,10 @@
       <pmIdent>
         <pmCode modelIdentCode="S1000DTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="028" inWork="00"/>
+        <issueInfo issueNumber="029" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2018" month="04" day="10"/>
+        <issueDate year="2018" month="05" day="30"/>
         <pmTitle>S1000D tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
@@ -37,9 +37,7 @@
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance>
-        <unverified/>
-      </qualityAssurance>
+      <qualityAssurance><unverified/></qualityAssurance>
     </pmStatus>
   </identAndStatusSection>
   <content>
@@ -375,6 +373,17 @@
         <dmRefAddressItems>
           <dmTitle>
             <techName>s1kd-flatten</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="W" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-icncatalog</techName>
             <infoName>Description</infoName>
           </dmTitle>
         </dmRefAddressItems>

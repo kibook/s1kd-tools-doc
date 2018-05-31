@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="H" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="010" inWork="00"/>
+        <issueInfo issueNumber="013" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="02" day="23"/>
+        <issueDate year="2018" month="05" day="23"/>
         <dmTitle>
           <techName>s1kd-newddn</techName>
           <infoName>Description</infoName>
@@ -40,7 +40,7 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
-        <simplePara>Improve organization and formatting.</simplePara>
+        <simplePara>Add example.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -65,14 +65,14 @@
       </levelledPara>
       <levelledPara id="synopsis">
         <title>Usage</title>
-        <para changeType="modify" reasonForUpdateRefIds="rfu-0001">
+        <para>
           <verbatimText verbatimStyle="vs24">s1kd-newddn [options] &lt;files&gt;...</verbatimText>
         </para>
       </levelledPara>
       <levelledPara id="options">
         <title>Options</title>
         <para>
-          <definitionList changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <definitionList>
             <definitionListItem>
               <listItemTerm>-# &lt;code&gt;</listItemTerm>
               <listItemDefinition>
@@ -99,6 +99,15 @@
                     </listItem>
                     <listItem>
                       <para>2.3</para>
+                    </listItem>
+                    <listItem>
+                      <para>2.2</para>
+                    </listItem>
+                    <listItem>
+                      <para>2.1</para>
+                    </listItem>
+                    <listItem>
+                      <para>2.0</para>
                     </listItem>
                   </randomList>
                 </para>
@@ -177,6 +186,12 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
+              <listItemTerm>-q</listItemTerm>
+              <listItemDefinition>
+                <para>Do not report an error when the file already exists.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-r &lt;receiver&gt;</listItemTerm>
               <listItemDefinition>
                 <para>The enterprise name of the receiver.</para>
@@ -206,6 +221,12 @@
           <title>'defaults' file</title>
           <para>Refer to <dmRef><dmRefIdent><dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/></dmRefIdent><dmRefAddressItems><dmTitle><techName>s1kd-newdm</techName><infoName>Description</infoName></dmTitle></dmRefAddressItems></dmRef> for information on the 'defaults' file which is used by all the s1kd-new* commands.</para>
         </levelledPara>
+      </levelledPara>
+      <levelledPara changeType="add" reasonForUpdateRefIds="rfu-0001">
+        <title>Example</title>
+        <para>
+          <verbatimText verbatimStyle="vs24">$ s1kd-newddn -# EX-12345-54321-2018-00001</verbatimText>
+        </para>
       </levelledPara>
     </description>
   </content>

@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="018" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="007" inWork="00"/>
+        <issueInfo issueNumber="008" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="03" day="23"/>
+        <issueDate year="2018" month="05" day="01"/>
         <dmTitle>
           <techName>s1kd-tools</techName>
           <infoName>Introduction</infoName>
@@ -40,7 +40,10 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
-        <simplePara>Update list of tools.</simplePara>
+        <simplePara>Reorganize manpage references.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
+        <simplePara>Add info on s1kd-icncatalog.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -87,11 +90,12 @@
               <para>The <emphasis>s1kd-refls</emphasis> tool lists references in a CSDB object to generate a list of dependencies on other CSDB objects.</para>
               <para>The <emphasis>s1kd-checkrefs</emphasis> tool validates references between CSDB objects.</para>
             </listItem>
-            <listItem changeType="modify" reasonForUpdateRefIds="rfu-0001">
+            <listItem>
               <para><emphasis>Publication:</emphasis> These tools support the production of publications from a CSDB.</para>
               <para>The <emphasis>s1kd-acronyms</emphasis> tool can automatically mark up acronyms within data modules, and can also generate lists of acronyms marked up within data modules.</para>
               <para>The <emphasis>s1kd-aspp</emphasis> tool preprocesses applicability statements in a data module, generating display text and "presentation" applicability statements.</para>
               <para>The <emphasis>s1kd-flatten</emphasis> tool flattens a publication module and referenced data modules in to a single "deliverable" file for a publishing system.</para>
+              <para changeType="add" reasonForUpdateRefIds="rfu-0002">The <emphasis>s1kd-icncatalog</emphasis> tool resolves ICN references in objects.</para>
               <para>The <emphasis>s1kd-index</emphasis> tool flags index keywords in a data module based on a user-defined list.</para>
               <para>The <emphasis>s1kd-instance</emphasis> tool produces "instances" of CSDB objects using applicability filtering and/or common information repositories (CIRs).</para>
               <para>The <emphasis>s1kd-neutralize</emphasis> tool generates IETP neutral metadata for CSDB objects.</para>

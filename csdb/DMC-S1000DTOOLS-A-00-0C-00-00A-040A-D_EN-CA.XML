@@ -8,10 +8,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="C" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="010" inWork="00"/>
+        <issueInfo issueNumber="014" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="04" day="02"/>
+        <issueDate year="2018" month="05" day="23"/>
         <dmTitle>
           <techName>s1kd-newpm</techName>
           <infoName>Description</infoName>
@@ -42,16 +42,7 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
-        <simplePara>Document -i and -l options.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0002" updateReasonType="urt02">
-        <simplePara>Add -T option.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0003" updateReasonType="urt02">
-        <simplePara>Add -D option.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0004" updateReasonType="urt01">
-        <simplePara>Fix definition of -d option.</simplePara>
+        <simplePara>Add example.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -111,6 +102,15 @@
                     <listItem>
                       <para>2.3</para>
                     </listItem>
+                    <listItem>
+                      <para>2.2</para>
+                    </listItem>
+                    <listItem>
+                      <para>2.1</para>
+                    </listItem>
+                    <listItem>
+                      <para>2.0</para>
+                    </listItem>
                   </randomList>
                 </para>
               </listItemDefinition>
@@ -145,14 +145,14 @@
                 <para>The security classification of the new publication module.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0003">
+            <definitionListItem>
               <listItemTerm>-D</listItemTerm>
               <listItemDefinition>
                 <para>Include issue date in referenced data modules.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm changeType="modify" reasonForUpdateRefIds="rfu-0004">-d &lt;defaults&gt;</listItemTerm>
+              <listItemTerm>-d &lt;defaults&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Specify the 'defaults' file name.</para>
               </listItemDefinition>
@@ -169,7 +169,7 @@
                 <para>The issue date of the new publication module in the form of YYYY-MM-DD.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>-i</listItemTerm>
               <listItemDefinition>
                 <para>Include issue information in referenced data modules.</para>
@@ -181,7 +181,7 @@
                 <para>The language ISO code of the new publication module.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>-l</listItemTerm>
               <listItemDefinition>
                 <para>Include language information in referenced data modules.</para>
@@ -200,6 +200,12 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
+              <listItemTerm>-q</listItemTerm>
+              <listItemDefinition>
+                <para>Do not report an error when the file already exists.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-R &lt;CAGE&gt;</listItemTerm>
               <listItemDefinition>
                 <para>The CAGE code of the responsible partner company.</para>
@@ -211,7 +217,13 @@
                 <para>The responsible partner company enterprise name of the new publication module.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0002">
+            <definitionListItem>
+              <listItemTerm>-s &lt;title&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>The short title of the new publication module.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-T</listItemTerm>
               <listItemDefinition>
                 <para>Include titles in referenced data modules.</para>
@@ -241,6 +253,12 @@
           <title>'defaults' file</title>
           <para>Refer to <dmRef><dmRefIdent><dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="7" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/></dmRefIdent><dmRefAddressItems><dmTitle><techName>s1kd-newdm</techName><infoName>Description</infoName></dmTitle></dmRefAddressItems></dmRef> for information on the 'defaults' file which is used by all the s1kd-new* commands.</para>
         </levelledPara>
+      </levelledPara>
+      <levelledPara changeType="add" reasonForUpdateRefIds="rfu-0001">
+        <title>Example</title>
+        <para>
+          <verbatimText verbatimStyle="vs24">$ s1kd-newpm -# EX-12345-00001-00</verbatimText>
+        </para>
       </levelledPara>
     </description>
   </content>
