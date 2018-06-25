@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="3" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="016" inWork="00"/>
+        <issueInfo issueNumber="018" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="06" day="01"/>
+        <issueDate year="2018" month="06" day="21"/>
         <dmTitle>
           <techName>s1kd-instance</techName>
           <infoName>Description</infoName>
@@ -39,8 +39,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateReasonType="urt02">
-        <simplePara>Add --version option.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01">
+        <simplePara>Add examples.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -246,6 +246,9 @@
                       <para>Functional items</para>
                     </listItem>
                     <listItem>
+                      <para>Illustrated parts data</para>
+                    </listItem>
+                    <listItem>
                       <para>Parts</para>
                     </listItem>
                     <listItem>
@@ -346,6 +349,9 @@
                       <para>functionalItemRepository</para>
                     </listItem>
                     <listItem>
+                      <para>illustratedPartsCatalog</para>
+                    </listItem>
+                    <listItem>
                       <para>partRepository</para>
                     </listItem>
                     <listItem>
@@ -376,7 +382,7 @@
                 <para>Set the applicability for the whole data object using the user-defined applicability values, with no display text.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>--version</listItemTerm>
               <listItemDefinition>
                 <para>Show version information.</para>
@@ -541,6 +547,25 @@ is an item in the system.
           <para>This means any elements or attributes which are not matched with a more specific template in the custom XSLT script are automatically copied.</para>
           <para>The set of built-in XSLT scripts used to resolve dependencies can be dumped using the -x option.</para>
         </levelledPara>
+      </levelledPara>
+      <levelledPara changeType="add" reasonForUpdateRefIds="rfu-0001">
+        <title>Examples</title>
+        <para>Filtering a data module on specified applicability and writing to stdout:</para>
+        <para>
+          <verbatimText verbatimStyle="vs24">$ s1kd-instance -s version:prodattr=A &lt;DM&gt;</verbatimText>
+        </para>
+        <para>Filtering a data module on a specified product instance and writing to stdout:</para>
+        <para>
+          <verbatimText verbatimStyle="vs24">$ s1kd-instance -P &lt;PCT&gt; -p versionA &lt;DM&gt;</verbatimText>
+        </para>
+        <para>Filtering data modules for a particular customer and outputting with extended identification:</para>
+        <para>
+          <verbatimText verbatimStyle="vs24">$ s1kd-instance -s version:prodattr=A -e 12345-54321 -O . &lt;DMs&gt;</verbatimText>
+        </para>
+        <para>Writing out a data module from stdin to a directory with automatic naming:</para>
+        <para>
+          <verbatimText verbatimStyle="vs24">$ s1kd-transform -s &lt;xsl&gt; &lt;DM&gt; | s1kd-instance -O &lt;dir&gt;</verbatimText>
+        </para>
       </levelledPara>
     </description>
   </content>

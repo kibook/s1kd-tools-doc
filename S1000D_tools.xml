@@ -37,4 +37,6 @@
   <xi:include href="csdb/DMC-S1000DTOOLS-A-00-0U-00-00A-040A-D_EN-CA.XML"/>
   <xi:include href="csdb/DMC-S1000DTOOLS-A-00-0V-00-00A-040A-D_EN-CA.XML"/>
   <xi:include href="csdb/DMC-S1000DTOOLS-A-00-0W-00-00A-040A-D_EN-CA.XML"/>
+  <xi:include href="csdb/DMC-S1000DTOOLS-A-00-0X-00-00A-040A-D_EN-CA.XML"/>
+  <xi:include href="csdb/DMC-S1000DTOOLS-A-00-0Y-00-00A-040A-D_EN-CA.XML"/>
 </publication>
