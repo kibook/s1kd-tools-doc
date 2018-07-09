@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="K" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="008" inWork="00"/>
+        <issueInfo issueNumber="010" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="06" day="14"/>
+        <issueDate year="2018" month="06" day="30"/>
         <dmTitle>
           <techName>s1kd-acronyms</techName>
           <infoName>Description</infoName>
@@ -39,8 +39,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateReasonType="urt02">
-        <simplePara>Add -! option.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt02" updateHighlight="1">
+        <simplePara>Change -L option to -l.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -67,10 +67,11 @@
         <title>Usage</title>
         <para>
           <verbatimText verbatimStyle="vs24" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-acronyms -h?
-s1kd-acronyms [-dLptx] [-n &lt;#&gt;] [-o &lt;file&gt;] [-T &lt;types&gt;]
+s1kd-acronyms [-dlptx] [-n &lt;#&gt;] [-o &lt;file&gt;] [-T &lt;types&gt;]
               [&lt;dmodule&gt;...]
-s1kd-acronyms [-fL] [-i|-I|-!] [-m &lt;acr&gt;] [-o &lt;file&gt;] [&lt;dmodule&gt;...]
-s1kd-acronyms -D [-fL] [-o &lt;file&gt;] [&lt;dmodule&gt;...]</verbatimText>
+s1kd-acronyms [-fl] [-i|-I|-!] [-m|-M &lt;acr&gt;] [-o &lt;file&gt;]
+              [&lt;dmodule&gt;...]
+s1kd-acronyms -D [-fl] [-o &lt;file&gt;] [&lt;dmodule&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -107,19 +108,25 @@ s1kd-acronyms -D [-fL] [-o &lt;file&gt;] [&lt;dmodule&gt;...]</verbatimText>
                 <para>Markup acronyms in interactive mode. If the specified acronyms list contains multiple definitions for a given acronym term, the tool will prompt the user with the context in which the acronym is used and present a list of the definitions for them to choose from.</para>
                 <para>When not in interactive mode, the first definition found will be used.</para>
                 <para>The -I option prompts for all acronyms, not just those with multiple definitions. This can be useful if some occurrences of the acronym term should be ignored.</para>
-                <para changeType="add" reasonForUpdateRefIds="rfu-0001">The -! option will not prompt for acronyms, instead it will markup where acronyms are found using a &lt;<verbatimText verbatimStyle="vs12">chooseAcronym</verbatimText>&gt; element, whose child elements are all possible acronyms matching the term. Another program can then use this as input to actually prompt the user.</para>
+                <para>The -! option will not prompt for acronyms, instead it will markup where acronyms are found using a &lt;<verbatimText verbatimStyle="vs12">chooseAcronym</verbatimText>&gt; element, whose child elements are all possible acronyms matching the term. Another program can then use this as input to actually prompt the user.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-L</listItemTerm>
+            <definitionListItem changeType="modify" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-l</listItemTerm>
               <listItemDefinition>
                 <para>Treat input (stdin or arguments) as lists of filenames of data modules to find or markup acronyms in, rather than data modules themselves.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-m &lt;acronyms&gt;</listItemTerm>
+              <listItemTerm>-M &lt;list&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Instead of listing acronyms, automatically markup acronyms given in the &lt;acronyms&gt; XML file in the specified data modules. Occurrences of the acronym term will be replaced in text with the <verbatimText verbatimStyle="vs12">acronym</verbatimText> element in the list.</para>
+                <para>Like the -m option, but use a custom list of acronyms instead of the default <verbatimText verbatimStyle="vs02">.acronyms</verbatimText> file.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-m</listItemTerm>
+              <listItemDefinition>
+                <para>Instead of listing acronyms in the specified data modules, automatically markup acronyms in the data module using the <verbatimText verbatimStyle="vs02">.acronyms</verbatimText> file.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -172,6 +179,23 @@ s1kd-acronyms -D [-fL] [-o &lt;file&gt;] [&lt;dmodule&gt;...]</verbatimText>
             </definitionListItem>
           </definitionList>
         </para>
+        <levelledPara>
+          <title><verbatimText verbatimStyle="vs02">.acronyms</verbatimText> file</title>
+          <para>This file specifies a list of acronyms for a project. By default, the program will search for a file named <verbatimText verbatimStyle="vs02">.acronyms</verbatimText> in the current directory, but any file can be specified using the -M option.</para>
+          <para>Example of .acronyms file format:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;acronyms&gt;
+&lt;acronym acronymType="at01"&gt;
+&lt;acronymTerm&gt;BREX&lt;/acronymTerm&gt;
+&lt;acronymDefinition&gt;Business Rules Exchange&lt;/acronymDefinition&gt;
+&lt;/acronym&gt;
+&lt;acronym acronymType="at01"&gt;
+&lt;acronymTerm&gt;SNS&lt;/acronymTerm&gt;
+&lt;acronymDefinition&gt;Standard Numbering System&lt;/acronymDefinition&gt;
+&lt;/acronym&gt;
+&lt;/acronyms&gt;</verbatimText>
+          </para>
+        </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Examples</title>
@@ -181,11 +205,11 @@ s1kd-acronyms -D [-fL] [-o &lt;file&gt;] [&lt;dmodule&gt;...]</verbatimText>
         </para>
         <para>Markup predefined acronyms in a data module:</para>
         <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-acronyms -m acr.xml -f DMC-EX-A-00-00-00-00A-040A-D_EN-CA.XML</verbatimText>
+          <verbatimText verbatimStyle="vs24">$ s1kd-acronyms -mf DMC-EX-A-00-00-00-00A-040A-D_EN-CA.XML</verbatimText>
         </para>
         <para>Unmarkup acronyms in a data module:</para>
         <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-acronyms -D -f DMC-EX-A-00-00-00-00A-040A-D_EN-CA.XML</verbatimText>
+          <verbatimText verbatimStyle="vs24">$ s1kd-acronyms -Df DMC-EX-A-00-00-00-00A-040A-D_EN-CA.XML</verbatimText>
         </para>
       </levelledPara>
     </description>

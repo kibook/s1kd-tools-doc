@@ -4,19 +4,19 @@
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="001" infoCodeVariant="A" itemLocationCode="D"/>
+        <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="00S" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="030" inWork="00"/>
+        <issueInfo issueNumber="000" inWork="01"/>
       </dmIdent>
       <dmAddressItems>
         <issueDate year="2018" month="07" day="09"/>
         <dmTitle>
           <techName>S1000D tools</techName>
-          <infoName>Title page</infoName>
+          <infoName>List of effective data modules</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="changed">
+    <dmStatus issueType="new">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -36,10 +36,13 @@
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance><unverified/></qualityAssurance>
+      <qualityAssurance>
+        <unverified/>
+      </qualityAssurance>
     </dmStatus>
   </identAndStatusSection>
   <content>
-    <description/>
+    <description>
+    </description>
   </content>
 </dmodule>

@@ -9,10 +9,10 @@
       <pmIdent>
         <pmCode modelIdentCode="S1000DTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="032" inWork="00"/>
+        <issueInfo issueNumber="033" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2018" month="06" day="25"/>
+        <issueDate year="2018" month="07" day="09"/>
         <pmTitle>S1000D tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
@@ -58,12 +58,12 @@
       </dmRef>
       <dmRef>
         <dmRefIdent>
-          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="009" infoCodeVariant="A" itemLocationCode="D"/>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="00S" infoCodeVariant="A" itemLocationCode="D"/>
         </dmRefIdent>
         <dmRefAddressItems>
           <dmTitle>
             <techName>S1000D tools</techName>
-            <infoName>Table of contents</infoName>
+            <infoName>List of effective data modules</infoName>
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>
@@ -75,6 +75,17 @@
           <dmTitle>
             <techName>S1000D tools</techName>
             <infoName>Highlights</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="009" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>S1000D tools</techName>
+            <infoName>Table of contents</infoName>
           </dmTitle>
         </dmRefAddressItems>
       </dmRef>

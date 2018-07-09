@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="8" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="007" inWork="00"/>
+        <issueInfo issueNumber="008" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="06" day="01"/>
+        <issueDate year="2018" month="06" day="26"/>
         <dmTitle>
           <techName>s1kd-ref</techName>
           <infoName>Description</infoName>
@@ -39,8 +39,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateReasonType="urt02">
-        <simplePara>Add --version option.</simplePara>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt01" updateHighlight="1">
+        <simplePara>Add more examples.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -121,7 +121,7 @@
                 <para>Include the title in the reference (target must be a file).</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>--version</listItemTerm>
               <listItemDefinition>
                 <para>Show version information.</para>
@@ -136,18 +136,98 @@
           </definitionList>
         </para>
       </levelledPara>
-      <levelledPara>
-        <title>Example</title>
+      <levelledPara changeType="modify" reasonForUpdateRefIds="rfu-0001">
+        <title>Examples</title>
+        <para>Reference to data module with data module code:</para>
         <para>
-          <verbatimText verbatimStyle="vs23">$ s1kd-ref DMC-S1000DTOOLS-A-00-08-00-00A-040A-D
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref DMC-EX-A-00-00-00-00A-040A-D
 &lt;dmRef&gt;
 &lt;dmRefIdent&gt;
-&lt;dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A"
-systemCode="00" subSystemCode="0" subSubSystemCode="8" assyCode="00"
-disassyCode="00" disassyCodeVariant="A" infoCode="040"
-infoCodeVariant="A" itemLocationCode="D"/&gt;
+&lt;dmCode modelIdentCode="EX" systemDiffCode="A" systemCode="00"
+subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00"
+disassyCodeVariant="A" infoCode="040" infoCodeVariant="A"
+itemLocationCode="D"/&gt;
 &lt;/dmRefIdent&gt;
 &lt;/dmRef&gt;</verbatimText>
+        </para>
+        <para>Reference to data module with data module code and issue/language:</para>
+        <para>
+          <verbatimText verbatimStyle="vs23">
+$ s1kd-ref -il DMC-EX-A-00-00-00-00A-040A-D_001-03_EN-CA
+&lt;dmRef&gt;
+&lt;dmRefIdent&gt;
+&lt;dmCode modelIdentCode="EX" systemDiffCode="A" systemCode="00"
+subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00"
+disassyCodeVariant="A" infoCode="040" infoCodeVariant="A"
+itemLocationCode="D"/&gt;
+&lt;issueInfo issueNumber="001" inWork="03"/&gt;
+&lt;language languageIsoCode="en" countryIsoCode="CA"/&gt;
+&lt;/dmRefIdent&gt;
+&lt;/dmRef&gt;</verbatimText>
+        </para>
+        <para>Reference to data module with all information, from a file:</para>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref -dilt DMC-EX-A-00-00-00-00A-040A-D_001-03_EN-CA.XML
+&lt;dmRef&gt;
+&lt;dmRefIdent&gt;
+&lt;dmCode modelIdentCode="EX" systemDiffCode="A" systemCode="00"
+subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00"
+disassyCodeVariant="A" infoCode="040" infoCodeVariant="A"
+itemLocationCode="D"/&gt;
+&lt;issueInfo issueNumber="001" inWork="03"/&gt;
+&lt;language languageIsoCode="en" countryIsoCode="CA"/&gt;
+&lt;/dmRefIdent&gt;
+&lt;dmRefAddressItems&gt;
+&lt;dmTitle&gt;
+&lt;techName&gt;Example&lt;/techName&gt;
+&lt;infoName&gt;Description&lt;/infoName&gt;
+&lt;/dmTitle&gt;
+&lt;issueDate year="2018" month="06" day="25"/&gt;
+&lt;/dmRefAddressItems&gt;
+&lt;/dmRef&gt;</verbatimText>
+        </para>
+        <para>Reference to a catalog sequence number:</para>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref CSN-EX-A-00-00-00-01A-004A-D
+&lt;catalogSeqNumberRef modelIdentCode="EX" systemDiffCode="A"
+systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00"
+figureNumber="01" figureNumberVariant="A" item="004" itemVariant="A"
+itemLocationCode="D"/&gt;</verbatimText>
+        </para>
+        <para>Reference to a comment:</para>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref COM-EX-12345-2018-00001-Q
+&lt;commentRef&gt;
+&lt;commentRefIdent&gt;
+&lt;commentCode modelIdentCode="EX" senderIdent="12345"
+yearOfDataIssue="2018" seqNumber="00001" commentType="q"/&gt;
+&lt;/commentRefIdent&gt;
+&lt;/commentRef&gt;</verbatimText>
+        </para>
+        <para>Reference to a data management list:</para>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref DML-EX-12345-C-2018-00001
+&lt;dmlRef&gt;
+&lt;dmlRefIdent&gt;
+&lt;dmlCode modelIdentCode="EX" senderIdent="12345" dmlType="c"
+yearOfDataIssue="2018" seqNumber="00001"/&gt;
+&lt;/dmlRefIdent&gt;
+&lt;/dmlRef&gt;</verbatimText>
+        </para>
+        <para>Reference to an information control number:</para>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref ICN-EX-A-000000-A-00001-A-001-01
+&lt;infoEntityRef infoEntityRefIdent="ICN-EX-A-000000-A-00001-A-001-01"/&gt;</verbatimText>
+        </para>
+        <para>Reference to a publication module:</para>
+        <para>
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref PMC-EX-12345-00001-00
+&lt;pmRef&gt;
+&lt;pmRefIdent&gt;
+&lt;pmCode modelIdentCode="EX" pmIssuer="12345" pmNumber="00001"
+pmVolume="00"/&gt;
+&lt;/pmRefIdent&gt;
+&lt;/pmRef&gt;</verbatimText>
         </para>
       </levelledPara>
     </description>

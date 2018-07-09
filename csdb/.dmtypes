@@ -1,6 +1,7 @@
 001  descript             Title page
 005  descript             List of abbreviations
 009  descript             Table of contents
+00S  descript             List of effective data modules
 00U  descript             Highlights
 00W  appliccrossreftable  Applicability cross-reference table (ACT)
 022  brex                 Business rules exchange (BREX)
