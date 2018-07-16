@@ -77,7 +77,7 @@
               </snsSubSubSystem>
               <snsSubSubSystem>
                 <snsCode>6</snsCode>
-                <snsTitle>s1kd-dmls</snsTitle>
+                <snsTitle>s1kd-ls</snsTitle>
               </snsSubSubSystem>
               <snsSubSubSystem>
                 <snsCode>7</snsCode>
@@ -85,7 +85,7 @@
               </snsSubSubSystem>
               <snsSubSubSystem>
                 <snsCode>8</snsCode>
-                <snsTitle>s1kd-dmref</snsTitle>
+                <snsTitle>s1kd-ref</snsTitle>
               </snsSubSubSystem>
               <snsSubSubSystem>
                 <snsCode>9</snsCode>
@@ -125,11 +125,51 @@
               </snsSubSubSystem>
               <snsSubSubSystem>
                 <snsCode>L</snsCode>
-                <snsTitle>s1kd-dmls</snsTitle>
+                <snsTitle>s1kd-newdml</snsTitle>
               </snsSubSubSystem>
               <snsSubSubSystem>
                 <snsCode>M</snsCode>
                 <snsTitle>s1kd-dmrl</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>N</snsCode>
+                <snsTitle>s1kd-flatten</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>P</snsCode>
+                <snsTitle>s1kd-refls</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>Q</snsCode>
+                <snsTitle>s1kd-aspp</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>R</snsCode>
+                <snsTitle>s1kd-addicn</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>S</snsCode>
+                <snsTitle>s1kd-index</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>U</snsCode>
+                <snsTitle>s1kd-defaults</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>V</snsCode>
+                <snsTitle>s1kd-newupf</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>W</snsCode>
+                <snsTitle>s1kd-icncatalog</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>X</snsCode>
+                <snsTitle>s1kd-fmgen</snsTitle>
+              </snsSubSubSystem>
+              <snsSubSubSystem>
+                <snsCode>Y</snsCode>
+                <snsTitle>s1kd-sns</snsTitle>
               </snsSubSubSystem>
             </snsSubSystem>
           </snsSystem>
@@ -138,34 +178,24 @@
       <contextRules>
         <structureObjectRuleGroup>
           <structureObjectRule>
-            <objectPath allowedObjectFlag="0">
-              //dmIdent/dmCode[@modelIdentCode != 'S1000DTOOLS']
-            </objectPath>
+            <objectPath allowedObjectFlag="2">//dmIdent/dmCode/@modelIdentCode</objectPath>
             <objectUse>The model identification code must be S1000DTOOLS.</objectUse>
-            <objectValue valueAllowed="S1000DTOOLS">S1000D tools</objectValue>
+            <objectValue valueForm="single" valueAllowed="S1000DTOOLS">S1000D tools</objectValue>
           </structureObjectRule>
           <structureObjectRule>
-            <objectPath allowedObjectFlag="0">
-              //dmIdent/dmCode[@systemDiffCode != 'A']
-            </objectPath>
+            <objectPath allowedObjectFlag="2">//dmIdent/dmCode/@systemDiffCode</objectPath>
             <objectUse>The system difference code must be A.</objectUse>
-            <objectValue valueAllowed="A">Default system diff code</objectValue>
+            <objectValue valueForm="single" valueAllowed="A">Default system diff code</objectValue>
           </structureObjectRule>
           <structureObjectRule>
-            <objectPath allowedObjectFlag="0">
-              //dmIdent/dmCode[
-                string-length(@disassyCodeVariant) != 1 or
-                not(contains('ABCDEFGHIJKLMNOPQRSTUVWXYZ', @disassyCodeVariant))
-              ]</objectPath>
+            <objectPath allowedObjectFlag="2">//dmIdent/dmCode/@disassyCodeVariant</objectPath>
             <objectUse>The disassy code variant must be a single alpha character.</objectUse>
-            <objectValue valueAllowed="A~Z">Alpha character</objectValue>
+            <objectValue valueForm="range" valueAllowed="A~Z">Alpha character</objectValue>
           </structureObjectRule>
           <structureObjectRule>
-            <objectPath allowedObjectFlag="0">
-              //dmIdent/dmCode[not(contains('ABCDEFGHIJKLMNOPQRSTUVWXYZ', @infoCodeVariant))]
-            </objectPath>
-            <objectUse>The info code variant must be an alpha character.</objectUse>
-            <objectValue valueAllowed="A~Z">Alpha character</objectValue>
+            <objectPath allowedObjectFlag="2">//dmIdent/dmCode/@infoCodeVariant</objectPath>
+            <objectUse>The info code variant must be a single alpha character.</objectUse>
+            <objectValue valueForm="range" valueAllowed="A~Z">Alpha character</objectValue>
           </structureObjectRule>
         </structureObjectRuleGroup>
       </contextRules>
