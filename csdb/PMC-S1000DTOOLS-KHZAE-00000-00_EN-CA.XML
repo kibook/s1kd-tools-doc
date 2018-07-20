@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE pm [
-<!NOTATION SVG SYSTEM "SVG" >
-<!ENTITY ICN-KHZAE-KHZNETLOGO-001-01 SYSTEM "ICN-KHZAE-KHZNETLOGO-001-01.SVG" NDATA SVG>
+<!NOTATION PNG SYSTEM "PNG" >
+<!ENTITY ICN-S1000DTOOLS-A-000000-A-KHZAE-00001-A-001-01 SYSTEM "ICN-S1000DTOOLS-A-000000-A-KHZAE-00001-A-001-01.PNG" NDATA PNG>
 ]>
 <pm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/pm.xsd">
   <identAndStatusSection>
@@ -20,7 +20,7 @@
     <pmStatus issueType="changed">
       <security securityClassification="01"/>
       <logo>
-        <symbol infoEntityIdent="ICN-KHZAE-KHZNETLOGO-001-01" reproductionHeight="12mm"/>
+        <symbol infoEntityIdent="ICN-S1000DTOOLS-A-000000-A-KHZAE-00001-A-001-01" reproductionHeight="12mm"/>
       </logo>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
