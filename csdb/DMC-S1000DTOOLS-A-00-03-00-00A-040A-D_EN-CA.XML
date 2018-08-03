@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="3" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="019" inWork="00"/>
+        <issueInfo issueNumber="024" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="07" day="02"/>
+        <issueDate year="2018" month="07" day="31"/>
         <dmTitle>
           <techName>s1kd-instance</techName>
           <infoName>Description</infoName>
@@ -40,7 +40,10 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateReasonType="urt02" updateHighlight="1">
-        <simplePara>Add -m option.</simplePara>
+        <simplePara>Change default behaviour of -Y/-y options and add -W option to restore original behaviour.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateReasonType="urt01">
+        <simplePara>Clarify that -a and -A operate on inline applicability annotations.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -52,7 +55,10 @@
         <para>
           <randomList>
             <listItem>
-              <para>Filtering on user-supplied applicability definitions, so that non-applicable elements and (optionally) unused applicability statements are removed in the instance. The definitions can be supplied directly or read from a <acronym acronymType="at01"><acronymTerm>PCT</acronymTerm><acronymDefinition id="acr-PCT">Product Cross-reference Table</acronymDefinition></acronym>.</para>
+              <para>Filtering on user-supplied applicability definitions, so that non-applicable elements and (optionally) unused applicability annotations are removed in the instance. The definitions can be supplied directly or read from a <acronym acronymType="at01"><acronymTerm>PCT</acronymTerm><acronymDefinition id="acr-PCT">Product Cross-reference Table</acronymDefinition></acronym>.</para>
+            </listItem>
+            <listItem>
+              <para>Filtering on skill levels and security classifications.</para>
             </listItem>
             <listItem>
               <para>Using a <acronym acronymType="at01"><acronymTerm>CIR</acronymTerm><acronymDefinition id="acr-CIR">Common Information Repository</acronymDefinition></acronym> to produce a standalone instance from a CIR-dependent master.</para>
@@ -67,13 +73,7 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-instance [-a|-A] [-C &lt;comment&gt;] [-c &lt;dmc&gt;] [-e &lt;ext&gt;|-E]
-              [-g|-G &lt;CODE&gt;/&lt;NAME&gt;] [-I &lt;date&gt;] [-i &lt;infoName&gt;]
-              [-l &lt;lang&gt;] [-m &lt;remarks&gt;] [-n &lt;iss&gt;]
-              [-o &lt;file&gt;|-O &lt;dir&gt;] [-P &lt;PCT&gt; -p &lt;id&gt;] [-R &lt;CIR&gt; ...]
-              [-r &lt;XSL&gt;] [-s &lt;applic&gt; ...] [-t &lt;techName&gt;] [-u &lt;sec&gt;]
-              [-x &lt;CIR&gt;] [-X &lt;path&gt;] [-y|-Y &lt;text&gt;] [-FfLNS]
-              [&lt;object&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24">s1kd-instance [options] [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -83,13 +83,13 @@
             <definitionListItem>
               <listItemTerm>-A</listItemTerm>
               <listItemDefinition>
-                <para>Remove unused applicability annotations and simplify/remove unused applicability statements.</para>
+                <para changeType="modify" reasonForUpdateRefIds="rfu-0002">Simplify inline applicability annotations and remove unused ones.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-a</listItemTerm>
               <listItemDefinition>
-                <para>Remove unused applicability annotations but not statements.</para>
+                <para changeType="modify" reasonForUpdateRefIds="rfu-0002">Remove unused inline applicability annotations.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -99,7 +99,7 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-c &lt;dmc&gt;</listItemTerm>
+              <listItemTerm>-c &lt;code&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Specify a new data module code (DMC) or publication module code (PMC) for the instance.</para>
               </listItemDefinition>
@@ -153,6 +153,18 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
+              <listItemTerm>-K &lt;levels&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Filter the object on the specified skill levels. Elements which are marked with skill levels not contained in the string &lt;levels&gt; are removed in the resulting instance.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-k &lt;level&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Set the skill level of the instance.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-L</listItemTerm>
               <listItemDefinition>
                 <para>Source is a list of object filenames to create instances of, rather than an object itself.</para>
@@ -164,7 +176,7 @@
                 <para>Set the language and country of the instance. For example, to create an instance for US English, lang would be "en-US".</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>-m &lt;remarks&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Set the remarks for the instance.</para>
@@ -214,13 +226,13 @@
             <definitionListItem>
               <listItemTerm>-P &lt;PCT&gt;</listItemTerm>
               <listItemDefinition>
-                <para><acronymTerm internalRefId="acr-PCT">PCT</acronymTerm> file to read product definitions from (-p).</para>
+                <para><acronymTerm internalRefId="acr-PCT">PCT</acronymTerm> file to read product definitions from (-p). If a product is specified but no PCT is given, the tool will attempt to use the ACT reference of each source data module to find the ACT and PCT data modules in the current directory.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-p &lt;id&gt;</listItemTerm>
+              <listItemTerm>-p &lt;product&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Product ID of the product to read applicability definitions from, using the specified <acronymTerm internalRefId="acr-PCT">PCT</acronymTerm> data module (-P).</para>
+                <para>The ID or primary key of a product in the the specified <acronymTerm internalRefId="acr-PCT">PCT</acronymTerm> data module (-P) or the PCT data module referenced by the source data module. A primary key is given in the same form as the -s option and should match a unique assign of a product instance, e.g., "<verbatimText>serialno:prodattr=12345</verbatimText>"</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -289,17 +301,19 @@
             <definitionListItem>
               <listItemTerm>-s &lt;applic&gt;</listItemTerm>
               <listItemDefinition>
-                <para>An applicability definition in the form of:</para>
-                <para>
-                  <verbatimText verbatimStyle="vs24">&lt;ident&gt;:&lt;type&gt;=&lt;value&gt;</verbatimText>
-                </para>
-                <para>Any number of values can be defined by specifying this option multiple times.</para>
+                <para>An applicability definition in the form of "<verbatimText>&lt;ident&gt;:&lt;type&gt;=&lt;value&gt;</verbatimText>". Any number of values can be defined by specifying this option multiple times.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-t &lt;techName&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Give the instance a different techName/pmTitle.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-U &lt;classes&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Filter the object on the specified security classes. Elements marked with security classes not contained in the string &lt;classes&gt; are removed in the resulting instance.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -314,10 +328,16 @@
                 <para>When -O is used, print the automatically generated file name of the instance.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeType="add" reasonForUpdateRefIds="rfu-0001" changeMark="1">
+              <listItemTerm>-W</listItemTerm>
+              <listItemDefinition>
+                <para>Set the applicability for the whole object, overwriting the current applicability with the user-defined applicability values.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-w</listItemTerm>
               <listItemDefinition>
-                <para>Check the applicability of the whole object against the user-defined applicability. If the whole object is not applicable, then no instance is created.</para>
+                <para>Check the applicability, skill level, and security classification of the whole object against the user-defined applicability, skill levels, and security classifications. If the whole object is not applicable, then no instance is created.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -379,13 +399,13 @@
             <definitionListItem>
               <listItemTerm>-Y &lt;text&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Set the applicability for the whole object using the user-defined applicability values, using text as the new display text.</para>
+                <para changeType="modify" reasonForUpdateRefIds="rfu-0001" changeMark="1">Update the applicability for the whole object using the user-defined applicability values, and using &lt;text&gt; as the new display text.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-y</listItemTerm>
               <listItemDefinition>
-                <para>Set the applicability for the whole data object using the user-defined applicability values, with no display text.</para>
+                <para changeType="modify" reasonForUpdateRefIds="rfu-0001" changeMark="1">Update the applicability for the whole object using the user-defined applicability values.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -403,14 +423,6 @@
           </definitionList>
         </para>
         <levelledPara>
-          <title>-a vs -A</title>
-          <para>The -a option will remove applicability annotations (applicRefId) from elements which are deemed to be unambiguously valid (their validity does not rely on applicability values left undefined by the user). The applicability statements themselves however will be untouched.</para>
-          <para>The -A option will do the above, but will also attempt to simplify unused parts of applicability statements or remove unused applicability statements entirely. It simplifies a statement by removing &lt;assert&gt; elements determined to be either unambiguously valid or invalid given the user-defined values, and removing unneeded &lt;evaluate&gt; elements when they contain only one remaining &lt;assert&gt;.</para>
-          <note>
-            <notePara>The -A option may change the <emphasis>meaning</emphasis> of certain applicability statements without changing the <emphasis>display text</emphasis>. Display text is always left untouched, so using this option may cause display text to be technically incorrect.</notePara>
-          </note>
-        </levelledPara>
-        <levelledPara>
           <title>Identifying the source of an instance</title>
           <para>The resulting data module instances will contain the element &lt;sourceDmIdent&gt;, which will contain the identification elements of the source data modules used to instantiate them. Publication module instances will contain the element &lt;sourcePmIdent&gt; instead.</para>
           <para>Additionally, the data module instance will contain an element &lt;repositorySourceDmIdent&gt; for each CIR specified with the -R option.</para>
@@ -419,6 +431,232 @@
         <levelledPara>
           <title>Instance module code (-c) vs extension (-e)</title>
           <para>When creating a data module or publication module instance, the instance should have the same data module/publication module code as the master, with an added extension code, the DME/PME. However, in cases where a vendor does not support this extension or possibly when this tool is used to create "instances" which will from that point on be maintained as normal standalone data modules/publication modules, it may be desirable to change the data module/publication module code instead. These two options can be used together as well to give an instance a new DMC/PMC as well an extension.</para>
+        </levelledPara>
+        <levelledPara>
+          <title>Removing/simplifying applicability annotations (-a vs -A)</title>
+          <para>By default, filtering on applicability will remove invalid elements from the resulting instance. In some cases, though, it may be desirable to remove redundant applicability annotations on valid elements. The -a and -A options provide two methods of doing this.</para>
+          <para>The -a option will remove applicability annotations (applicRefId) from elements which are deemed to be unambiguously valid (their validity does not rely on applicability values left undefined by the user). Unused occurrences of the corresponding applic elements are removed as well.</para>
+          <para>The -A option will do the same as the -a option, but will also attempt to simplify unused parts of applicability annotations. It simplifies an annotation by removing &lt;assert&gt; elements determined to be either unambiguously valid or invalid given the user-defined values, and removing unneeded &lt;evaluate&gt; elements when they contain only one remaining &lt;assert&gt;.</para>
+          <para>For example, given the following input:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;referencedApplicGroup&gt;
+&lt;applic id="app-0001"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="A"/&gt;
+&lt;/applic&gt;
+&lt;applic id="app-0002"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="B"/&gt;
+&lt;/applic&gt;
+&lt;applic id="app-0003"&gt;
+&lt;evaluate andOr="or"&gt;
+&lt;evaluate andOr="and"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="A"/&gt;
+&lt;assert
+applicPropertyIdent="weather"
+applicPropertyType="condition"
+applicPropertyValues="normal"/&gt;
+&lt;/evaluate&gt;
+&lt;evaluate andOr"and"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="B"/&gt;
+&lt;assert
+applicPropertyIdent="weather"
+applicPropertyType="condition"
+applicPropertyValues="icy"/&gt;
+&lt;/evaluate&gt;
+&lt;/evaluate&gt;
+&lt;/applic&gt;
+&lt;/referencedApplicGroup&gt;
+&lt;!-- snip --&gt;
+&lt;para applicRefId="app-0001"&gt;This applies to version A.&lt;/para&gt;
+&lt;para applicRefId="app-0002"&gt;This applies to version B.&lt;/para&gt;
+&lt;para applicRefId="app-0003"&gt;
+This applies to version A if the weather is normal, or version B if
+the weather is icy.
+&lt;/para&gt;</verbatimText>
+          </para>
+          <para>If this data is filtered for version A, without specifying a value for the weather, and neither the -a or -A option is used, the following will be the result:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;referencedApplicGroup&gt;
+&lt;applic id="app-0001"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="A"/&gt;
+&lt;/applic&gt;
+&lt;applic id="app-0002"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="B"/&gt;
+&lt;/applic&gt;
+&lt;applic id="app-0003"&gt;
+&lt;evaluate andOr="or"&gt;
+&lt;evaluate andOr="and"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="A"/&gt;
+&lt;assert
+applicPropertyIdent="weather"
+applicPropertyType="condition"
+applicPropertyValues="normal"/&gt;
+&lt;/evaluate&gt;
+&lt;evaluate andOr"and"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="B"/&gt;
+&lt;assert
+applicPropertyIdent="weather"
+applicPropertyType="condition"
+applicPropertyValues="icy"/&gt;
+&lt;/evaluate&gt;
+&lt;/evaluate&gt;
+&lt;/applic&gt;
+&lt;/referencedApplicGroup&gt;
+&lt;!-- snip --&gt;
+&lt;para applicRefId="app-0001"&gt;This applies to version A.&lt;/para&gt;
+&lt;para applicRefId="app-0003"&gt;
+This applies to version A if the weather is normal, or version B if
+the weather is icy.
+&lt;/para&gt;</verbatimText>
+          </para>
+          <para>The second paragraph is removed, because it only applies to version B.</para>
+          <para>If the -a option is used, the following would be the result:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;referencedApplicGroup&gt;
+&lt;applic id="app-0003"&gt;
+&lt;evaluate andOr="or"&gt;
+&lt;evaluate andOr="and"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="A"/&gt;
+&lt;assert
+applicPropertyIdent="weather"
+applicPropertyType="condition"
+applicPropertyValues="normal"/&gt;
+&lt;/evaluate&gt;
+&lt;evaluate andOr"and"&gt;
+&lt;assert
+applicPropertyIdent="version"
+applicPropertyType="prodattr"
+applicPropertyValues="B"/&gt;
+&lt;assert
+applicPropertyIdent="weather"
+applicPropertyType="condition"
+applicPropertyValues="icy"/&gt;
+&lt;/evaluate&gt;
+&lt;/evaluate&gt;
+&lt;/applic&gt;
+&lt;/referencedApplicGroup&gt;
+&lt;!-- snip --&gt;
+&lt;para&gt;This applies to version A.&lt;/para&gt;
+&lt;para applicRefId="app-0003"&gt;
+This applies to version A if the weather is normal, or version B if
+the weather is icy.
+&lt;/para&gt;</verbatimText>
+          </para>
+          <para>The applicability annotation reference for the first paragraph is removed because, given that the version is A, it must be true. The corresponding applicability annotations, which are no longer referenced, are also removed. The applicability on the third paragraph remains, however, because it is only true if the version is A <emphasis>and</emphasis> the weather is normal, and no value has been given for the weather.</para>
+          <para>If the -A option is used, the following would be the result:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;referencedApplicGroup&gt;
+&lt;applic id="app-0003"&gt;
+&lt;assert
+applicPropertyIdent="weather"
+applicPropertyType="condition"
+applicPropertyValues="normal"/&gt;
+&lt;/applic&gt;
+&lt;/referencedApplicGroup&gt;
+&lt;!-- snip --&gt;
+&lt;para&gt;This applies to version A.&lt;/para&gt;
+&lt;para applicRefId="app-0003"&gt;
+This applies to version A if the weather is normal, or version B if
+the weather is icy.
+&lt;/para&gt;</verbatimText>
+          </para>
+          <para>The annotation is now simplified to remove resolved assertions. Because the version must be A, any assertions restating this can be removed as redundant, and any portions of the annotation in which the version is <emphasis>not</emphasis> A can be removed as invalid. This leaves only the assertion about the weather.</para>
+          <note>
+            <notePara>The -A option may change the <emphasis>meaning</emphasis> of certain applicability annotation without changing the <emphasis>display text</emphasis>. Display text is always left untouched, so using this option may cause display text to be technically incorrect. This option is best used when display text will be automatically generated after filtering, such as with the s1kd-aspp tool.</notePara>
+          </note>
+        </levelledPara>
+        <levelledPara changeType="add" reasonForUpdateRefIds="rfu-0001" changeMark="1">
+          <title>Applicability of an instance (-W, -Y, -y)</title>
+          <para>The applicability of an instance may change as a result of filtering. For example, a source data module which is applicable to two versions of a product may produce two instances which are each only applicable to one version. There are three options which control how the applicability of the whole instance object is updated.</para>
+          <para>The -W option will create an applicability annotation for the instance using only the user-defined applicability values. This means, for example, that given the following command:</para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-instance -s version:prodattr=A -W ...</verbatimText>
+          </para>
+          <para>The instance would contain the following annotation:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;dmStatus&gt;
+&lt;!-- snip --&gt;
+&lt;applic&gt;
+&lt;assert applicPropertyIdent="version"
+applicPropertyType="prodattr" applicPropertyValues="A"/&gt;
+&lt;/applic&gt;
+&lt;!-- snip --&gt;
+&lt;/dmStatus&gt;</verbatimText>
+          </para>
+          <para>regardless of what the applicability of the source object was.</para>
+          <para>The -y option will create an applicability annotation for the instance by combining the user-defined applicability with the applicability of the source object. For example, given the following annotation in the source object:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;dmStatus&gt;
+&lt;!-- snip --&gt;
+&lt;applic&gt;
+&lt;assert applicPropertyIdent="version"
+applicPropertyType="prodattr" applicPropertyValues="A"/&gt;
+&lt;/applic&gt;
+&lt;!-- snip --&gt;
+&lt;/dmStatus&gt;</verbatimText>
+          </para>
+          <para>and the following command:</para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-instance -s weather:condition=icy -y ...</verbatimText>
+          </para>
+          <para>The annotation for the instance would be as follows:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;dmStatus&gt;
+&lt;!-- snip --&gt;
+&lt;applic&gt;
+&lt;evaluate andOr="and"&gt;
+&lt;assert applicPropertyIdent="version"
+applicPropertyType="prodattr" applicPropertyValues="A"/&gt;
+&lt;assert applicPropertyIdent="weather"
+applicPropertyType="condition" applicPropertyValues="icy"/&gt;
+&lt;/evaluate&gt;
+&lt;/applic&gt;
+&lt;!-- snip --&gt;
+&lt;/dmStatus&gt;</verbatimText>
+          </para>
+          <para>The -Y option by itself works the same as the -y option, but allows custom display text to be set for the annotation. It can also be combined with the -W option to add custom display text to the overwriting annotation:</para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-instance -s version:prodattr=A -WY "Version A" ...</verbatimText>
+          </para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;dmStatus&gt;
+&lt;!-- snip --&gt;
+&lt;applic&gt;
+&lt;displayText&gt;
+&lt;simplePara&gt;Version A&lt;/simplePara&gt;
+&lt;/displayText&gt;
+&lt;assert applicPropertyIdent="version"
+applicPropertyType="prodattr" applicPropertyValues="A"/&gt;
+&lt;/applic&gt;
+&lt;!-- snip --&gt;
+&lt;/dmStatus&gt;</verbatimText>
+          </para>
         </levelledPara>
         <levelledPara>
           <title>Filtering for multiple values of a single property</title>
@@ -563,6 +801,10 @@ is an item in the system.
         <para>Filtering a data module on a specified product instance and writing to stdout:</para>
         <para>
           <verbatimText verbatimStyle="vs24">$ s1kd-instance -P &lt;PCT&gt; -p versionA &lt;DM&gt;</verbatimText>
+        </para>
+        <para>Filtering a data module on specified skill levels and writing to stdout:</para>
+        <para>
+          <verbatimText verbatimStyle="vs24">$ s1kd-instance -k sk01/sk02 &lt;DMs&gt;</verbatimText>
         </para>
         <para>Filtering data modules for a particular customer and outputting with extended identification:</para>
         <para>

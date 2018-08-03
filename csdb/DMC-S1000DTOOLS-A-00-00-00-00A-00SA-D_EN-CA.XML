@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="00S" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="000" inWork="01"/>
+        <issueInfo issueNumber="001" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="07" day="09"/>
+        <issueDate year="2018" month="08" day="03"/>
         <dmTitle>
           <techName>S1000D tools</techName>
           <infoName>List of effective data modules</infoName>
