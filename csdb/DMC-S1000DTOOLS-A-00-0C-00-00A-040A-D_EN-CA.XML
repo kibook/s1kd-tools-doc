@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule [
-<!ENTITY % ISOEntities PUBLIC "ISO 8879-1986//ENTITIES ISO Character Entities 20030531//EN//XML" "http://www.s1000d.org/S1000D_4-2/ent/ISOEntities">
-]>
+<!DOCTYPE dmodule>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="C" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="018" inWork="00"/>
+        <issueInfo issueNumber="019" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="08" day="17"/>
+        <issueDate year="2018" month="08" day="31"/>
         <dmTitle>
           <techName>s1kd-newpm</techName>
           <infoName>Description</infoName>
@@ -41,6 +39,9 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt02" updateHighlight="1">
+        <simplePara>Add -~ option.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -122,6 +123,12 @@
               <listItemTerm>-% &lt;dir&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Use the XML template in &lt;dir&gt; instead of the built-in template. The template must be named <verbatimText verbatimStyle="vs02">pm.xml</verbatimText> in &lt;dir&gt; and must conform to the default S1000D issue (4.2).</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-~ &lt;dir&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Dump the built-in XML template to the specified directory.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>

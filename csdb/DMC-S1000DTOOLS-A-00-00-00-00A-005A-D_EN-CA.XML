@@ -6,17 +6,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1000DTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="005" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="001" inWork="00"/>
+        <issueInfo issueNumber="002" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2017" month="10" day="10"/>
+        <issueDate year="2018" month="08" day="31"/>
         <dmTitle>
           <techName>S1000D tools</techName>
           <infoName>List of abbreviations</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="new">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -55,6 +55,12 @@
             <listItemTerm>CIR</listItemTerm>
             <listItemDefinition>
               <para>Common Information Repository</para>
+            </listItemDefinition>
+          </definitionListItem>
+          <definitionListItem>
+            <listItemTerm>CSDB</listItemTerm>
+            <listItemDefinition>
+              <para>Common Source Database</para>
             </listItemDefinition>
           </definitionListItem>
           <definitionListItem>
