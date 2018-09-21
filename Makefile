@@ -8,19 +8,19 @@ PARAMS+=-param show.unclassified "0"
 PARAMS+=-param auto.expand.acronyms "'no'"
 PARAMS+=-param title.page.issue.date "1"
 
-all: S1000D_tools.pdf
+all: s1kd-tools.pdf
 
-S1000D_tools.pdf: S1000D_tools.xml
+s1kd-tools.pdf: s1kd-tools.xml
 	s1kd2pdf $^ $(PARAMS)
 
-S1000D_tools.xml: csdb/PMC-*.XML csdb/DMC-*.XML
+s1kd-tools.xml: csdb/PMC-*.XML csdb/DMC-*.XML
 	s1kd-flatten -p $^ > $@
 
-csdb/DMC-S1000DTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: csdb/DMC-*.XML
+csdb/DMC-S1KDTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: csdb/DMC-*.XML
 	s1kd-acronyms -xpd $^ | xml-merge $@ - | xmllint --format --output $@ -
 
-README.md: csdb/DMC-S1000DTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML
+README.md: csdb/DMC-S1KDTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML
 	s1kd2db $^ | pandoc -f docbook -t markdown_github -o $@
 
 clean:
-	rm -f S1000D_tools.pdf S1000D_tools.xml
+	rm -f s1kd-tools.pdf s1kd-tools.xml
