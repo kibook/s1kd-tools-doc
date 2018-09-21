@@ -19,7 +19,7 @@ s1kd-tools.xml: csdb/PMC-*.XML csdb/DMC-*.XML
 csdb/DMC-S1KDTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: csdb/DMC-*.XML
 	s1kd-acronyms -xpd $^ | xml-merge $@ - | xmllint --format --output $@ -
 
-README.md: csdb/DMC-S1KDTOOLS-A-00-00-00-00A-040A-D_EN-CA.XML
+README.md: csdb/DMC-S1KDTOOLS-A-00-00-00-00A-040B-D_EN-CA.XML
 	s1kd2db $^ | pandoc -f docbook -t markdown_github -o $@
 
 clean:

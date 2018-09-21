@@ -1,35 +1,6 @@
-![s1kd-tools](csdb/ICN-S1KDTOOLS-A-000000-A-KHZAE-00001-A-001-01.PNG)
+General
+=======
 
-A set of small, free and open source software tools for manipulating [S1000D](http://www.s1000d.org) data.
+*s1kd-tools* are a set of small tools for manipulating S1000D data. They are maintained at [s1kd-tools](https://github.com/kibook/s1kd-tools).
 
--   [Introduction](INTRO.md)
-
--   [Installation](INSTALL.md)
-
--   [Basic S1000D tutorial](TUTORIAL.md)
-
--   [Usage examples](EXAMPLE.md)
-
--   [List of .defaults file identifiers](DEFAULTS.md)
-
-Some examples of S1000D data sets produced with these tools are available here:
-
--   [s1kd-tools-doc](http://github.com/kibook/s1kd-tools-doc)
-
--   [S1000D spec sample](http://github.com/kibook/S1000D)
-
-These tools have been primarily developed around Issue 4.2 of the specification, and are generally compatibile with the previous 4.X issues. Support for Issue 3.0 and lower is a work-in-progress. Support for SGML schemas is not planned.
-
--   [Compatibility with each issue of the specification](COMPATIBILITY.md)
-
-Additional links:
-
--   [s1kd-tools GitHub repository](http://github.com/kibook/s1kd-tools)
-
--   [s1kd-tools GitLab repository](http://gitlab.com/kibukj/s1kd-tools)
-
--   [s1kd-tools GitHub Pages site](http://kibook.github.io/s1kd-tools)
-
--   [s1kd-tools on khzae.net](http://khzae.net/1/s1kd/s1kd-tools)
-
-
+This publication is meant to serve as an example of an S1000D data set produced using these tools. The stylesheets used to produce this PDF can be found at [S1000D XSL stylesheets](https://github.com/kibook/S1000D-XSL-Stylesheets)
