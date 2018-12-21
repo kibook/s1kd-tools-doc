@@ -7,6 +7,7 @@ PARAMS+=-param external.pub.ref.inline "'code'"
 PARAMS+=-param show.unclassified "0"
 PARAMS+=-param auto.expand.acronyms "'no'"
 PARAMS+=-param title.page.issue.date "1"
+PARAMS+=-param title.page.publisher "0"
 
 all: s1kd-tools.pdf
 
@@ -14,7 +15,7 @@ s1kd-tools.pdf: s1kd-tools.xml
 	s1kd2pdf $^ $(PARAMS)
 
 s1kd-tools.xml: csdb/PMC-*.XML csdb/DMC-*.XML
-	s1kd-flatten -p $^ > $@
+	s1kd-flatten -px $^ | xmllint --format - > $@
 
 csdb/DMC-S1KDTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: csdb/DMC-*.XML
 	s1kd-acronyms -xpd $^ | xml-merge $@ - | xmllint --format --output $@ -

@@ -6,12 +6,12 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="19" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="012" inWork="00"/>
+        <issueInfo issueNumber="013" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="08" day="17"/>
+        <issueDate year="2018" month="12" day="21"/>
         <dmTitle>
-          <techName>s1kd-checkrefs</techName>
+          <techName>s1kd-mvref</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
@@ -39,19 +39,22 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateReasonType="urt02" updateHighlight="1">
+        <simplePara>Rename to s1kd-mvref, change function.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-checkrefs</emphasis> tool takes a list of S1000D data modules and pub modules, and lists any invalid references to data/pub modules within them (references to modules not included in the list). It can also update the address items (title, issueDate if applicable) of all valid references using the corresponding address items of the given modules.</para>
+        <para>The <emphasis>s1kd-mvref</emphasis> tool changes all references to one object (the source object) into references to another object (the target object) in a specified set of objects.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-checkrefs [-d &lt;dir&gt;] [-m &lt;object&gt;] [-s &lt;source&gt;] [-t &lt;target&gt;]
-               [-ceFfLlnquvh?] &lt;modules&gt;...</verbatimText>
+          <verbatimText verbatimStyle="vs24">s1kd-mvref [-d &lt;dir&gt;] [-s &lt;source&gt;] [-t &lt;target&gt;] [-cflvh?]
+           [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -61,31 +64,19 @@
             <definitionListItem>
               <listItemTerm>-c</listItemTerm>
               <listItemDefinition>
-                <para>Only check/update references within the content section of modules.</para>
+                <para>Only move references within the content section of objects.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-d &lt;dir&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Check references between data modules in the specified directory. Additional data modules can still be specified with -s.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-e</listItemTerm>
-              <listItemDefinition>
-                <para>Check/update external publication references against a pre-defined list of publications.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-F</listItemTerm>
-              <listItemDefinition>
-                <para>Fail on first invalid reference and return an error code.</para>
+                <para>Move references in all objects in the specified directory.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-f</listItemTerm>
               <listItemDefinition>
-                <para>List files which contain invalid references.</para>
+                <para>Overwrite updated input objects.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -95,51 +86,21 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-L</listItemTerm>
+              <listItemTerm>-l</listItemTerm>
               <listItemDefinition>
                 <para>Treat input as a list of data module filenames, rather than a data module itself.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-l</listItemTerm>
-              <listItemDefinition>
-                <para>List all invalid references found.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-m &lt;object&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>Change all references to the source object specified with -s into references that point to &lt;object&gt;.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-n</listItemTerm>
-              <listItemDefinition>
-                <para>When listing invalid references (-l), include the source filenames of the objects in which the invalid references occur.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-q</listItemTerm>
-              <listItemDefinition>
-                <para>Do not display error messages for invalid references.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
               <listItemTerm>-s &lt;source&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Use only the specified module as the source of address items. Only references to this module will be checked and/or updated in all other modules.</para>
+                <para>The source object.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-t &lt;target&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Only check and/or update references within this module. All other modules will only be used as sources.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-u</listItemTerm>
-              <listItemDefinition>
-                <para>Update the address items of all valid references found within the specified modules.</para>
+                <para>Change all references to the source object specified with -s into references that point to &lt;target&gt;.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -154,46 +115,19 @@
                 <para>Show version information.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>&lt;object&gt;...</listItemTerm>
+              <listItemDefinition>
+                <para>Objects to move references in.</para>
+              </listItemDefinition>
+            </definitionListItem>
           </definitionList>
         </para>
-        <levelledPara>
-          <title>External publication list (-e)</title>
-          <para>Since external publications can be of any format, in order to check references to them, their metadata must be specified in an XML format for the s1kd-checkrefs tool to read.</para>
-          <para>The root element of the XML file is the <verbatimText verbatimStyle="vs12">externalPubs</verbatimText> element. Each external publication is represented by an element <verbatimText verbatimStyle="vs12">externalPubAddress</verbatimText>. The identifying elements of the publication are stored in the <verbatimText verbatimStyle="vs12">externalPubIdent</verbatimText> element (corresponding with the <verbatimText verbatimStyle="vs12">externalPubRefIdent</verbatimText> element). The address items are stored in the <verbatimText verbatimStyle="vs12">externalPubAddress</verbatimText> element (corresponding with the <verbatimText verbatimStyle="vs12">externalPubRefAddressItems</verbatimText> element).</para>
-          <para>Example:</para>
-          <para>
-            <verbatimText verbatimStyle="vs11">&lt;?xml version="1.0"?&gt;
-&lt;externalPubs&gt;
-&lt;externalPubAddress&gt;
-&lt;externalPubIdent&gt;
-&lt;externalPubCode&gt;s1kd-checkrefs&lt;/externalPubCode&gt;
-&lt;externalPubTitle&gt;s1kd-checkrefs manual&lt;/externalPubTitle&gt;
-&lt;/externalPubIdent&gt;
-&lt;externalPubAddressItems&gt;
-&lt;externalPubIssueDate year="2017" month="08" day="14"/&gt;
-&lt;/externalPubAddressItems&gt;
-&lt;/externalPubAddress&gt;
-&lt;/externalPubs&gt;</verbatimText>
-          </para>
-        </levelledPara>
       </levelledPara>
       <levelledPara>
-        <title>Examples</title>
-        <para>Validate all references in all data modules:</para>
+        <title>Example</title>
         <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-checkrefs DMC-*.XML</verbatimText>
-        </para>
-        <para>Validate references in a single data module:</para>
-        <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-checkrefs -t &lt;DM&gt; DMC-*.XML</verbatimText>
-        </para>
-        <para>Update all references in all data modules:</para>
-        <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-checkrefs -u DMC-*.XML</verbatimText>
-        </para>
-        <para>Change references from one data module to another in all data modules:</para>
-        <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-checkrefs -s &lt;old DM&gt; -m &lt;new DM&gt; DMC-*.XML</verbatimText>
+          <verbatimText verbatimStyle="vs24">$ s1kd-mvref -f -s &lt;old DM&gt; -t &lt;new DM&gt; DMC-*.XML</verbatimText>
         </para>
       </levelledPara>
     </description>
