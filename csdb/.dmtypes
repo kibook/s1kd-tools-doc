@@ -1,8 +1,14 @@
-001  descript             Title page
-005  descript             List of abbreviations
-009  descript             Table of contents
-00S  descript             List of effective data modules
-00U  descript             Highlights
-00W  appliccrossreftable  Applicability cross-reference table (ACT)
-022  brex                 Business rules exchange (BREX)
-040  descript             Description
+<?xml version="1.0"?>
+<dmtypes>
+  <type infoCode="001" schema="descript" infoName="Title page"/>
+  <type infoCode="005" schema="descript" infoName="List of abbreviations"/>
+  <type infoCode="009" schema="descript" infoName="Table of contents"/>
+  <type infoCode="00S" schema="descript" infoName="List of effective data modules"/>
+  <type infoCode="00U" schema="descript" infoName="Highlights"/>
+  <type infoCode="00W" schema="appliccrossreftable" infoName="Applicability cross-reference table (ACT)"/>
+  <type infoCode="014" schema="descript"/>
+  <type infoCode="018" schema="descript"/>
+  <type infoCode="022" schema="brex" infoName="Business rules exchange (BREX)"/>
+  <type infoCode="040" schema="descript" infoName="Description"/>
+  <type infoCode="130" schema="descript"/>
+</dmtypes>

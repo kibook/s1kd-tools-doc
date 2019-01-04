@@ -1,19 +1,11 @@
-modelIdentCode             S1000DTOOLS
-systemDiffCode             A
-systemCode                 00
-subSystemCode              0
-subSubSystemCode           0
-assyCode                   00
-disassyCode                00
-disassyCodeVariant         A
-infoCode                   040
-infoCodeVariant            A
-itemLocationCode           D
-languageIsoCode            en
-countryIsoCode             CA
-issueNumber                000
-inWork                     01
-securityClassification     01
-responsiblePartnerCompany  khzae.net
-originator                 khzae.net
-brex                       S1000DTOOLS-A-00-00-00-00A-022A-D
+<?xml version="1.0"?>
+<defaults>
+  <default ident="countryIsoCode" value="CA"/>
+  <default ident="inWork" value="01"/>
+  <default ident="issue" value="4.2"/>
+  <default ident="issueNumber" value="000"/>
+  <default ident="languageIsoCode" value="en"/>
+  <default ident="securityClassification" value="01"/>
+  <default ident="responsiblePartnerCompany" value="khzae.net"/>
+  <default ident="originator" value="khzae.net"/>
+</defaults>
