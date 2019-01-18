@@ -1,13 +1,14 @@
 # Parameters for the S1000D XSL stylesheet
-PARAMS+=-param double.sided "0"
-PARAMS+=-param hierarchical.table.of.contents "1"
-PARAMS+=-param include.pmentry.bookmarks "1"
-PARAMS+=-param ulink.show "0"
-PARAMS+=-param external.pub.ref.inline "'code'"
-PARAMS+=-param show.unclassified "0"
-PARAMS+=-param auto.expand.acronyms "'no'"
-PARAMS+=-param title.page.issue.date "1"
-PARAMS+=-param title.page.publisher "0"
+PARAMS+=-param double.sided 0
+PARAMS+=-param hierarchical.table.of.contents 1
+PARAMS+=-param include.pmentry.bookmarks 1
+PARAMS+=-param ulink.show 0
+PARAMS+=-stringparam external.pub.ref.inline 'code'
+PARAMS+=-param show.unclassified 0
+PARAMS+=-stringparam auto.expand.acronyms 'no'
+PARAMS+=-param title.page.issue.date 1
+PARAMS+=-param title.page.publisher 0
+PARAMS+=-stringparam font.family 'Helvetica,Arial'
 
 all: s1kd-tools.pdf
 

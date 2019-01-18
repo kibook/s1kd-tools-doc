@@ -42,6 +42,19 @@
     </dmStatus>
   </identAndStatusSection>
   <content>
+    <refs>
+      <dmRef>
+        <dmRefIdent>
+          <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="30" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        </dmRefIdent>
+        <dmRefAddressItems>
+          <dmTitle>
+            <techName>s1kd-defaults</techName>
+            <infoName>Description</infoName>
+          </dmTitle>
+        </dmRefAddressItems>
+      </dmRef>
+    </refs>
     <description>
       <levelledPara>
         <title>General</title>
@@ -488,7 +501,7 @@ securityClassification       01</verbatimText>
         </levelledPara>
         <levelledPara>
           <title><verbatimText verbatimStyle="vs02">.brexmap</verbatimText> file</title>
-          <para>Refer to the documentation for s1kd-defaults(1) for a description of the <verbatimText verbatimStyle="vs02">.brexmap</verbatimText> file.</para>
+          <para>Refer to <dmRef><dmRefIdent><dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="30" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/></dmRefIdent><dmRefAddressItems><dmTitle><techName>s1kd-defaults</techName><infoName>Description</infoName></dmTitle></dmRefAddressItems></dmRef> for a description of the <verbatimText verbatimStyle="vs02">.brexmap</verbatimText> file.</para>
         </levelledPara>
         <levelledPara>
           <title>Custom XML templates (-%)</title>
