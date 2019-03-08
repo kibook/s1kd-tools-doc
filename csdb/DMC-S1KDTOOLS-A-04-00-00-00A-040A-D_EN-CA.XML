@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="04" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="026" inWork="00"/>
+        <issueInfo issueNumber="027" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="02" day="08"/>
+        <issueDate year="2019" month="03" day="08"/>
         <dmTitle>
           <techName>s1kd-brexcheck</techName>
           <infoName>Description</infoName>
@@ -39,6 +39,9 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1">
+        <simplePara>Combine exit status codes 2 and 3 and add new code 3.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -275,7 +278,7 @@
       <levelledPara>
         <title>Exit status</title>
         <para>
-          <definitionList>
+          <definitionList changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">
             <definitionListItem>
               <listItemTerm>0</listItemTerm>
               <listItemDefinition>
@@ -291,13 +294,13 @@
             <definitionListItem>
               <listItemTerm>2</listItemTerm>
               <listItemDefinition>
-                <para>One or more BREX data modules could not be read.</para>
+                <para>One or more CSDB objects specified could not be read.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>3</listItemTerm>
               <listItemDefinition>
-                <para>One or more CSDB objects specified could not be read.</para>
+                <para>A referenced BREX data module could not be found.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
