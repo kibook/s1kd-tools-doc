@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="01" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="007" inWork="00"/>
+        <issueInfo issueNumber="008" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2018" month="09" day="21"/>
+        <issueDate year="2019" month="03" day="22"/>
         <dmTitle>
           <techName>s1kd-syncrefs</techName>
           <infoName>Description</infoName>
@@ -39,6 +39,12 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1">
+        <simplePara>Add -v option.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateHighlight="1">
+        <simplePara>Add EXIT STATUS section.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -50,7 +56,7 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText>s1kd-syncrefs [-dfl] [-o &lt;out&gt;] [&lt;data module&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs23" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-syncrefs [-dflv] [-o &lt;out&gt;] [&lt;data module&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -81,6 +87,12 @@
                 <para>The resulting XML is written to &lt;out&gt; instead of stdout.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-v</listItemTerm>
+              <listItemDefinition>
+                <para>Verbose output.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>--version</listItemTerm>
               <listItemDefinition>
@@ -91,6 +103,31 @@
               <listItemTerm>&lt;data module&gt;...</listItemTerm>
               <listItemDefinition>
                 <para>The data module(s) to synchronize references in. Default is to read from stdin.</para>
+              </listItemDefinition>
+            </definitionListItem>
+          </definitionList>
+        </para>
+      </levelledPara>
+      <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+        <title>Exit status</title>
+        <para>
+          <definitionList>
+            <definitionListItem>
+              <listItemTerm>0</listItemTerm>
+              <listItemDefinition>
+                <para>No errors.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>1</listItemTerm>
+              <listItemDefinition>
+                <para>Invalid data module.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>2</listItemTerm>
+              <listItemDefinition>
+                <para>Number of references in a data module exceeded the available memory.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>

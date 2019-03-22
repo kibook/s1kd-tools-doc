@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="10" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="003" inWork="00"/>
+        <issueInfo issueNumber="004" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="02" day="08"/>
+        <issueDate year="2019" month="03" day="22"/>
         <dmTitle>
           <techName>s1kd-uom</techName>
           <infoName>Description</infoName>
@@ -39,6 +39,12 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1">
+        <simplePara>Add -v, -P, -p, and -. options.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateHighlight="0">
+        <simplePara>Add missing -, option description.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -50,8 +56,8 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-uom [-F &lt;fmt&gt;] [-u &lt;uom&gt; -t &lt;uom&gt; [-e &lt;expr&gt;] [-F &lt;fmt&gt;] ...]
-         [-U &lt;path&gt;] [-fl,h?] [&lt;object&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-uom [-F &lt;fmt&gt;] [-u &lt;uom&gt; -t &lt;uom&gt; [-e &lt;expr&gt;] [-F &lt;fmt&gt;] ...]
+         [-U &lt;path&gt;] [-p &lt;fmt&gt; [-P &lt;path&gt;]] [-flv,.h?] [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -88,6 +94,31 @@
                 <para>Treat input (stdin or arguments) as lists of filenames of CSDB objects to list references in, rather than CSDB objects themselves.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-P &lt;path&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Use a custom <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-p &lt;fmt&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Preformat quantity data to the specified decimal format. The built-in formats are:</para>
+                <para>
+                  <randomList>
+                    <listItem>
+                      <para>SI - comma for decimal separator, space for grouping</para>
+                    </listItem>
+                    <listItem>
+                      <para>euro - comma for decimal separator, full-stop for grouping</para>
+                    </listItem>
+                    <listItem>
+                      <para>imperial - full-stop for decimal separator, comma for grouping</para>
+                    </listItem>
+                  </randomList>
+                </para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-t &lt;uom&gt;</listItemTerm>
               <listItemDefinition>
@@ -104,6 +135,24 @@
               <listItemTerm>-u &lt;uom&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Unit of measure to convert from.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-v</listItemTerm>
+              <listItemDefinition>
+                <para>Verbose output.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="0" changeType="add" reasonForUpdateRefIds="rfu-0002">
+              <listItemTerm>-,</listItemTerm>
+              <listItemDefinition>
+                <para>Dump the default <verbatimText verbatimStyle="vs02">.uom</verbatimText> file.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-.</listItemTerm>
+              <listItemDefinition>
+                <para>Dump the default <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -170,6 +219,48 @@
             <verbatimText verbatimStyle="vs14">$value * ($pi div 180)</verbatimText>
           </para>
         </levelledPara>
+        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <title>Preformatting UOMs (-p) and the <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file</title>
+          <para>The tool can also convert semantic quantity data to presentation quantity data. The -p option specifies which conventions to use for formatting quantity values. For example:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;para&gt;Tighten the
+&lt;quantity&gt;
+&lt;quantityGroup&gt;
+&lt;quantityValue quantityUnitOfMeasure="cm"&gt;6.35&lt;/quantityValue&gt;
+&lt;/quantityGroup&gt;
+&lt;/quantity&gt;
+bolt.&lt;/para&gt;</verbatimText>
+          </para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-uom -p SI &lt;DM&gt;</verbatimText>
+          </para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;para&gt;Tighten the 6,35 cm bolt.&lt;/para&gt;</verbatimText>
+          </para>
+          <para>This can also be combined with UOM conversions:</para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-uom -u cm -t in -p imperial &lt;DM&gt;</verbatimText>
+          </para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;para&gt;Tighten the 2.5 in bolt.&lt;/para&gt;</verbatimText>
+          </para>
+          <para>Custom formats for values or UOMs can be defined in the <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file. By default, the tool will search the current directory and parent directories for a file named <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText>, but any file can be specified by using the -P option.</para>
+          <para>Example of a <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file:</para>
+          <para>
+            <verbatimText verbatimStyle="vs11">&lt;uomDisplay&gt;
+&lt;format name="custom" decimalSeparator="," groupingSeparator="."/&gt;
+&lt;uoms&gt;
+&lt;uom name="cm"&gt; cm&lt;/uom&gt;
+&lt;uom name="cm2"&gt; cm&lt;superScript&gt;2&lt;/superScript&gt;&lt;/uom&gt;
+&lt;/uoms&gt;
+&lt;/uomDisplay&gt;</verbatimText>
+          </para>
+          <para>Units of measure that are not defined will be presented as their name (e.g., "cm2") separated from the value by a space.</para>
+          <para>The tool contains a default set of formats and displays. These can be used to create a default <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file by use of the -. option:</para>
+          <para>
+            <verbatimText verbatimStyle="vs23">$ s1kd-uom -. &gt; .uomdisplay</verbatimText>
+          </para>
+        </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Examples</title>
@@ -214,6 +305,266 @@ quantityTypeSpecifics="CAD"&gt;10.00&lt;/quantity&gt;</verbatimText>
 quantityType="qty02"
 quantityTypeSpecifics="USD"&gt;7.36&lt;/quantity&gt;</verbatimText>
           </para>
+        </levelledPara>
+      </levelledPara>
+      <levelledPara>
+        <title>UOM file schema</title>
+        <levelledPara>
+          <title>UOM</title>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;uom&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">format</verbatimText> (O), the number format for all rules.</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>
+                  <verbatimText verbatimStyle="vs12">&lt;convert&gt;</verbatimText>
+                </para>
+              </listItem>
+            </randomList>
+          </para>
+        </levelledPara>
+        <levelledPara>
+          <title>Conversion rule</title>
+          <para>The element <verbatimText verbatimStyle="vs12">&lt;convert&gt;</verbatimText> defines a rule to convert one unit of measure to another.</para>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;convert&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">format</verbatimText> (O), the number format for this specific rule.</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">formula</verbatimText> (M), the expression used to convert the quantity value.</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">from</verbatimText> (M), unit of measure to convert from.</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">to</verbatimText> (M), unit of measure to convert to.</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>None</para>
+              </listItem>
+            </randomList>
+          </para>
+        </levelledPara>
+      </levelledPara>
+      <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+        <title>UOM display file schema</title>
+        <levelledPara>
+          <title>UOM display</title>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;uomDisplay&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>None</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>
+                  <verbatimText verbatimStyle="vs12">&lt;format&gt;</verbatimText>
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  <verbatimText verbatimStyle="vs12">&lt;groupTypePrefixes&gt;</verbatimText>
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  <verbatimText verbatimStyle="vs12">&lt;wrapInto&gt;</verbatimText>
+                </para>
+              </listItem>
+              <listItem>
+                <para>
+                  <verbatimText verbatimStyle="vs12">&lt;uoms&gt;</verbatimText>
+                </para>
+              </listItem>
+            </randomList>
+          </para>
+        </levelledPara>
+        <levelledPara>
+          <title>Quantity value format</title>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;format&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">name</verbatimText> (M), the name of the format</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">decimalSeparator</verbatimText> (M), the decimal separator</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">groupingSeparator</verbatimText> (M), the grouping separator</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>None</para>
+              </listItem>
+            </randomList>
+          </para>
+        </levelledPara>
+        <levelledPara>
+          <title>Group type prefixes</title>
+          <para>The element <verbatimText verbatimStyle="vs12">&lt;groupTypePrefixes&gt;</verbatimText> specifies prefixes which are added for specific group types.</para>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;groupTypePrefixes&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>None</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs12">&lt;nominal&gt;</verbatimText>, text placed before a nominal group.</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs12">&lt;minimum&gt;</verbatimText>, text placed before a minimum group.</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs12">&lt;minimumRange&gt;</verbatimText>, text placed before a minimum group that is followed by a maximum group to specify a range.</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs12">&lt;maximum&gt;</verbatimText>, text placed before a maximum group.</para>
+              </listItem>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs12">&lt;maximumRange&gt;</verbatimText>, text placed before a maximum group that is preceded by a minimum group to specify a range.</para>
+              </listItem>
+            </randomList>
+          </para>
+        </levelledPara>
+        <levelledPara>
+          <title>Wrap into element</title>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;wrapInto&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>None</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>The element <verbatimText verbatimStyle="vs12">&lt;wrapInto&gt;</verbatimText> contains one child element of any type, which quantities will be wrapped in to after formatting.</para>
+        </levelledPara>
+        <levelledPara>
+          <title>Units of measure</title>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;uoms&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>None</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para>
+                  <verbatimText verbatimStyle="vs12">&lt;uom&gt;</verbatimText>
+                </para>
+              </listItem>
+            </randomList>
+          </para>
+        </levelledPara>
+        <levelledPara>
+          <title>Display of a unit of measure</title>
+          <para>
+            <emphasis>Markup element:</emphasis>
+            <verbatimText verbatimStyle="vs12">&lt;uom&gt;</verbatimText>
+          </para>
+          <para>
+            <emphasis>Attributes:</emphasis>
+          </para>
+          <para>
+            <randomList>
+              <listItem>
+                <para><verbatimText verbatimStyle="vs13">name</verbatimText> (M), the name of the UOM.</para>
+              </listItem>
+            </randomList>
+          </para>
+          <para>
+            <emphasis>Child elements:</emphasis>
+          </para>
+          <para>The element &lt;uom&gt; may contain mixed content, which will be used for the display of the unit of measure.</para>
         </levelledPara>
       </levelledPara>
     </description>
