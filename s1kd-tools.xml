@@ -2,7 +2,6 @@
 <publication xmlns:xi="http://www.w3.org/2001/XInclude">
   <xi:include href="csdb/PMC-S1KDTOOLS-KHZAE-00000-00_EN-CA.XML"/>
   <xi:include href="csdb/DMC-S1KDTOOLS-A-00-00-00-00A-001A-D_EN-CA.XML"/>
-  <xi:include href="csdb/DMC-S1KDTOOLS-A-00-00-00-00A-001B-D_000-01_EN-CA.XML"/>
   <xi:include href="csdb/DMC-S1KDTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML"/>
   <xi:include href="csdb/DMC-S1KDTOOLS-A-00-00-00-00A-009A-D_EN-CA.XML"/>
   <xi:include href="csdb/DMC-S1KDTOOLS-A-00-00-00-00A-00SA-D_EN-CA.XML"/>
