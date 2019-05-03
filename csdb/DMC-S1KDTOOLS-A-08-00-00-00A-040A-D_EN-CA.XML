@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="08" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="015" inWork="00"/>
+        <issueInfo issueNumber="016" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="04" day="05"/>
+        <issueDate year="2019" month="05" day="03"/>
         <dmTitle>
           <techName>s1kd-ref</techName>
           <infoName>Description</infoName>
@@ -40,10 +40,7 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add standard libxml2 parser options.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add -q and -v options.</simplePara>
+        <simplePara>Add .externalpubs file, -e and -u options.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -56,8 +53,8 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">s1kd-ref [-dfilqRrStvh?] [-$ &lt;issue&gt;] [-s &lt;src&gt;] [-o &lt;dst&gt;]
-         [&lt;code&gt;|&lt;filename&gt;]...</verbatimText>
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-ref [-dfilqRrStuvh?] [-$ &lt;issue&gt;] [-e &lt;file&gt;] [-s &lt;src&gt;]
+         [-o &lt;dst&gt;] [&lt;code&gt;|&lt;file&gt; ...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -74,6 +71,12 @@
               <listItemTerm>-d</listItemTerm>
               <listItemDefinition>
                 <para>Include the issue date in the reference (target must be a file)</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-e &lt;file&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Use a custom <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -106,7 +109,7 @@
                 <para>Output to &lt;dst&gt; instead of stdout.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+            <definitionListItem>
               <listItemTerm>-q</listItemTerm>
               <listItemDefinition>
                 <para>Quiet mode. Do not print errors.</para>
@@ -142,7 +145,13 @@
                 <para>Include the title in the reference (target must be a file).</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-u</listItemTerm>
+              <listItemDefinition>
+                <para>Include the full URL/filename of the reference with the <verbatimText verbatimStyle="vs13">xlink:href</verbatimText> attribute.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
               <listItemTerm>-v</listItemTerm>
               <listItemDefinition>
                 <para>Verbose output.</para>
@@ -155,15 +164,15 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>&lt;code&gt;|&lt;filename&gt;</listItemTerm>
+              <listItemTerm>&lt;code&gt;|&lt;file&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Either a code, including the prefix (DMC, PMC, etc.), or the filename of a CSDB object.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
         </para>
-        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
-        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+        <para>In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
+        <para>
           <definitionList>
             <definitionListItem>
               <listItemTerm>--dtdload</listItemTerm>
@@ -185,6 +194,20 @@
             </definitionListItem>
           </definitionList>
         </para>
+        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <title><verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file</title>
+          <para>The <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file contains definitions of external publication references. This can be used to generate the XML for an external publication reference by specifying the external publication code.</para>
+          <para>Example of a <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file:
+            <verbatimText verbatimStyle="vs11">&lt;externalPubs&gt;
+&lt;externalPubRef&gt;
+&lt;externalPubRefIdent&gt;
+&lt;externalPubCode&gt;ABC&lt;/externalPubCode&gt;
+&lt;externalPubTitle&gt;ABC Manual&lt;/externalPubTitle&gt;
+&lt;/externalPubRefIdent&gt;
+&lt;/externalPubRef&gt;
+&lt;/externalPubs&gt;</verbatimText>
+          </para>
+        </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Examples</title>
@@ -311,6 +334,25 @@ itemLocationCode="D"/&gt;
 &lt;language languageIsoCode="en" countryIsoCode="CA"/&gt;
 &lt;issueInfo issueNumber="001" inWork="00"/&gt;
 &lt;/repositorySourceDmIdent&gt;</verbatimText>
+        </para>
+        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">Reference to an external publication:</para>
+        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref ABC
+&lt;externalPubRef&gt;
+&lt;externalPubRefIdent&gt;
+&lt;externalPubCode&gt;ABC&lt;/externalPubCode&gt;
+&lt;/externalPubRefIdent&gt;
+&lt;/externalPubRef&gt;</verbatimText>
+        </para>
+        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">Reference to an external publication (from the <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file):</para>
+        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <verbatimText verbatimStyle="vs23">$ s1kd-ref ABC
+&lt;externalPubRef&gt;
+&lt;externalPubRefIdent&gt;
+&lt;externalPubCode&gt;ABC&lt;/externalPubCode&gt;
+&lt;externalPubTitle&gt;ABC Manual&lt;/externalPubTitle&gt;
+&lt;/externalPubRefIdent&gt;
+&lt;/externalPubRef&gt;</verbatimText>
         </para>
       </levelledPara>
     </description>

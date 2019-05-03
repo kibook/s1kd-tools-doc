@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="25" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="016" inWork="00"/>
+        <issueInfo issueNumber="017" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="04" day="05"/>
+        <issueDate year="2019" month="05" day="03"/>
         <dmTitle>
           <techName>s1kd-refs</techName>
           <infoName>Description</infoName>
@@ -40,7 +40,7 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add standard libxml2 parser options.</simplePara>
+        <simplePara>Add .externalpubs file and -e option.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -67,7 +67,8 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-refs [-aCcDEFfGIilNnoPqRrsUuvXxh?] [-d &lt;dir&gt;] [&lt;object&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-refs [-aCcDEFfGIilNnoPqRrsUuvXxh?] [-d &lt;dir&gt;] [-e &lt;file&gt;]
+          [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -96,6 +97,12 @@
               <listItemTerm>-d &lt;dir&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Directory to search for matches to references in. By default, the current directory is used.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-e &lt;file&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Use a custom <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -220,8 +227,8 @@
             </definitionListItem>
           </definitionList>
         </para>
-        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
-        <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+        <para>In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
+        <para>
           <definitionList>
             <definitionListItem>
               <listItemTerm>--dtdload</listItemTerm>
@@ -243,6 +250,21 @@
             </definitionListItem>
           </definitionList>
         </para>
+        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <title><verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file</title>
+          <para>The <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file contains definitions of external publication references. This can be used to update external publication references in CSDB objects with -U.</para>
+          <para>By default, the tool will search the current directory and parent directories for a file named .externalpubs, but any file can be specified by using the -e option.</para>
+          <para>Example of a <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file:
+            <verbatimText verbatimStyle="vs11">&lt;externalPubs&gt;
+&lt;externalPubRef&gt;
+&lt;externalPubRefIdent&gt;
+&lt;externalPubCode&gt;ABC&lt;/externalPubCode&gt;
+&lt;externalPubTitle&gt;ABC Manual&lt;/externalPubTitle&gt;
+&lt;/externalPubRefIdent&gt;
+&lt;/externalPubRef&gt;
+&lt;/externalPubs&gt;</verbatimText></para>
+          <para>External publication references will be updated whether they are matched to a file or not.</para>
+        </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Exit status</title>
