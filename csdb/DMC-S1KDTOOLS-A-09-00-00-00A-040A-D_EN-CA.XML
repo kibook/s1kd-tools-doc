@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="09" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="022" inWork="00"/>
+        <issueInfo issueNumber="023" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="05" day="03"/>
+        <issueDate year="2019" month="05" day="17"/>
         <dmTitle>
           <techName>s1kd-metadata</techName>
           <infoName>Description</infoName>
@@ -39,12 +39,6 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Change 'schema' to 'schemaUrl' and add new 'schema' metadata.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0002" updateHighlight="0" updateReasonType="urt01">
-        <simplePara>Document -h? options.</simplePara>
-      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -99,7 +93,7 @@
                 <para>Lists all available metadata with a short description of each. Specify specific metadata to describe with the -n option.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="0" changeType="add" reasonForUpdateRefIds="rfu-0002">
+            <definitionListItem>
               <listItemTerm>-h -?</listItemTerm>
               <listItemDefinition>
                 <para>Show help/usage message.</para>
@@ -196,7 +190,7 @@
       <levelledPara>
         <title>Example</title>
         <para>
-          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">$ ls
+          <verbatimText verbatimStyle="vs24">$ ls
 DMC-S1KDTOOLS-A-00-09-00-00A-040A-D_EN-CA.XML
 DMC-S1KDTOOLS-A-00-0Q-00-00A-040A-D_EN-CA.XML
 

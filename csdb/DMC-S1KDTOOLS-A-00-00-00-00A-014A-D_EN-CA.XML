@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="014" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="007" inWork="00"/>
+        <issueInfo issueNumber="008" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="05" day="03"/>
+        <issueDate year="2019" month="05" day="17"/>
         <dmTitle>
           <techName>s1kd-tools</techName>
           <infoName>.defaults file identifiers</infoName>
@@ -39,9 +39,6 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add 'act' and 'issueType' defaults.</simplePara>
-      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -68,7 +65,7 @@
               </row>
             </thead>
             <tbody>
-              <row changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <row>
                 <entry>
                   <para>
                     <verbatimText verbatimStyle="vs14">act</verbatimText>
@@ -248,7 +245,7 @@
                   <para>3 digits</para>
                 </entry>
               </row>
-              <row changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <row>
                 <entry>
                   <para>
                     <verbatimText verbatimStyle="vs14">issueType</verbatimText>
@@ -635,7 +632,7 @@
       <levelledPara>
         <title>Example - XML format</title>
         <para>
-          <verbatimText verbatimStyle="vs11" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">&lt;?xml version="1.0"?&gt;
+          <verbatimText verbatimStyle="vs11">&lt;?xml version="1.0"?&gt;
 &lt;defaults&gt;
 &lt;default ident="act" value="MYPRJ-A-00-00-00-00A-00WA-D"/&gt;
 &lt;default ident="assyCode" value="00"/&gt;
@@ -694,7 +691,7 @@
       <levelledPara>
         <title>Example - Simple text format</title>
         <para>
-          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">act                            MYPRJ-A-00-00-00-00A-00WA-D
+          <verbatimText verbatimStyle="vs24">act                            MYPRJ-A-00-00-00-00A-00WA-D
 assyCode                       00
 authorization                  khzae.net
 brex                           MYPRJ-A-00-00-00-00A-022A-D
