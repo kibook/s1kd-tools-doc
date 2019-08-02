@@ -9,10 +9,10 @@
       <pmIdent>
         <pmCode modelIdentCode="S1KDTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="018" inWork="00"/>
+        <issueInfo issueNumber="019" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2019" month="06" day="21"/>
+        <issueDate year="2019" month="08" day="02"/>
         <pmTitle>s1kd-tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
@@ -37,9 +37,7 @@
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance>
-        <unverified/>
-      </qualityAssurance>
+      <qualityAssurance><unverified/></qualityAssurance>
     </pmStatus>
   </identAndStatusSection>
   <content>
