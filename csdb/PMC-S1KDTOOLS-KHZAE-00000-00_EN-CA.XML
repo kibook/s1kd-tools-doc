@@ -3,16 +3,16 @@
 <!NOTATION PNG SYSTEM "PNG" >
 <!ENTITY ICN-S1KDTOOLS-A-000000-A-KHZAE-00001-A-001-01 SYSTEM "ICN-S1KDTOOLS-A-000000-A-KHZAE-00001-A-001-01.PNG" NDATA PNG>
 ]>
-<pm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/pm.xsd">
+<pm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_5-0/xml_schema_flat/pm.xsd">
   <identAndStatusSection>
     <pmAddress>
       <pmIdent>
         <pmCode modelIdentCode="S1KDTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="019" inWork="00"/>
+        <issueInfo issueNumber="020" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2019" month="08" day="02"/>
+        <issueDate year="2019" month="09" day="06"/>
         <pmTitle>s1kd-tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
@@ -33,11 +33,13 @@
       <brexDmRef>
         <dmRef>
           <dmRefIdent>
-            <dmCode modelIdentCode="S1000D" systemDiffCode="F" systemCode="04" subSystemCode="1" subSubSystemCode="0" assyCode="0301" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="D"/>
+            <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="022" infoCodeVariant="A" itemLocationCode="D"/>
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance><unverified/></qualityAssurance>
+      <qualityAssurance>
+        <unverified/>
+      </qualityAssurance>
     </pmStatus>
   </identAndStatusSection>
   <content>

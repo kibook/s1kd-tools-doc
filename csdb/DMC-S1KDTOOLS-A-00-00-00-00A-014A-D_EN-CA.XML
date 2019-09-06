@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dmodule>
-<dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_4-2/xml_schema_flat/descript.xsd">
+<dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_5-0/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="014" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="008" inWork="00"/>
+        <issueInfo issueNumber="009" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="05" day="17"/>
+        <issueDate year="2019" month="09" day="06"/>
         <dmTitle>
           <techName>s1kd-tools</techName>
           <infoName>.defaults file identifiers</infoName>
@@ -39,6 +39,12 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add infoNameVariant default.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateHighlight="0" updateReasonType="urt01">
+        <simplePara>Improve example of issue values.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -225,6 +231,16 @@
                   <para>string</para>
                 </entry>
               </row>
+              <row changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+                <entry>
+                  <para>
+                    <verbatimText verbatimStyle="vs14">infoNameVariant</verbatimText>
+                  </para>
+                </entry>
+                <entry>
+                  <para>string</para>
+                </entry>
+              </row>
               <row>
                 <entry>
                   <para>
@@ -262,7 +278,7 @@
                   </para>
                 </entry>
                 <entry>
-                  <para>S1000D issue number (4.2, 4.1, 4.0, 3.0)</para>
+                  <para changeMark="0" changeType="modify" reasonForUpdateRefIds="rfu-0002">S1000D issue number (5.0, 4.2, 4.1, ...)</para>
                 </entry>
               </row>
               <row>
@@ -632,7 +648,7 @@
       <levelledPara>
         <title>Example - XML format</title>
         <para>
-          <verbatimText verbatimStyle="vs11">&lt;?xml version="1.0"?&gt;
+          <verbatimText verbatimStyle="vs11" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001 rfu-0002">&lt;?xml version="1.0"?&gt;
 &lt;defaults&gt;
 &lt;default ident="act" value="MYPRJ-A-00-00-00-00A-00WA-D"/&gt;
 &lt;default ident="assyCode" value="00"/&gt;
@@ -648,12 +664,13 @@
 &lt;default ident="dmlType" value="C"/&gt;
 &lt;default ident="includePrevSnsTitle" value="true"/&gt;
 &lt;default ident="infoCodeVariant" value="A"/&gt;
-&lt;default ident="infoCode" value="040"/&gt;
-&lt;default ident="infoName" value="Description"/&gt;
+&lt;default ident="infoCode" value="258"/&gt;
+&lt;default ident="infoName" value="Other procedure to clean"/&gt;
+&lt;default ident="infoNameVariant" value="Clean with water"/&gt;
 &lt;default ident="inWork" value="01"/&gt;
 &lt;default ident="issueNumber" value="000"/&gt;
 &lt;default ident="issueType" value="new"/&gt;
-&lt;default ident="issue" value="4.2"/&gt;
+&lt;default ident="issue" value="5.0"/&gt;
 &lt;default ident="itemLocationCode" value="D"/&gt;
 &lt;default ident="languageIsoCode" value="en"/&gt;
 &lt;default ident="learnCode" value="H10"/&gt;
@@ -691,7 +708,7 @@
       <levelledPara>
         <title>Example - Simple text format</title>
         <para>
-          <verbatimText verbatimStyle="vs24">act                            MYPRJ-A-00-00-00-00A-00WA-D
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001 rfu-0002">act                            MYPRJ-A-00-00-00-00A-00WA-D
 assyCode                       00
 authorization                  khzae.net
 brex                           MYPRJ-A-00-00-00-00A-022A-D
@@ -705,12 +722,13 @@ disassyCode                    00
 dmlType                        C
 includePrevSnsTitle            true
 infoCodeVariant                A
-infoCode                       040
-infoName                       Description
+infoCode                       258
+infoName                       Other procedure to clean
+infoNameVariant                Clean with water
 inWork                         01
 issueNumber                    000
 issueType                      new
-issue                          4.2
+issue                          5.0
 itemLocationCode               D
 languageIsoCode                en
 learnCode                      H10
