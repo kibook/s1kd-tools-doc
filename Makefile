@@ -15,14 +15,20 @@ all: s1kd-tools.pdf
 s1kd-tools.pdf: s1kd-tools.xml
 	s1kd2pdf $^ $(PARAMS)
 
-s1kd-tools.xml: csdb/PMC-*.XML csdb/DMC-*.XML
-	s1kd-flatten -px $^ | xmllint --format - > $@
+s1kd-tools.xml: custom
+	s1kd-ls -DP $< | xargs s1kd-flatten -px | xml-format -o $@
+
+custom: csdb/PMC-*.XML csdb/DMC-*.XML
+	sh build.sh $@ csdb $< pdf
 
 csdb/DMC-S1KDTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: csdb/DMC-*.XML
-	s1kd-acronyms -xpd $^ | xml-merge $@ - | xmllint --format --output $@ -
+	s1kd-acronyms -xpd $^ | xml-merge $@ - | xml-format -o $@
 
 README.md: csdb/DMC-S1KDTOOLS-A-00-00-00-00A-040B-D_EN-CA.XML
 	s1kd2db $^ | pandoc -f docbook -t markdown_github -o $@
 
+HIGHLIGHTS.md: csdb/PMC-*.XML csdb/DMC-*.XML high-github.xsl
+	s1kd-flatten -d csdb csdb/PMC-*.XML | s1kd-fmgen -t HIGH -x high-github.xsl | s1kd2db - | pandoc -f docbook -t markdown_github -o $@
+
 clean:
-	rm -f s1kd-tools.pdf s1kd-tools.xml
+	rm -rf s1kd-tools.pdf s1kd-tools.xml custom
