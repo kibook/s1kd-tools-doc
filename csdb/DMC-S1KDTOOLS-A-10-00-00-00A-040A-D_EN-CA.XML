@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="10" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="011" inWork="00"/>
+        <issueInfo issueNumber="012" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="10" day="25"/>
+        <issueDate year="2019" month="11" day="15"/>
         <dmTitle>
           <techName>s1kd-uom</techName>
           <infoName>Description</infoName>
@@ -39,15 +39,6 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Allow use of XSLT in .uomdisplay for complex UOM display.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add currency configuration.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0003" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add -S and -s options.</simplePara>
-      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -59,7 +50,7 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0003">s1kd-uom [-dflv,.h?] [-F &lt;fmt&gt;]
+          <verbatimText verbatimStyle="vs24">s1kd-uom [-dflv,.h?] [-F &lt;fmt&gt;]
          [-u &lt;uom&gt; -t &lt;uom&gt; [-e &lt;expr&gt;] [-F &lt;fmt&gt;] ...]
          [-s &lt;name&gt;|-S &lt;path&gt; ...] [-U &lt;path&gt;] [-p &lt;fmt&gt; [-P &lt;path&gt;]]
          [&lt;object&gt;...]</verbatimText>
@@ -130,13 +121,13 @@
                 </para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0003">
+            <definitionListItem>
               <listItemTerm>-S, --set &lt;path&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Apply a set of conversions defined in an XML file.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0003">
+            <definitionListItem>
               <listItemTerm>-s, --preset &lt;name&gt;</listItemTerm>
               <listItemDefinition>
                 <para>
@@ -245,7 +236,7 @@
             <verbatimText verbatimStyle="vs23">$ s1kd-uom -, -u in -t cm -u degF -t degC &gt; .uom</verbatimText>
           </para>
           <para>This will generate a <verbatimText verbatimStyle="vs02">.uom</verbatimText> file containing rules to convert inches to centimetres, and degrees Fahrenheit to degrees Celsius.</para>
-          <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0003">The same file format is used with the -S option to specify a set of conversions to perform. In this case, the attribute <verbatimText verbatimStyle="vs13">formula</verbatimText> is optional, as the default formula or the formula in the <verbatimText verbatimStyle="vs02">.uom</verbatimText> file will be used if it is not specified.</para>
+          <para>The same file format is used with the -S option to specify a set of conversions to perform. In this case, the attribute <verbatimText verbatimStyle="vs13">formula</verbatimText> is optional, as the default formula or the formula in the <verbatimText verbatimStyle="vs02">.uom</verbatimText> file will be used if it is not specified.</para>
         </levelledPara>
         <levelledPara>
           <title>Conversion formula variables (-e)</title>
@@ -303,7 +294,7 @@ bolt.&lt;/para&gt;</verbatimText>
           <para>Custom formats for values or UOMs can be defined in the <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file. By default, the tool will search the current directory and parent directories for a file named <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText>, but any file can be specified by using the -P option.</para>
           <para>Example of a <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file:</para>
           <para>
-            <verbatimText verbatimStyle="vs11" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">&lt;uomDisplay&gt;
+            <verbatimText verbatimStyle="vs11">&lt;uomDisplay&gt;
 &lt;format name="custom" decimalSeparator="," groupingSeparator="."/&gt;
 &lt;uoms&gt;
 &lt;uom name="cm"&gt; cm&lt;/uom&gt;
@@ -321,8 +312,8 @@ bolt.&lt;/para&gt;</verbatimText>
 &lt;/currencies&gt;
 &lt;/uomDisplay&gt;</verbatimText>
           </para>
-          <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">Units of measure and currencies that are not defined will be presented as their name (e.g., "cm2") separated from the value by a space.</para>
-          <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <para>Units of measure and currencies that are not defined will be presented as their name (e.g., "cm2") separated from the value by a space.</para>
+          <para>
             More complex UOM display, such as pluralization of units of measure, can be accomplished with embedded XSLT in the <verbatimText verbatimStyle="vs02">.uomdisplay</verbatimText> file:
             <verbatimText verbatimStyle="vs11">&lt;uoms
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
@@ -507,7 +498,7 @@ quantityTypeSpecifics="USD"&gt;7.36&lt;/quantity&gt;</verbatimText>
                   <verbatimText verbatimStyle="vs12">&lt;uoms&gt;</verbatimText>
                 </para>
               </listItem>
-              <listItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+              <listItem>
                 <para>
                   <verbatimText verbatimStyle="vs12">&lt;currencies&gt;</verbatimText>
                 </para>
@@ -637,7 +628,7 @@ quantityTypeSpecifics="USD"&gt;7.36&lt;/quantity&gt;</verbatimText>
               </listItem>
             </randomList>
           </para>
-          <para changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">The element <verbatimText verbatimStyle="vs12">&lt;uoms&gt;</verbatimText> may also contain arbitrary XSLT elements which will be processed for all units of measure.</para>
+          <para>The element <verbatimText verbatimStyle="vs12">&lt;uoms&gt;</verbatimText> may also contain arbitrary XSLT elements which will be processed for all units of measure.</para>
         </levelledPara>
         <levelledPara>
           <title>Display of a unit of measure</title>
@@ -658,9 +649,9 @@ quantityTypeSpecifics="USD"&gt;7.36&lt;/quantity&gt;</verbatimText>
           <para>
             <emphasis>Child elements:</emphasis>
           </para>
-          <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">The element <verbatimText verbatimStyle="vs12">&lt;uom&gt;</verbatimText> may contain mixed content, which will be used for the display of the unit of measure. This can include XSLT elements, which allows for handling complex cases of UOM display, such as pluralization.</para>
+          <para>The element <verbatimText verbatimStyle="vs12">&lt;uom&gt;</verbatimText> may contain mixed content, which will be used for the display of the unit of measure. This can include XSLT elements, which allows for handling complex cases of UOM display, such as pluralization.</para>
         </levelledPara>
-        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+        <levelledPara>
           <title>Currencies</title>
           <para>
             <emphasis>Markup element:</emphasis>
@@ -690,7 +681,7 @@ quantityTypeSpecifics="USD"&gt;7.36&lt;/quantity&gt;</verbatimText>
           </para>
           <para>The element <verbatimText verbatimStyle="vs12">&lt;currencies&gt;</verbatimText> may also contain arbitrary XSLT elements which will be processed for all currencies.</para>
         </levelledPara>
-        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+        <levelledPara>
           <title>Display of a currency</title>
           <para>
             <emphasis>Markup element:</emphasis>

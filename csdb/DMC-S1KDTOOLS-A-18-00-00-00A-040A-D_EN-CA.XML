@@ -4,19 +4,19 @@
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
-        <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="23" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
+        <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="18" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="021" inWork="00"/>
+        <issueInfo issueNumber="001" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
         <issueDate year="2019" month="11" day="15"/>
         <dmTitle>
-          <techName>s1kd-flatten</techName>
+          <techName>s1kd-repcheck</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="changed">
+    <dmStatus issueType="new">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -39,19 +39,21 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate updateHighlight="1" updateReasonType="urt02">
+        <simplePara>New tool for validating CIR references.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
     <description>
       <levelledPara>
         <title>General</title>
-        <para>The <emphasis>s1kd-flatten</emphasis> tool combines a publication module and the data modules it references in to a single file for use with a publishing system.</para>
-        <para>Data modules are by default searched for in the current directory using the data module code, language and/or issue info provided in each reference.</para>
+        <para>The <emphasis>s1kd-repcheck</emphasis> tool validates references to <acronym><acronymTerm>CIR</acronymTerm><acronymDefinition>Common Information Repository</acronymDefinition></acronym> items within S1000D CSDB objects. Any CIR references which cannot be resolved to a specification within a CIR data module will cause the tool to report an error.</para>
       </levelledPara>
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-flatten [-d &lt;dir&gt;] [-I &lt;path&gt;] [-cDfimNpqRruvx] &lt;PM&gt; [&lt;DM&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24">s1kd-repcheck [options] [&lt;objects&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -59,27 +61,21 @@
         <para>
           <definitionList>
             <definitionListItem>
-              <listItemTerm>-c, --containers</listItemTerm>
+              <listItemTerm>-a, --all</listItemTerm>
               <listItemDefinition>
-                <para>Flatten referenced container data modules by copying the references inside the container directly in to the publication module. The copied references will also be flattened, unless the -m option is specified.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-D, --remove</listItemTerm>
-              <listItemDefinition>
-                <para>Remove unresolved references.</para>
+                <para>In addition to CIR data modules specified with -R or explicitly linked in CIR references, allow CIR references to be resolved against any CIR data modules that were specified as objects to check.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-d, --dir &lt;dir&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Directory to start search in. By default, the current directory is used.</para>
+                <para>The directory to start searching for CIR data modules in. By default, the current directory is used.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-f, --overwrite</listItemTerm>
+              <listItemTerm>-f, --filenames</listItemTerm>
               <listItemDefinition>
-                <para>Overwrite input publication module instead of writing to stdout.</para>
+                <para>Print the filenames of invalid objects.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -89,57 +85,52 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-I, --include &lt;path&gt;</listItemTerm>
+              <listItemTerm>-l, --list</listItemTerm>
               <listItemDefinition>
-                <para>Add &lt;path&gt; to the list of directories that the tool will search when resolving references.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-i, --ignore-issue</listItemTerm>
-              <listItemDefinition>
-                <para>Always match the latest issue of an object found, regardless of the issue specified in the reference.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-m, --modify</listItemTerm>
-              <listItemDefinition>
-                <para>Modify the references in the publication module without flattening them.</para>
+                <para>Treat input as a list of CSDB objects to check.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-N, --omit-issue</listItemTerm>
               <listItemDefinition>
-                <para>Assume that the files representing the referenced data modules do not include the issue info in their filenames, i.e. they were created using the -N option of the s1kd-new* tools.</para>
+                <para>Assume that the issue/inwork numbers are omitted from object filenames (they were created with the -N option).</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-p, --simple</listItemTerm>
+              <listItemTerm>-o, --output-valid</listItemTerm>
               <listItemDefinition>
-                <para>Instead of the hierarchical PM-based format, use a simpler "flat" format.</para>
+                <para>Output valid CSDB objects to stdout.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem>
+              <listItemTerm>-p, --progress</listItemTerm>
+              <listItemDefinition>
+                <para>Display a progress bar.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-q, --quiet</listItemTerm>
               <listItemDefinition>
-                <para>Quiet mode. Errors are not printed.</para>
+                <para>Quiet mode. Error messages will not be printed.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-R, --recursively</listItemTerm>
+              <listItemTerm>-R, --cir &lt;CIR&gt;</listItemTerm>
               <listItemDefinition>
-                <para>Recursively flatten referenced publication modules, copying their content in to the "master" publication module.</para>
+                <para>A CIR to resolve references in CSDB objects against. Multiple CIRs can be specified by using this option multiple times.</para>
+                <para>If "*" is given for &lt;CIR&gt;, the tool will search for CIR data modules automatically.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>-r, --recursive</listItemTerm>
               <listItemDefinition>
-                <para>Search directories recursively.</para>
+                <para>Search for CIR data modules recursively.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-u, --unique</listItemTerm>
+              <listItemTerm>-T, --summary</listItemTerm>
               <listItemDefinition>
-                <para>Remove duplicate references within the PM content.</para>
+                <para>Print a summary of the check after it completes, including statistics on the number of objects that passed/failed the check.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -149,9 +140,9 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-x, --use-xinclude</listItemTerm>
+              <listItemTerm>-x, --xml</listItemTerm>
               <listItemDefinition>
-                <para>Use XInclude rather than copying each data module's contents directly inside the publication module. DTD entities in data modules will only be carried over to the final publication when using this option, otherwise they do not carry over when copying the data module.</para>
+                <para>Print an XML report of the check.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -161,15 +152,9 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>&lt;DM&gt;...</listItemTerm>
+              <listItemTerm>&lt;object&gt;...</listItemTerm>
               <listItemDefinition>
-                <para>When using the -p option, the filenames to include can be specified manually as additional arguments instead of searching for them in the current directory. When not using the -p option, additional arguments are ignored.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>&lt;PM&gt;</listItemTerm>
-              <listItemDefinition>
-                <para>The publication module to flatten.</para>
+                <para>Object(s) to check CIR references in.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
@@ -211,19 +196,19 @@
             <definitionListItem>
               <listItemTerm>0</listItemTerm>
               <listItemDefinition>
-                <para>No errors.</para>
+                <para>The check completed successfully, and all CIR references were resolved.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>1</listItemTerm>
               <listItemDefinition>
-                <para>The publication module specified is malformed.</para>
+                <para>The check completed successfully, but some CIR references could not be resolved.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
               <listItemTerm>2</listItemTerm>
               <listItemDefinition>
-                <para>An encoding error occurred.</para>
+                <para>The number of CSDB objects specified exceeded the available memory.</para>
               </listItemDefinition>
             </definitionListItem>
           </definitionList>
@@ -232,7 +217,29 @@
       <levelledPara>
         <title>Example</title>
         <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-flatten -x PMC-EX-12345-00001-00_001-00_EN-CA.XML &gt; Book.xml</verbatimText>
+          Part repository:
+          <verbatimText verbatimStyle="vs11">&lt;partRepository&gt;
+&lt;partSpec&gt;
+&lt;partIdent manufacturerCodeValue="12345" partNumberValue="ABC"/&gt;
+&lt;itemIdentData&gt;
+&lt;descrForPart&gt;ABC part&lt;/descrForPart&gt;
+&lt;/itemIdentData&gt;
+&lt;/partSpec&gt;
+&lt;/partRepository&gt;</verbatimText>
+          Part references in a procedure:
+          <verbatimText verbatimStyle="vs11">&lt;spareDescrGroup&gt;
+&lt;spareDescr&gt;
+&lt;partRef manufacturerCodeValue="12345" partNumberValue="ABC"/&gt;
+&lt;reqQuantity&gt;1&lt;/reqQuantity&gt;
+&lt;/spareDescr&gt;
+&lt;spareDescr&gt;
+&lt;partRef manufacturerCodeValue="12345" partNumberValue="DEF"/&gt;
+&lt;reqQuantity&gt;1&lt;/reqQuantity&gt;
+&lt;/spareDescr&gt;
+&lt;/spareDescrGroup&gt;</verbatimText>
+          Command and results:
+          <verbatimText verbatimStyle="vs24">$ s1kd-repcheck -R &lt;CIR&gt; ... &lt;DM&gt;
+s1kd-repcheck: ERROR: &lt;DM&gt; (&lt;line&gt;): Part 12345/DEF not found.</verbatimText>
         </para>
       </levelledPara>
     </description>

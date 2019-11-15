@@ -9,6 +9,10 @@ PARAMS+=-stringparam auto.expand.acronyms 'no'
 PARAMS+=-param title.page.issue.date 1
 PARAMS+=-param title.page.publisher 0
 PARAMS+=-stringparam font.family 'Helvetica,Arial'
+PARAMS+=-param generate.title.page 1
+PARAMS+=-param generate.highlights 1
+PARAMS+=-param generate.list.of.datamodules 1
+PARAMS+=-param generate.table.of.contents 1
 
 all: s1kd-tools.pdf
 
