@@ -6,10 +6,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="26" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="021" inWork="00"/>
+        <issueInfo issueNumber="022" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="10" day="04"/>
+        <issueDate year="2020" month="01" day="03"/>
         <dmTitle>
           <techName>s1kd-aspp</techName>
           <infoName>Description</infoName>
@@ -39,6 +39,9 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add -q (--quiet) option.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -62,11 +65,11 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-aspp -h?
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-aspp -h?
 s1kd-aspp -D
 s1kd-aspp -g [-A &lt;ACT&gt;] [-C &lt;CCT&gt;] [-d &lt;dir&gt;] [-F &lt;fmt&gt;] [-G &lt;XSL&gt;]
-             [-cfklNrv] [&lt;object&gt;...]
-s1kd-aspp -p [-a &lt;ID&gt;] [-flv] [&lt;object&gt;...]</verbatimText>
+             [-cfklNqrv] [&lt;object&gt;...]
+s1kd-aspp -p [-a &lt;ID&gt;] [-flqv] [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
