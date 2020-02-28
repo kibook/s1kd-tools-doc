@@ -9,10 +9,10 @@
       <pmIdent>
         <pmCode modelIdentCode="S1KDTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="026" inWork="00"/>
+        <issueInfo issueNumber="027" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2020" month="01" day="31"/>
+        <issueDate year="2020" month="02" day="28"/>
         <pmTitle>s1kd-tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
