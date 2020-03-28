@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule>
+<?xml version="1.0"?>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_5-0/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="04" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="035" inWork="00"/>
+        <issueInfo issueNumber="036" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2019" month="10" day="04"/>
+        <issueDate year="2020" month="03" day="27"/>
         <dmTitle>
           <techName>s1kd-brexcheck</techName>
           <infoName>Description</infoName>
@@ -39,6 +38,12 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add --huge, --parser-errors and --parser-warnings parser options.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add -^ (--remove-deleted) option.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -50,8 +55,8 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-brexcheck [-b &lt;brex&gt;] [-d &lt;dir&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;]
-               [-BcefLlnopqrS[tu]sTvxh?] [&lt;object&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">s1kd-brexcheck [-b &lt;brex&gt;] [-d &lt;dir&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;]
+               [-BcefLlnopqrS[tu]sTvx^h?] [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -185,6 +190,12 @@
                 <para>Output an XML report.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+              <listItemTerm>-^, --remove-deleted</listItemTerm>
+              <listItemDefinition>
+                <para>Check the CSDB objects with elements that have a change type of "delete" removed.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>--version</listItemTerm>
               <listItemDefinition>
@@ -202,6 +213,12 @@
                 <para>Load the external DTD.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>--huge</listItemTerm>
+              <listItemDefinition>
+                <para>Remove any internal arbitrary parser limits.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>--net</listItemTerm>
               <listItemDefinition>
@@ -212,6 +229,18 @@
               <listItemTerm>--noent</listItemTerm>
               <listItemDefinition>
                 <para>Resolve entities.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>--parser-errors</listItemTerm>
+              <listItemDefinition>
+                <para>Emit errors from parser.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>--parser-warnings</listItemTerm>
+              <listItemDefinition>
+                <para>Emit warnings from parser.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>

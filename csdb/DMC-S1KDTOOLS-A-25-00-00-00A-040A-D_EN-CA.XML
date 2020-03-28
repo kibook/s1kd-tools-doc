@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dmodule>
+<?xml version="1.0"?>
 <dmodule xmlns:dc="http://www.purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.s1000d.org/S1000D_5-0/xml_schema_flat/descript.xsd">
   <identAndStatusSection>
     <dmAddress>
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="25" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="028" inWork="00"/>
+        <issueInfo issueNumber="029" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="02" day="28"/>
+        <issueDate year="2020" month="03" day="27"/>
         <dmTitle>
           <techName>s1kd-refs</techName>
           <infoName>Description</infoName>
@@ -39,6 +38,15 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add -B (--ipd), -b (--ipd-sns), -K (--csn), -k (--ipd-dcv) and -^ (--remove-deleted) options.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Include filename of matched objects separately from reference code.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0003" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add --huge, --parser-errors and --parser-warnings parser options.</simplePara>
+      </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
   <content>
@@ -64,9 +72,9 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-refs [-aCcDEFfGHIiLlmNnoPqRrSsTUuvwXxYZh?] [-d &lt;dir&gt;] [-e &lt;cmd&gt;]
-          [-J &lt;ns=URL&gt;] [-j &lt;xpath&gt;] [-t &lt;fmt&gt;] [-3 &lt;file&gt;]
-          [&lt;object&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-refs [-aBCcDEFfGHIiKLlmNnoPqRrSsTUuvwXxYZ^h?] [-b &lt;SNS&gt;]
+          [-d &lt;dir&gt;] [-e &lt;cmd&gt;] [-J &lt;ns=URL&gt;] [-j &lt;xpath&gt;]
+          [-k &lt;pattern&gt;] [-t &lt;fmt&gt;] [-3 &lt;file&gt;] [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -79,11 +87,18 @@
                 <para>List all references, both matched and unmatched.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>-C, -D, -E, -G, -H, -L, -P, -S, -T, -Y, -Z</listItemTerm>
+            <definitionListItem changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-B, -C, -D, -E, -G, -H, -K, -L, -P, -S, -T, -Y, -Z</listItemTerm>
               <listItemDefinition>
-                <para>List references to comments, data modules, external publications, ICNs, hotspots, data management lists, publication modules, SCORM content packages, referred fragments, repository source DMs and source objects respectively. If none are specified, -CDEGHLPSTYZ is assumed.</para>
-                <para>The following long options can also be used for each: --com, --dm, --epr, --icn, --hotspot, --dml, --pm, --smc, --fragment, --repository, --source.</para>
+                <para>List references to IPDs, comments, data modules, external publications, ICNs, hotspots, CSNs, data management lists, publication modules, SCORM content packages, referred fragments, repository source DMs and source objects respectively. If none are specified, -BCDEGHKLPSTYZ is assumed.</para>
+                <para>The following long options can also be used for each: --ipd, --com, --dm, --epr, --icn, --hotspot, --csn, --dml, --pm, --smc, --fragment, --repository, --source.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-b, --ipd-sns &lt;SNS&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Specify the SNS for non-chapterized IPD data modules, in the form of SYSTEM-SUBSYSTEM-ASSY (for example, "ZD-00-35"). This code is used to resolve non-chapterized CSN references.</para>
+                <para>If "-" is given for &lt;SNS&gt;, then the SNS will be derived from current data module.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -144,6 +159,17 @@
               <listItemTerm>-j &lt;xpath&gt;</listItemTerm>
               <listItemDefinition>
                 <para>Specify a custom XPath expression to use when matching hotspots (-H) in XML-based ICN formats.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-k, --ipd-dcv &lt;pattern&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Specify a pattern used to determine the disassembly code variant for IPD data modules when resolving CSN references.</para>
+                <para>
+                  Within the pattern, the following characters have special meaning:
+                  <randomList><listItem><para>% - The figure number variant code.</para></listItem><listItem><para>? - A wildcard that matches any single character.</para></listItem></randomList>
+                </para>
+                <para>The default pattern is "%", which means the disassembly code variant is exactly the same as the figure number variant. Projects that use a 2- or 3-character disassembly code variant must specify a pattern of the appropriate length in order for their IPD DMs to be matched (for example, "%?" or "%??").</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -207,11 +233,14 @@
                 <para>Specify a custom format for printed references. &lt;fmt&gt; is a format string, where the following variables can be given:</para>
                 <para>
                   <randomList>
+                    <listItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+                      <para>%file% - The filename of the referenced object (nothing is printed if no file is matched).</para>
+                    </listItem>
                     <listItem>
                       <para>%line% - The line number where the reference occurs in the source.</para>
                     </listItem>
-                    <listItem>
-                      <para>%ref% - The reference.</para>
+                    <listItem changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">
+                      <para>%ref% - The reference. May be a code (if no file is matched), a file name (for objects where a file is matched) or a file name + fragment name.</para>
                     </listItem>
                     <listItem>
                       <para>%src% - The source of the reference.</para>
@@ -267,6 +296,12 @@
                 <para>Use a custom <verbatimText verbatimStyle="vs02">.externalpubs</verbatimText> file.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-^, --remove-deleted</listItemTerm>
+              <listItemDefinition>
+                <para>List references with elements that have a change type of "delete" removed.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>--version</listItemTerm>
               <listItemDefinition>
@@ -290,6 +325,12 @@
                 <para>Load the external DTD.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0003">
+              <listItemTerm>--huge</listItemTerm>
+              <listItemDefinition>
+                <para>Remove any internal arbitrary parser limits.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>--net</listItemTerm>
               <listItemDefinition>
@@ -300,6 +341,18 @@
               <listItemTerm>--noent</listItemTerm>
               <listItemDefinition>
                 <para>Resolve entities.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0003">
+              <listItemTerm>--parser-errors</listItemTerm>
+              <listItemDefinition>
+                <para>Emit errors from parser.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0003">
+              <listItemTerm>--parser-warnings</listItemTerm>
+              <listItemDefinition>
+                <para>Emit warnings from parser.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -382,17 +435,50 @@
                 <para>stdin did not contain valid XML and not in list mode (-l).</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>4</listItemTerm>
+              <listItemDefinition>
+                <para>The non-chapterized SNS specified (-b) is not valid.</para>
+              </listItemDefinition>
+            </definitionListItem>
           </definitionList>
         </para>
       </levelledPara>
       <levelledPara>
-        <title>Example</title>
-        <para>
-          <verbatimText verbatimStyle="vs24">$ s1kd-refs DMC-EX-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
-DMC-EX-A-00-00-00-00A-022A-D_001-00_EN-CA.XML
-DMC-EX-A-01-00-00-00A-040A-D_000-01_EN-CA.XML
-ICN-12345-00001-001-01.JPG</verbatimText>
-        </para>
+        <title>Examples</title>
+        <levelledPara>
+          <title>General</title>
+          <para>
+            <verbatimText verbatimStyle="vs24">$ s1kd-refs DMC-EX-A-00-00-00-00A-040A-D_000-01_EN-CA.XML
+  DMC-EX-A-00-00-00-00A-022A-D_001-00_EN-CA.XML
+  DMC-EX-A-01-00-00-00A-040A-D_000-01_EN-CA.XML
+  ICN-12345-00001-001-01.JPG</verbatimText>
+          </para>
+        </levelledPara>
+        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <title>CSN references</title>
+          <para>
+            These examples are based on the following CSN reference:
+            <verbatimText verbatimStyle="vs11">&lt;catalogSeqNumberRef figureNumber="01" item="004"/&gt;</verbatimText>
+            in the following data module:
+            <verbatimText verbatimStyle="vs24">DM=DMC-EX-A-00-00-00-00AA-100A-D_001-00_EN-CA.XML</verbatimText>
+          </para>
+          <para>
+            Because the CSN reference is not chapterized, it cannot be matched to an IPD DM without more information:
+            <verbatimText verbatimStyle="vs24">$ s1kd-refs -K $DM
+Unmatched reference: Fig 01 Item 004</verbatimText>
+          </para>
+          <para>
+            The SNS for non-chapterized IPDs can be specified with -b. In this case, the project uses the SNS "ZD-00-35" for their IPDs:
+            <verbatimText verbatimStyle="vs24">$ s1kd-refs -K -b ZD-00-35 $DM
+Unmatched reference: DMC-EX-A-ZD-00-35-010-941A-D Item 004</verbatimText>
+          </para>
+          <para>
+            This project uses a 2-character disassembly code variant, so the figure number variant is not sufficient to resolve the DMC of the referenced IPD data module. The -k option can be used in this case to specify the pattern for the disassembly code variant of IPDs. Since the second character of the disassembly code variant of all IPD DMs in this project is A, the pattern "%A" can be used:
+            <verbatimText verbatimStyle="vs24">$ s1kd-refs -K -b ZD-00-35 -k %A $DM
+DMC-EX-A-ZD-00-35-010A-941A-D_001-00_EN-CA.XML Item 004</verbatimText>
+          </para>
+        </levelledPara>
       </levelledPara>
     </description>
   </content>
