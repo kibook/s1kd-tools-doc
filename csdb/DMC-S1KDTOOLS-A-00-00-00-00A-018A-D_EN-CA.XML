@@ -5,17 +5,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="00" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="018" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="023" inWork="00"/>
+        <issueInfo issueNumber="024" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="03" day="27"/>
+        <issueDate year="2020" month="05" day="01"/>
         <dmTitle>
           <techName>s1kd-tools</techName>
           <infoName>Introduction</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="changed">
+    <dmStatus issueType="status">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -38,8 +38,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Remove s1kd-transform tool.</simplePara>
+      <reasonForUpdate>
+        <simplePara>Upissue</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -70,7 +70,7 @@
               <para><emphasis>Generation:</emphasis> The generation of new CSDB objects is supported by the <emphasis>s1kd-dmrl</emphasis> tool and the <emphasis>s1kd-new*</emphasis> set of tools. These provide two methods of creating objects, either using a data management requirements list (DMRL) or a more on-the-fly approach using the s1kd-new* tools directly.</para>
               <para>The <emphasis>s1kd-defaults</emphasis> tool is used to manage the files which contain default metadata for new CSDB objects.</para>
             </listItem>
-            <listItem changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">
+            <listItem>
               <para><emphasis>Authoring:</emphasis> These tools support the authoring process.</para>
               <para>The <emphasis>s1kd-addicn</emphasis> tool creates the notation and entity elements to reference an ICN in a data module.</para>
               <para>The <emphasis>s1kd-ls</emphasis> tool lists data modules within a directory.</para>

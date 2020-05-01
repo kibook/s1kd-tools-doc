@@ -5,17 +5,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="32" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="018" inWork="00"/>
+        <issueInfo issueNumber="019" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="03" day="27"/>
+        <issueDate year="2020" month="05" day="01"/>
         <dmTitle>
           <techName>s1kd-icncatalog</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="changed">
+    <dmStatus issueType="status">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -38,11 +38,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add --huge, --parser-errors and --parser-warnings parser options.</simplePara>
-      </reasonForUpdate>
-      <reasonForUpdate id="rfu-0002" updateHighlight="0" updateReasonType="urt01">
-        <simplePara>The s1kd-transform tool has been removed.</simplePara>
+      <reasonForUpdate>
+        <simplePara>Upissue</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -157,7 +154,7 @@
                 <para>Load the external DTD.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>--huge</listItemTerm>
               <listItemDefinition>
                 <para>Remove any internal arbitrary parser limits.</para>
@@ -175,13 +172,13 @@
                 <para>Resolve entities.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>--parser-errors</listItemTerm>
               <listItemDefinition>
                 <para>Emit errors from parser.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>--parser-warnings</listItemTerm>
               <listItemDefinition>
                 <para>Emit warnings from parser.</para>
@@ -285,7 +282,7 @@ value of the atomic type 'xs:ENTITY'.</verbatimText>
           </para>
           <para>will reconstruct the required external entity declarations in the DTD.</para>
           <note>
-            <notePara changeMark="0" changeType="modify" reasonForUpdateRefIds="rfu-0002">The s1kd-tools will copy the DTD and external entity declarations automatically when performing transformations, so this is only necessary when using more generic XML tools.</notePara>
+            <notePara>The s1kd-tools will copy the DTD and external entity declarations automatically when performing transformations, so this is only necessary when using more generic XML tools.</notePara>
           </note>
         </levelledPara>
         <levelledPara>
