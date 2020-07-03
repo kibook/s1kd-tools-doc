@@ -9,15 +9,15 @@
       <pmIdent>
         <pmCode modelIdentCode="S1KDTOOLS" pmIssuer="KHZAE" pmNumber="00000" pmVolume="00"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="029" inWork="00"/>
+        <issueInfo issueNumber="030" inWork="00"/>
       </pmIdent>
       <pmAddressItems>
-        <issueDate year="2020" month="05" day="01"/>
+        <issueDate year="2020" month="07" day="03"/>
         <pmTitle>s1kd-tools</pmTitle>
         <shortPmTitle>Documentation</shortPmTitle>
       </pmAddressItems>
     </pmAddress>
-    <pmStatus issueType="changed">
+    <pmStatus issueType="status">
       <security securityClassification="01"/>
       <logo>
         <symbol infoEntityIdent="ICN-S1KDTOOLS-A-000000-A-KHZAE-00001-A-001-01" reproductionHeight="12mm"/>
@@ -37,7 +37,7 @@
           </dmRefIdent>
         </dmRef>
       </brexDmRef>
-      <qualityAssurance><unverified/></qualityAssurance>
+      <qualityAssurance><unverified/></qualityAssurance><reasonForUpdate><simplePara>Upissue</simplePara></reasonForUpdate>
     </pmStatus>
   </identAndStatusSection>
   <content>

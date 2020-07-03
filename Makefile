@@ -23,7 +23,7 @@ s1kd-tools.xml: custom
 	s1kd-ls -DP $< | xargs s1kd-flatten -px | xml-format -o $@
 
 custom: csdb/PMC-*.XML csdb/DMC-*.XML
-	sh build.sh $@ csdb $< pdf 3.1.0
+	sh build.sh $@ csdb $< pdf 3.2.0
 
 csdb/DMC-S1KDTOOLS-A-00-00-00-00A-005A-D_EN-CA.XML: csdb/DMC-*.XML
 	s1kd-acronyms -xpd $^ | xml-merge $@ - | xml-format -o $@

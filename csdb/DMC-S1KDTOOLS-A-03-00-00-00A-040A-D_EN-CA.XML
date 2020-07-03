@@ -5,10 +5,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="03" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="050" inWork="00"/>
+        <issueInfo issueNumber="051" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="05" day="01"/>
+        <issueDate year="2020" month="07" day="03"/>
         <dmTitle>
           <techName>s1kd-instance</techName>
           <infoName>Description</infoName>
@@ -39,7 +39,7 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Change issue type behaviour with -n (--issue).</simplePara>
+        <simplePara>Add "applic" method for -H (--list-properties).</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -210,7 +210,7 @@
               <listItemDefinition>
                 <para>
                   Create an XML report of all the applicability properties used in the specified CSDB objects. &lt;method&gt; determines how to include values in the report:
-                  <randomList><listItem><para>"standalone" - Only include the values that are explicitly used in the object.</para></listItem><listItem><para>"all" - Include all values as defined in the ACT and CCT.</para></listItem></randomList>
+                  <randomList><listItem><para>"standalone" - Only include the values that are explicitly used in the object.</para></listItem><listItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001"><para>"applic" - Only include the values, as defined in the ACT and CCT, that are within the applicability of the object.</para></listItem><listItem><para>"all" - Include all values as defined in the ACT and CCT.</para></listItem></randomList>
                 </para>
               </listItemDefinition>
             </definitionListItem>
@@ -287,7 +287,7 @@
                 <para>When updating an instance (-@), if + is given for &lt;iss&gt;, the updated instance will have the same issue number with an inwork number incremented by one.</para>
                 <para>
                   Setting the issue of the instance will also set a default issue type:
-                  <randomList><listItem><para>If the issue is 000-01 thru 001-00, the default issue type will be "new".</para></listItem><listItem changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001"><para>If the issue is 001-01 and up and the master is not "new", the default issue type will be that of the master.</para></listItem><listItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001"><para>If the issue is 001-01 and up but the master is "new", the default issue type will be "status".</para></listItem></randomList>
+                  <randomList><listItem><para>If the issue is 000-01 thru 001-00, the default issue type will be "new".</para></listItem><listItem><para>If the issue is 001-01 and up and the master is not "new", the default issue type will be that of the master.</para></listItem><listItem><para>If the issue is 001-01 and up but the master is "new", the default issue type will be "status".</para></listItem></randomList>
                   A different issue type than the default can be set with the -z (--issue-type) option.
                 </para>
               </listItemDefinition>

@@ -5,10 +5,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="11" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="007" inWork="00"/>
+        <issueInfo issueNumber="008" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="05" day="01"/>
+        <issueDate year="2020" month="07" day="03"/>
         <dmTitle>
           <techName>s1kd-appcheck</techName>
           <infoName>Description</infoName>
@@ -39,7 +39,7 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add -F (--valid-filenames) option.</simplePara>
+        <simplePara>Add -R (--redundant) option.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -103,7 +103,7 @@
                 <para>The commands used to validate objects. Multiple commands can be used by specifying this option multiple times. The objects will be passed to each command on stdin, and the exit status of the command will be used to determine if the object is valid (with a non-zero exit status indicating it is invalid). This overrides the default commands (s1kd-validate, and s1kd-brexcheck if -b is specified).</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>-F, --valid-filenames</listItemTerm>
               <listItemDefinition>
                 <para>Print the filenames of valid objects.</para>
@@ -173,6 +173,12 @@
               <listItemTerm>-q, --quiet</listItemTerm>
               <listItemDefinition>
                 <para>Quiet mode. Error messages will not be printed.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-R, --redundant</listItemTerm>
+              <listItemDefinition>
+                <para>Check for redundant annotations.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -538,6 +544,28 @@ s1kd-appcheck: ERROR: &lt;DM&gt;: proceduralStep on line 62 is applicable
 when prodattr version = C, which is not a subset of the applicability
 of the whole object.</verbatimText>
           </para>
+        </levelledPara>
+        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <title>Redundant applicability annotations</title>
+          <para>
+            Consider the following data module snippet:
+            <verbatimText verbatimStyle="vs11">&lt;proceduralStep applicRefId="app-A"&gt;
+&lt;para&gt;Step A&lt;/para&gt;
+&lt;figure applicRefId="app-A"&gt;
+...
+&lt;/figure&gt;
+&lt;/proceduralStep&gt;</verbatimText>
+          </para>
+          <para>This is technically correct, but the annotation on the figure can be considered redundant, since it has the same applicability as its ancestor, and the applicability of an element is already inherited by all its descendants automatically.</para>
+          <para>
+            The -R (--redundant) option will report when the applicability of a nested element is redundant:
+            <verbatimText verbatimStyle="vs24">$ s1kd-appcheck -R &lt;DM&gt;
+s1kd-appcheck: ERROR: &lt;DM&gt;: figure on line 85 has the same
+applicability as its parent proceduralStep on line 83 (app-A)</verbatimText>
+          </para>
+          <note>
+            <notePara>Currently, this check only detects when the exact same annotation (with the same ID) is nested within itself. In the future, this should also detect redundant logic between different nested annotations.</notePara>
+          </note>
         </levelledPara>
       </levelledPara>
     </description>

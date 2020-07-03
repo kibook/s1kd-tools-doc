@@ -5,10 +5,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="04" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="037" inWork="00"/>
+        <issueInfo issueNumber="038" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="05" day="01"/>
+        <issueDate year="2020" month="07" day="03"/>
         <dmTitle>
           <techName>s1kd-brexcheck</techName>
           <infoName>Description</infoName>
@@ -39,10 +39,10 @@
         <unverified/>
       </qualityAssurance>
       <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add -F (--valid-filenames) option.</simplePara>
+        <simplePara>Change handling of rules with invalid XPath expressions.</simplePara>
       </reasonForUpdate>
-      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt01">
-        <simplePara>Correct long option for -f.</simplePara>
+      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add partial EXSLT function support.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -55,7 +55,7 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">s1kd-brexcheck [-b &lt;brex&gt;] [-d &lt;dir&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;]
+          <verbatimText verbatimStyle="vs24">s1kd-brexcheck [-b &lt;brex&gt;] [-d &lt;dir&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;]
                [-F|-f] [-BceLlnopqrS[tu]sTvx^h?] [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
@@ -93,14 +93,14 @@
                 <para>Ignore check for empty or non-XML documents.</para>
               </listItemDefinition>
             </definitionListItem>
-            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+            <definitionListItem>
               <listItemTerm>-F, --valid-filenames</listItemTerm>
               <listItemDefinition>
                 <para>Print the filenames of CSDB objects with no BREX/SNS errors.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">-f, --filenames</listItemTerm>
+              <listItemTerm>-f, --filenames</listItemTerm>
               <listItemDefinition>
                 <para>Print the filenames of CSDB objects with BREX/SNS errors.</para>
               </listItemDefinition>
@@ -347,11 +347,16 @@
           </para>
           <para>The s1kd-brexcheck tool supports all three types. If the <verbatimText verbatimStyle="vs13">valueForm</verbatimText> attribute is omitted, it will assume the value is in the <verbatimText verbatimStyle="vs14">"single"</verbatimText> notation.</para>
         </levelledPara>
+        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001 rfu-0002">
+          <title>XPath support</title>
+          <para>The s1kd-brexcheck tool only fully supports XPath 1.0 expressions, with partial support for EXSLT functions.</para>
+          <para>If the XPath given for the <verbatimText verbatimStyle="vs12">&lt;objectPath&gt;</verbatimText> of a rule is invalid, the rule will be ignored when validating objects. A warning will be printed to stderr, and the XML report will contain an <verbatimText verbatimStyle="vs12">&lt;xpathError&gt;</verbatimText> element for each error.</para>
+        </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Exit status</title>
         <para>
-          <definitionList>
+          <definitionList changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">
             <definitionListItem>
               <listItemTerm>0</listItemTerm>
               <listItemDefinition>
@@ -374,12 +379,6 @@
               <listItemTerm>3</listItemTerm>
               <listItemDefinition>
                 <para>A referenced BREX data module could not be found.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>4</listItemTerm>
-              <listItemDefinition>
-                <para>An XPath expression given for a BREX rule was invalid.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
