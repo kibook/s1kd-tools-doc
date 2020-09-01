@@ -5,10 +5,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="04" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="038" inWork="00"/>
+        <issueInfo issueNumber="039" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="07" day="03"/>
+        <issueDate year="2020" month="09" day="01"/>
         <dmTitle>
           <techName>s1kd-brexcheck</techName>
           <infoName>Description</infoName>
@@ -38,11 +38,14 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-xml-catalog" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add --xml-catalog parser option.</simplePara>
+      </reasonForUpdate>
       <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Change handling of rules with invalid XPath expressions.</simplePara>
+        <simplePara>Add experimental Saxon support.</simplePara>
       </reasonForUpdate>
       <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add partial EXSLT function support.</simplePara>
+        <simplePara>Add -N (--omit-issue) option.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -55,8 +58,8 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-brexcheck [-b &lt;brex&gt;] [-d &lt;dir&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;]
-               [-F|-f] [-BceLlnopqrS[tu]sTvx^h?] [&lt;object&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">s1kd-brexcheck [-b &lt;brex&gt;] [-d &lt;dir&gt;] [-I &lt;path&gt;] [-w &lt;severities&gt;]
+               [-F|-f] [-BceLlNnopqrS[tu]sTvx^h?] [&lt;object&gt;...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -127,6 +130,12 @@
               <listItemTerm>-l, --layered</listItemTerm>
               <listItemDefinition>
                 <para>Use the layered BREX concept. BREX data modules referenced by other BREX data modules (either specified with -b or referenced by the specified CSDB objects) will also be checked against.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0002">
+              <listItemTerm>-N, --omit-issue</listItemTerm>
+              <listItemDefinition>
+                <para>Assume that the issue/inwork numbers are omitted from object filenames (they were created with the -N option).</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -210,52 +219,9 @@
             </definitionListItem>
           </definitionList>
         </para>
-        <para>In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
         <para>
-          <definitionList>
-            <definitionListItem>
-              <listItemTerm>--dtdload</listItemTerm>
-              <listItemDefinition>
-                <para>Load the external DTD.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--huge</listItemTerm>
-              <listItemDefinition>
-                <para>Remove any internal arbitrary parser limits.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--net</listItemTerm>
-              <listItemDefinition>
-                <para>Allow network access to load external DTD and entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--noent</listItemTerm>
-              <listItemDefinition>
-                <para>Resolve entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-errors</listItemTerm>
-              <listItemDefinition>
-                <para>Emit errors from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-warnings</listItemTerm>
-              <listItemDefinition>
-                <para>Emit warnings from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--xinclude</listItemTerm>
-              <listItemDefinition>
-                <para>Do XInclude processing.</para>
-              </listItemDefinition>
-            </definitionListItem>
-          </definitionList>
+          In addition, the following options allow configuration of the XML parser:
+          <definitionList><definitionListItem><listItemTerm>--dtdload</listItemTerm><listItemDefinition><para>Load the external DTD.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--huge</listItemTerm><listItemDefinition><para>Remove any internal arbitrary parser limits.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--net</listItemTerm><listItemDefinition><para>Allow network access to load external DTD and entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--noent</listItemTerm><listItemDefinition><para>Resolve entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-errors</listItemTerm><listItemDefinition><para>Emit errors from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-warnings</listItemTerm><listItemDefinition><para>Emit warnings from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--xinclude</listItemTerm><listItemDefinition><para>Do XInclude processing.</para></listItemDefinition></definitionListItem><definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-xml-catalog"><listItemTerm>--xml-catalog &lt;file&gt;</listItemTerm><listItemDefinition><para>Use an XML catalog when resolving entities. Multiple catalogs may be loaded by specifying this option multiple times.</para></listItemDefinition></definitionListItem></definitionList>
         </para>
         <levelledPara>
           <title>Business rule severity levels (<verbatimText verbatimStyle="vs02">.brseveritylevels</verbatimText>)</title>
@@ -347,16 +313,20 @@
           </para>
           <para>The s1kd-brexcheck tool supports all three types. If the <verbatimText verbatimStyle="vs13">valueForm</verbatimText> attribute is omitted, it will assume the value is in the <verbatimText verbatimStyle="vs14">"single"</verbatimText> notation.</para>
         </levelledPara>
-        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001 rfu-0002">
+        <levelledPara>
           <title>XPath support</title>
-          <para>The s1kd-brexcheck tool only fully supports XPath 1.0 expressions, with partial support for EXSLT functions.</para>
+          <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">
+            Supported XPath syntax depends on what XPath engine was selected at compile-time:
+            <definitionList><definitionListItem><listItemTerm>libxml2 (default)</listItemTerm><listItemDefinition><para><randomList><listItem><para>XPath 1.0</para></listItem><listItem><para>Partial support for EXSLT functions</para></listItem></randomList></para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>Saxon (experimental)</listItemTerm><listItemDefinition><para><randomList><listItem><para>XPath 1.0</para></listItem><listItem><para>XPath 2.0</para></listItem><listItem><para>XPath 3.0</para></listItem></randomList></para></listItemDefinition></definitionListItem></definitionList>
+            Information on which XPath engine is in use can be obtained from the --version option.
+          </para>
           <para>If the XPath given for the <verbatimText verbatimStyle="vs12">&lt;objectPath&gt;</verbatimText> of a rule is invalid, the rule will be ignored when validating objects. A warning will be printed to stderr, and the XML report will contain an <verbatimText verbatimStyle="vs12">&lt;xpathError&gt;</verbatimText> element for each error.</para>
         </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Exit status</title>
         <para>
-          <definitionList changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001">
+          <definitionList>
             <definitionListItem>
               <listItemTerm>0</listItemTerm>
               <listItemDefinition>

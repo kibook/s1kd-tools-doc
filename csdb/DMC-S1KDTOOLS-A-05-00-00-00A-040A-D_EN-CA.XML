@@ -5,17 +5,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="05" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="027" inWork="00"/>
+        <issueInfo issueNumber="028" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="07" day="03"/>
+        <issueDate year="2020" month="09" day="01"/>
         <dmTitle>
           <techName>s1kd-upissue</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="status">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -38,8 +38,17 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate>
-        <simplePara>Upissue</simplePara>
+      <reasonForUpdate id="rfu-xml-catalog" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add --xml-catalog parser option.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add -5 (--print) and -q (--quiet) options.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Rename -q to -Q.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0003" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Change behaviour of -d and -v options.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -53,9 +62,9 @@
       <levelledPara>
         <title>Usage</title>
         <para>
-          <verbatimText verbatimStyle="vs24">s1kd-upissue [-04defHilmNqRrsuvw^] [-1 &lt;type&gt;] [-2 &lt;type&gt;]
-             [-c &lt;reason&gt;] [-I &lt;date&gt;] [-t &lt;urt&gt;] [-z &lt;type&gt;]
-             [&lt;file&gt;...]</verbatimText>
+          <verbatimText verbatimStyle="vs24" changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0001 rfu-0002 rfu-0003">s1kd-upissue [-045defilmNQqRsuvw^] [-1 &lt;type&gt;] [-2 &lt;type&gt;]
+             [-c &lt;reason&gt; [-H] [-t &lt;urt&gt;]]
+             [-I &lt;date&gt;] [-z &lt;type&gt;] [&lt;file&gt; ...]</verbatimText>
         </para>
       </levelledPara>
       <levelledPara>
@@ -83,7 +92,13 @@
             <definitionListItem>
               <listItemTerm>-4, --remove-marks</listItemTerm>
               <listItemDefinition>
-                <para>Remove change markup on elements, but not RFUs, in the upissued object. This is automatically applied if the issue type (-s) is not <verbatimText verbatimStyle="vs14">"changed"</verbatimText> or <verbatimText verbatimStyle="vs14">"rinstate-changed"</verbatimText>.</para>
+                <para>Remove change markup on elements, but not RFUs, in the upissued object. This is automatically applied if the issue type (-z) is not <verbatimText verbatimStyle="vs14">"changed"</verbatimText> or <verbatimText verbatimStyle="vs14">"rinstate-changed"</verbatimText>.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-5, --print</listItemTerm>
+              <listItemDefinition>
+                <para>Print the file names of upissued objects.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -95,7 +110,7 @@
             <definitionListItem>
               <listItemTerm>-d, --dry-run</listItemTerm>
               <listItemDefinition>
-                <para>Do not actually create or modify any files, only print the name of the file that would be created or modified.</para>
+                <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0003">Do not actually create or modify any files.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -153,9 +168,15 @@
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
-              <listItemTerm>-q, --keep-qa</listItemTerm>
+              <listItemTerm changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">-Q, --keep-qa</listItemTerm>
               <listItemDefinition>
                 <para>Keep quality assurance information from old issue. Normally, when upissuing an official CSDB object to the first in-work issue, the quality assurance is set back to "unverified". Specify this option to indicate the upissue will not affect the contents of the CSDB object, and so does not require it to be re-verified.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-q, --quiet</listItemTerm>
+              <listItemDefinition>
+                <para>Quiet mode. Errors are not printed.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -193,7 +214,7 @@
             <definitionListItem>
               <listItemTerm>-v, --verbose</listItemTerm>
               <listItemDefinition>
-                <para>Print the file name of the upissued CSDB object.</para>
+                <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0003">Verbose output.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -232,52 +253,9 @@
             </definitionListItem>
           </definitionList>
         </para>
-        <para>In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
         <para>
-          <definitionList>
-            <definitionListItem>
-              <listItemTerm>--dtdload</listItemTerm>
-              <listItemDefinition>
-                <para>Load the external DTD.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--huge</listItemTerm>
-              <listItemDefinition>
-                <para>Remove any internal arbitrary parser limits.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--net</listItemTerm>
-              <listItemDefinition>
-                <para>Allow network access to load external DTD and entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--noent</listItemTerm>
-              <listItemDefinition>
-                <para>Resolve entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-errors</listItemTerm>
-              <listItemDefinition>
-                <para>Emit errors from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-warnings</listItemTerm>
-              <listItemDefinition>
-                <para>Emit warnings from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--xinclude</listItemTerm>
-              <listItemDefinition>
-                <para>Do XInclude processing.</para>
-              </listItemDefinition>
-            </definitionListItem>
-          </definitionList>
+          In addition, the following options allow configuration of the XML parser:
+          <definitionList><definitionListItem><listItemTerm>--dtdload</listItemTerm><listItemDefinition><para>Load the external DTD.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--huge</listItemTerm><listItemDefinition><para>Remove any internal arbitrary parser limits.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--net</listItemTerm><listItemDefinition><para>Allow network access to load external DTD and entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--noent</listItemTerm><listItemDefinition><para>Resolve entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-errors</listItemTerm><listItemDefinition><para>Emit errors from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-warnings</listItemTerm><listItemDefinition><para>Emit warnings from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--xinclude</listItemTerm><listItemDefinition><para>Do XInclude processing.</para></listItemDefinition></definitionListItem><definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-xml-catalog"><listItemTerm>--xml-catalog &lt;file&gt;</listItemTerm><listItemDefinition><para>Use an XML catalog when resolving entities. Multiple catalogs may be loaded by specifying this option multiple times.</para></listItemDefinition></definitionListItem></definitionList>
         </para>
       </levelledPara>
       <levelledPara>

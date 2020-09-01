@@ -5,10 +5,10 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="03" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="051" inWork="00"/>
+        <issueInfo issueNumber="052" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="07" day="03"/>
+        <issueDate year="2020" month="09" day="01"/>
         <dmTitle>
           <techName>s1kd-instance</techName>
           <infoName>Description</infoName>
@@ -38,8 +38,20 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
+      <reasonForUpdate id="rfu-xml-catalog" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add --xml-catalog parser option.</simplePara>
+      </reasonForUpdate>
       <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
-        <simplePara>Add "applic" method for -H (--list-properties).</simplePara>
+        <simplePara>Remove automatic inclusion of XSLT identity template.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0002" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Do not add source ident if the instance ident is the same as the source.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0003" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Change behaviour of -S (--no-source-ident) option and add -3 (--no-repository-ident) option.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0004" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Change behaviour of -H (--list-properties) option.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -208,9 +220,9 @@
             <definitionListItem>
               <listItemTerm>-H, --list-properties &lt;method&gt;</listItemTerm>
               <listItemDefinition>
-                <para>
-                  Create an XML report of all the applicability properties used in the specified CSDB objects. &lt;method&gt; determines how to include values in the report:
-                  <randomList><listItem><para>"standalone" - Only include the values that are explicitly used in the object.</para></listItem><listItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001"><para>"applic" - Only include the values, as defined in the ACT and CCT, that are within the applicability of the object.</para></listItem><listItem><para>"all" - Include all values as defined in the ACT and CCT.</para></listItem></randomList>
+                <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0004">
+                  Create an XML report of all the applicability properties used in, and product instances relevant to, the specified CSDB objects. &lt;method&gt; determines how to include values and products in the report:
+                  <randomList><listItem><para>"standalone" - Only include the values that are explicitly used in the object.</para></listItem><listItem><para>"all" - Include all values and products as defined in the ACT, CCT and PCT.</para></listItem><listItem><para>"applic" - Only include the values and products, as defined in the ACT, CCT and PCT, that are within the applicability of the object.</para></listItem></randomList>
                 </para>
               </listItemDefinition>
             </definitionListItem>
@@ -410,7 +422,7 @@
             <definitionListItem>
               <listItemTerm>-S, --no-source-ident</listItemTerm>
               <listItemDefinition>
-                <para>Do not include &lt;sourceDmIdent&gt;/&lt;sourcePmIdent&gt;/&lt;repositorySourceDmIdent&gt; in the instance.</para>
+                <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0003">Do not include &lt;sourceDmIdent&gt;/&lt;sourcePmIdent&gt; in the instance.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -515,6 +527,12 @@
                 <para>Specify the CCT to read dependency tests from (-~).</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0003">
+              <listItemTerm>-3, --no-repository-ident</listItemTerm>
+              <listItemDefinition>
+                <para>Do not include a &lt;repositorySourceDmIdent&gt; in the instance for each CIR.</para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-4, --flatten-alts-refs</listItemTerm>
               <listItemDefinition>
@@ -601,58 +619,15 @@
             </definitionListItem>
           </definitionList>
         </para>
-        <para>In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
         <para>
-          <definitionList>
-            <definitionListItem>
-              <listItemTerm>--dtdload</listItemTerm>
-              <listItemDefinition>
-                <para>Load the external DTD.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--huge</listItemTerm>
-              <listItemDefinition>
-                <para>Remove any internal arbitrary parser limits.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--net</listItemTerm>
-              <listItemDefinition>
-                <para>Allow network access to load external DTD and entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--noent</listItemTerm>
-              <listItemDefinition>
-                <para>Resolve entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-errors</listItemTerm>
-              <listItemDefinition>
-                <para>Emit errors from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-warnings</listItemTerm>
-              <listItemDefinition>
-                <para>Emit warnings from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--xinclude</listItemTerm>
-              <listItemDefinition>
-                <para>Do XInclude processing.</para>
-              </listItemDefinition>
-            </definitionListItem>
-          </definitionList>
+          In addition, the following options allow configuration of the XML parser:
+          <definitionList><definitionListItem><listItemTerm>--dtdload</listItemTerm><listItemDefinition><para>Load the external DTD.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--huge</listItemTerm><listItemDefinition><para>Remove any internal arbitrary parser limits.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--net</listItemTerm><listItemDefinition><para>Allow network access to load external DTD and entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--noent</listItemTerm><listItemDefinition><para>Resolve entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-errors</listItemTerm><listItemDefinition><para>Emit errors from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-warnings</listItemTerm><listItemDefinition><para>Emit warnings from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--xinclude</listItemTerm><listItemDefinition><para>Do XInclude processing.</para></listItemDefinition></definitionListItem><definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-xml-catalog"><listItemTerm>--xml-catalog &lt;file&gt;</listItemTerm><listItemDefinition><para>Use an XML catalog when resolving entities. Multiple catalogs may be loaded by specifying this option multiple times.</para></listItemDefinition></definitionListItem></definitionList>
         </para>
         <levelledPara>
           <title>Identifying the source of an instance</title>
-          <para>The resulting data module instances will contain the element <verbatimText verbatimStyle="vs12">&lt;sourceDmIdent&gt;</verbatimText>, which will contain the identification elements of the source data modules used to instantiate them. Publication module instances will contain the element <verbatimText verbatimStyle="vs12">&lt;sourcePmIdent&gt;</verbatimText> instead.</para>
+          <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0002">If the identification information (extension, code, issue or language) of an instance differs from that of the source, the resulting data module instance will contain the element <verbatimText verbatimStyle="vs12">&lt;sourceDmIdent&gt;</verbatimText>, which will contain the identification elements of the source data module used to instantiate it. Publication module instances will contain the element <verbatimText verbatimStyle="vs12">&lt;sourcePmIdent&gt;</verbatimText> instead.</para>
           <para>Additionally, the data module instance will contain an element <verbatimText verbatimStyle="vs12">&lt;repositorySourceDmIdent&gt;</verbatimText> for each CIR specified with the -R option.</para>
-          <para>If the -S option is used, neither the <verbatimText verbatimStyle="vs12">&lt;sourceDmIdent&gt;</verbatimText>/<verbatimText verbatimStyle="vs12">&lt;sourcePmIdent&gt;</verbatimText> elements or <verbatimText verbatimStyle="vs12">&lt;repositorySourceDmIdent&gt;</verbatimText> elements are added. This can be useful when this tool is not used to make an "instance" per se, but more generally to make a module based on an existing module.</para>
+          <para changeMark="1" changeType="modify" reasonForUpdateRefIds="rfu-0003">If the -S (--no-source-ident) option is used, neither the <verbatimText verbatimStyle="vs12">&lt;sourceDmIdent&gt;</verbatimText> or <verbatimText verbatimStyle="vs12">&lt;sourcePmIdent&gt;</verbatimText> elements are added. If the -3 (--no-repository-ident) option is used, no <verbatimText verbatimStyle="vs12">&lt;repositorySourceDmIdent&gt;</verbatimText> elements will be added. These options can be useful when this tool is not used to make an "instance" per se, but more generally to make a module based on an existing module.</para>
         </levelledPara>
         <levelledPara>
           <title>Removing/simplifying/pruning applicability annotations</title>
@@ -1034,15 +1009,6 @@ is an item in the system.
             <verbatimText verbatimStyle="vs11">&lt;para&gt;The Hydraulic pump is an item in the system.&lt;/para&gt;</verbatimText>
           </para>
           <para>The source data module and CIR are combined in to a single XML document which is used as the input to the XSLT script. The root element <verbatimText verbatimStyle="vs12">mux</verbatimText> contains two <verbatimText verbatimStyle="vs12">dmodule</verbatimText> elements. The first is the source data module, and the second is the CIR data module specified with the corresponding -R option. The CIR data module is first filtered on the defined applicability.</para>
-          <para>An "identity" template is automatically inserted in to the custom XSLT script, equivalent to the following:</para>
-          <para>
-            <verbatimText verbatimStyle="vs11">&lt;xsl:template match="@*|node()"&gt;
-&lt;xsl:copy&gt;
-&lt;xsl:apply-templates select="@*|node()"/&gt;
-&lt;/xsl:copy&gt;
-&lt;/xsl:template&gt;</verbatimText>
-          </para>
-          <para>This means any elements or attributes which are not matched with a more specific template in the custom XSLT script are automatically copied.</para>
           <para>The set of built-in XSLT scripts used to resolve dependencies can be dumped using the -D option.</para>
         </levelledPara>
         <levelledPara>

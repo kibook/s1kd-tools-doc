@@ -5,17 +5,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="18" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="006" inWork="00"/>
+        <issueInfo issueNumber="007" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="07" day="03"/>
+        <issueDate year="2020" month="09" day="01"/>
         <dmTitle>
           <techName>s1kd-repcheck</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="status">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -38,8 +38,11 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate>
-        <simplePara>Upissue</simplePara>
+      <reasonForUpdate id="rfu-xml-catalog" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add --xml-catalog parser option.</simplePara>
+      </reasonForUpdate>
+      <reasonForUpdate id="rfu-0001" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add -D (--dump-xsl), -t (--type) and -X (--xsl) options.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -69,6 +72,12 @@
               <listItemTerm>-a, --all</listItemTerm>
               <listItemDefinition>
                 <para>In addition to CIR data modules specified with -R or explicitly linked in CIR references, allow CIR references to be resolved against any CIR data modules that were specified as objects to check.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-D, --dump-xsl</listItemTerm>
+              <listItemDefinition>
+                <para>Dump the built-in XSLT used to extract CIR references.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -150,10 +159,25 @@
                 <para>Print a summary of the check after it completes, including statistics on the number of objects that passed/failed the check.</para>
               </listItemDefinition>
             </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-t, --type &lt;type&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>
+                  Validate or list only CIR references of the specified type. The built-in types are:
+                  <randomList><listItem><para>acp (Access point)</para></listItem><listItem><para>app (Applicability annotation)</para></listItem><listItem><para>caut (Caution)</para></listItem><listItem><para>cbr (Circuit breaker)</para></listItem><listItem><para>cin (Control/Indicator)</para></listItem><listItem><para>ent (Enterprise)</para></listItem><listItem><para>fin (Functional item)</para></listItem><listItem><para>part</para></listItem><listItem><para>supply</para></listItem><listItem><para>tool</para></listItem><listItem><para>warn (Warning)</para></listItem><listItem><para>zone</para></listItem></randomList>
+                </para>
+              </listItemDefinition>
+            </definitionListItem>
             <definitionListItem>
               <listItemTerm>-v, --verbose</listItemTerm>
               <listItemDefinition>
                 <para>Verbose output. Specify multiple times to increase the verbosity.</para>
+              </listItemDefinition>
+            </definitionListItem>
+            <definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+              <listItemTerm>-X, --xsl &lt;file&gt;</listItemTerm>
+              <listItemDefinition>
+                <para>Use custom XSLT to extract CIR references.</para>
               </listItemDefinition>
             </definitionListItem>
             <definitionListItem>
@@ -182,53 +206,62 @@
             </definitionListItem>
           </definitionList>
         </para>
-        <para>In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
         <para>
-          <definitionList>
-            <definitionListItem>
-              <listItemTerm>--dtdload</listItemTerm>
-              <listItemDefinition>
-                <para>Load the external DTD.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--huge</listItemTerm>
-              <listItemDefinition>
-                <para>Remove any internal arbitrary parser limits.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--net</listItemTerm>
-              <listItemDefinition>
-                <para>Allow network access to load external DTD and entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--noent</listItemTerm>
-              <listItemDefinition>
-                <para>Resolve entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-errors</listItemTerm>
-              <listItemDefinition>
-                <para>Emit errors from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-warnings</listItemTerm>
-              <listItemDefinition>
-                <para>Emit warnings from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--xinclude</listItemTerm>
-              <listItemDefinition>
-                <para>Do XInclude processing.</para>
-              </listItemDefinition>
-            </definitionListItem>
-          </definitionList>
+          In addition, the following options allow configuration of the XML parser:
+          <definitionList><definitionListItem><listItemTerm>--dtdload</listItemTerm><listItemDefinition><para>Load the external DTD.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--huge</listItemTerm><listItemDefinition><para>Remove any internal arbitrary parser limits.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--net</listItemTerm><listItemDefinition><para>Allow network access to load external DTD and entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--noent</listItemTerm><listItemDefinition><para>Resolve entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-errors</listItemTerm><listItemDefinition><para>Emit errors from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-warnings</listItemTerm><listItemDefinition><para>Emit warnings from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--xinclude</listItemTerm><listItemDefinition><para>Do XInclude processing.</para></listItemDefinition></definitionListItem><definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-xml-catalog"><listItemTerm>--xml-catalog &lt;file&gt;</listItemTerm><listItemDefinition><para>Use an XML catalog when resolving entities. Multiple catalogs may be loaded by specifying this option multiple times.</para></listItemDefinition></definitionListItem></definitionList>
         </para>
+        <levelledPara changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-0001">
+          <title>Custom XSLT (-X)</title>
+          <para>What elements are extracted as CIR references for validating, and how they are validated, can be configured through a custom XSLT script specified with the -X (--xsl) option.</para>
+          <para>
+            The custom XSLT script should add the following attributes to elements which will be validated as CIR references:
+            <definitionList><definitionListItem><listItemTerm><verbatimText verbatimStyle="vs13">type</verbatimText></listItemTerm><listItemDefinition><para>A name for the type of CIR reference.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm><verbatimText verbatimStyle="vs13">name</verbatimText></listItemTerm><listItemDefinition><para>A descriptive name for the CIR reference that can be used in reports.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm><verbatimText verbatimStyle="vs13">test</verbatimText></listItemTerm><listItemDefinition><para>An XPath expression used to match the corresponding CIR identification element.</para></listItemDefinition></definitionListItem></definitionList>
+            The namespace for these attributes must be: <verbatimText>urn:s1kd-tools:s1kd-repcheck</verbatimText>
+          </para>
+          <para>
+            Example XSLT template to extract functional item references:
+            <verbatimText verbatimStyle="vs11">&lt;xsl:template match="functionalItemRef"&gt;
+&lt;xsl:variable name="fin" select="@functionalItemNumber"/&gt;
+&lt;xsl:copy&gt;
+&lt;xsl:apply-templates select="@*"/&gt;
+&lt;xsl:attribute name="s1kd-repcheck:type"&gt;fin&lt;/xsl:attribute&gt;
+&lt;xsl:attribute name="s1kd-repcheck:name"&gt;
+&lt;xsl:text&gt;Functional item &lt;/xsl:text&gt;
+&lt;xsl:value-of select="$fin"/&gt;
+&lt;/xsl:attribute&gt;
+&lt;xsl:attribute name="s1kd-repcheck:test"&gt;
+&lt;xsl:text&gt;//functionalItemIdent[@functionalItemNumber='&lt;/xsl:text&gt;
+&lt;xsl:value-of select="$fin"/&gt;
+&lt;xsl:text&gt;']&lt;/xsl:text&gt;
+&lt;/xsl:attribute&gt;
+&lt;xsl:apply-templates select="node()"/&gt;
+&lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</verbatimText>
+          </para>
+          <para>
+            A custom script also allows validating non-standard types of "CIR" references.
+            For example, if a project wants to validate acronyms used in data modules against a central repository of acronyms, this could be done like so:
+            <verbatimText verbatimStyle="vs11">&lt;xsl:template match="acronym"&gt;
+&lt;xsl:variable name="term" select="acronymTerm"/&gt;
+&lt;xsl:copy&gt;
+&lt;xsl:apply-templates select="@*"/&gt;
+&lt;xsl:attribute name="s1kd-repcheck:type"&gt;acr&lt;/xsl:attribute&gt;
+&lt;xsl:attribute name="s1kd-repcheck:name"&gt;
+&lt;xsl:text&gt;Acronym &lt;/xsl:text&gt;
+&lt;xsl:value-of select="$term"/&gt;
+&lt;/xsl:attribute&gt;
+&lt;xsl:attribute name="s1kd-repcheck:test"&gt;
+&lt;xsl:text&gt;//acronym[acronymTerm = '&lt;/xsl:text&gt;
+&lt;xsl:value-of select="$term"/&gt;
+&lt;xsl:text&gt;']&lt;/xsl:text&gt;
+&lt;/xsl:attribute&gt;
+&lt;xsl:apply-templates select="node()"/&gt;
+&lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</verbatimText>
+            As there is no standard "acronym" CIR type, the object containing the repository would need to be specified explicitly with -R.
+          </para>
+          <para>The built-in XSLT for extracting CIR references can be dumped as a starting point for a custom script by specifying the -D (--dump-xsl) option.</para>
+        </levelledPara>
       </levelledPara>
       <levelledPara>
         <title>Exit status</title>

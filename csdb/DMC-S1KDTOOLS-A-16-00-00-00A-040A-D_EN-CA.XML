@@ -5,17 +5,17 @@
       <dmIdent>
         <dmCode modelIdentCode="S1KDTOOLS" systemDiffCode="A" systemCode="16" subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00" disassyCodeVariant="A" infoCode="040" infoCodeVariant="A" itemLocationCode="D"/>
         <language languageIsoCode="en" countryIsoCode="CA"/>
-        <issueInfo issueNumber="027" inWork="00"/>
+        <issueInfo issueNumber="028" inWork="00"/>
       </dmIdent>
       <dmAddressItems>
-        <issueDate year="2020" month="05" day="01"/>
+        <issueDate year="2020" month="09" day="01"/>
         <dmTitle>
           <techName>s1kd-newcom</techName>
           <infoName>Description</infoName>
         </dmTitle>
       </dmAddressItems>
     </dmAddress>
-    <dmStatus issueType="status">
+    <dmStatus issueType="changed">
       <security securityClassification="01"/>
       <responsiblePartnerCompany>
         <enterpriseName>khzae.net</enterpriseName>
@@ -38,8 +38,8 @@
       <qualityAssurance>
         <unverified/>
       </qualityAssurance>
-      <reasonForUpdate>
-        <simplePara>Upissue</simplePara>
+      <reasonForUpdate id="rfu-xml-catalog" updateHighlight="1" updateReasonType="urt02">
+        <simplePara>Add --xml-catalog parser option.</simplePara>
       </reasonForUpdate>
     </dmStatus>
   </identAndStatusSection>
@@ -243,52 +243,9 @@
             </definitionListItem>
           </definitionList>
         </para>
-        <para>In addition, the following options enable features of the XML parser that are disabled as a precaution by default:</para>
         <para>
-          <definitionList>
-            <definitionListItem>
-              <listItemTerm>--dtdload</listItemTerm>
-              <listItemDefinition>
-                <para>Load the external DTD.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--huge</listItemTerm>
-              <listItemDefinition>
-                <para>Remove any internal arbitrary parser limits.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--net</listItemTerm>
-              <listItemDefinition>
-                <para>Allow network access to load external DTD and entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--noent</listItemTerm>
-              <listItemDefinition>
-                <para>Resolve entities.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-errors</listItemTerm>
-              <listItemDefinition>
-                <para>Emit errors from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--parser-warnings</listItemTerm>
-              <listItemDefinition>
-                <para>Emit warnings from parser.</para>
-              </listItemDefinition>
-            </definitionListItem>
-            <definitionListItem>
-              <listItemTerm>--xinclude</listItemTerm>
-              <listItemDefinition>
-                <para>Do XInclude processing.</para>
-              </listItemDefinition>
-            </definitionListItem>
-          </definitionList>
+          In addition, the following options allow configuration of the XML parser:
+          <definitionList><definitionListItem><listItemTerm>--dtdload</listItemTerm><listItemDefinition><para>Load the external DTD.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--huge</listItemTerm><listItemDefinition><para>Remove any internal arbitrary parser limits.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--net</listItemTerm><listItemDefinition><para>Allow network access to load external DTD and entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--noent</listItemTerm><listItemDefinition><para>Resolve entities.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-errors</listItemTerm><listItemDefinition><para>Emit errors from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--parser-warnings</listItemTerm><listItemDefinition><para>Emit warnings from parser.</para></listItemDefinition></definitionListItem><definitionListItem><listItemTerm>--xinclude</listItemTerm><listItemDefinition><para>Do XInclude processing.</para></listItemDefinition></definitionListItem><definitionListItem changeMark="1" changeType="add" reasonForUpdateRefIds="rfu-xml-catalog"><listItemTerm>--xml-catalog &lt;file&gt;</listItemTerm><listItemDefinition><para>Use an XML catalog when resolving entities. Multiple catalogs may be loaded by specifying this option multiple times.</para></listItemDefinition></definitionListItem></definitionList>
         </para>
         <levelledPara>
           <title><verbatimText verbatimStyle="vs02">.defaults</verbatimText> file</title>
